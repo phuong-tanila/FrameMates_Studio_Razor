@@ -1,0 +1,232 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.ManageorderModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Management Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestumanageorder.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../images/GAM.jpg">
+                    <h1>SWD392</h1>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="createstudio.html">
+                    <span class="material-symbols-sharp">add_home</span>
+                    <h3>Profile Management</h3>
+                </a>
+                <a href="studiopage.html">
+                    <span class="material-symbols-sharp">camera_indoor</span>
+                    <h3>Profile Management</h3>
+                </a>
+                <a href="studiochatpage.html">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Chat</h3>
+                </a>
+                <a href="studiodashboard.html">
+                    <span class="material-symbols-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="stuservicepage.html">
+                    <span class="material-symbols-sharp">wysiwyg</span>
+                    <h3>Services Management</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-symbols-sharp">list_alt</span>
+                    <h3>Manage Orders</h3>
+                </a>
+                <a href="stufeedbackpage.html">
+                    <span class="material-symbols-sharp">reviews</span>
+                    <h3>Feedback</h3>
+                </a>
+                <a href="stuvoucherpage.html">
+                    <span class="material-symbols-sharp">book_online</span>
+                    <h3>Voucher</h3>
+                </a>
+                <a href="login.html">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Log out</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Manage Orders</h1>
+            <div class="list-booking">
+                <h2>List Booking Request</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Service</th>
+                            <th>Phone Number</th>
+                            <th>Booking Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="list-booking-cancle">
+                <h2>List Canceled Booking</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Service</th>
+                            <th>Phone Number</th>
+                            <th>Cancle Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>Kỷ yếu</td>
+                            <td>0005080306</td>
+                            <td>12/05/2028</td>
+                            <td><a href="#" class="primary">Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <div class="right">
+            <div class="top">
+                <div class="profile">
+                    <div class="wrap">
+                        <div class="noti-icon">
+                            <span class="material-symbols-sharp">notifications</span>
+                        </div>
+                        <div class="drop-down">
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/pro_photo.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p><b>Chạm Studio</b></p>
+                        <small class="text-muted">Studio</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../images/logo_stu.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

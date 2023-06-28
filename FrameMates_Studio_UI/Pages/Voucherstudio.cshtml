@@ -1,0 +1,540 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.VoucherstudioModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Management Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestuvoucher.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".content .radio_content").hide();
+
+            $(".radio_wrap").click(function () {
+                var current_radio = $(this).attr("data-radio");
+                $(".content .radio_content").hide();
+                $("." + current_radio).show("fast");
+            })
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".radio_discount_content .discount_content").hide();
+
+            $(".radio_wrap_discount").click(function () {
+                var current_radio_discount = $(this).attr("data-radio");
+                $(".radio_discount_content .discount_content").hide();
+                $("." + current_radio_discount).show("fast");
+            })
+        });
+    </script>
+    <!-- <script>
+        $(document).ready(function () {
+
+            $(".radio_wrap").click(function () {
+                var divEle = $(".content .radio_content")
+                var current_radio = $(this).attr("data-radio");
+                divEle.each(function(index, element) {
+                    if (element.classList.contains(current_radio)) {
+                        $("." + current_radio).show("fast");
+                    } else {
+                        $("." + current_radio).hide();
+                    }
+                });
+
+            })
+        });
+    </script> -->
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../images/GAM.jpg">
+                    <h1>SWD392</h1>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="createstudio.html">
+                    <span class="material-symbols-sharp">add_home</span>
+                    <h3>Profile Management</h3>
+                </a>
+                <a href="studiopage.html">
+                    <span class="material-symbols-sharp">camera_indoor</span>
+                    <h3>Profile Management</h3>
+                </a>
+                <a href="studiochatpage.html">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Chat</h3>
+                </a>
+                <a href="studiodashboard.html">
+                    <span class="material-symbols-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="stuservicepage.html">
+                    <span class="material-symbols-sharp">wysiwyg</span>
+                    <h3>Services Management</h3>
+                </a>
+                <a href="stumanageorderpage.html">
+                    <span class="material-symbols-sharp">list_alt</span>
+                    <h3>Manage Orders</h3>
+                </a>
+                <a href="stufeedbackpage.html">
+                    <span class="material-symbols-sharp">reviews</span>
+                    <h3>Feedback</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-symbols-sharp">book_online</span>
+                    <h3>Voucher</h3>
+                </a>
+                <a href="login.html">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Log out</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Studio's Vouchers</h1>
+            <div class="wrapper">
+                <div class="radio_tabs">
+                    <label data-radio="radio_1" class="radio_wrap">
+                        <input type="radio" name="available" class="input">
+                        <span class="radio_mark">
+                            Available Vouchers
+                        </span>
+                    </label>
+                </div>
+                <div class="content">
+                    <div class="radio_content radio_1">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Content</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>500.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>800.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>500.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>800.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>500.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>800.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>500.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>800.000VND</td>
+                                    <td><a href="#update-voucher" class="primary">Update</a></td>
+                                    <td><a href="#" class="danger">Delete</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <ul>
+                                <li class="pagination_item onpage">
+                                    <a href="" class="pagination_item_link">1</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">2</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">3</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">...</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">10</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-update overlay-update" id="update-voucher">
+                    <div class="dialog-body-update">
+                        <a class="dialog-close-update" href="#">&times;</a>
+                        <h2 class="h2">Update Voucher</h2>
+                        <div class="container_voucher">
+                            <form action="#">
+                                <div class="main-voucher">
+                                    <div class="voucher-content">
+                                        <div class="input-box">
+                                            <h2><span class="details">Title</span></h2>
+                                            <input type="text" readonly value="Khách hàng thân thiết">
+                                        </div>
+                                        <div class="input-box">
+                                            <h2><span class="details">Code</span></h2>
+                                            <input type="text" value="SWD001">
+                                        </div>
+                                        <div class="input-box">
+                                            <h2><span class="details">Discount</span></h2>
+                                            <input type="text" value="30%">
+                                        </div>
+                                        <div class="input-box">
+                                            <h2><span class="details">Quantity</span></h2>
+                                            <input type="number" value="30">
+                                        </div>
+                                        <div class="input-box">
+                                            <h2><span class="details">Effective Date</span></h2>
+                                            <input type="datetime" value="30/06/2023">
+                                        </div>
+                                        <div class="input-box">
+                                            <h2><span class="details">Expired Date</span></h2>
+                                            <input type="datetime" value="15/07/2023">
+                                        </div>
+                                        <div class="input-box">
+                                            <h2><span class="details">Available</span></h2>
+                                            <input type="number" value="15">
+                                        </div>
+                                        <button class="confirm_update">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =========================================================================================== -->
+            <div class="wrapper">
+                <div class="radio_tabs">
+                    <label data-radio="radio_2" class="radio_wrap">
+                        <input type="radio" name="available" class="input">
+                        <span class="radio_mark">
+                            Create Vouchers
+                        </span>
+                    </label>
+                </div>
+                <div class="content">
+                    <div class="radio_content radio_2">
+                        <div class="container_create">
+                            <div class="main-form">
+                                <div class="form-head">
+                                    <form action="#">
+                                        <div class="form-content">
+                                            <div class="input-box">
+                                                <h2><span class="details">Title</span></h2>
+                                                <input type="text" placeholder="Name">
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Code</span></h2>
+                                                <input type="text" placeholder="Code">
+                                            </div>
+                                            <div class="input-choose">
+                                                <h2><span class="details">Discount</span></h2>
+                                                <div class="choose-type">
+                                                    <div class="radio_discount_tabs">
+                                                        <label data-radio="radio_discount_1" class="radio_wrap_discount label1">
+                                                            <input type="radio" name="percent">
+                                                            <span class="radio_mark_discount">
+                                                                %
+                                                            </span>
+                                                        </label>
+                                                        <label data-radio="radio_discount_2" class="radio_wrap_discount label2">
+                                                            <input type="radio" name="minus">
+                                                            <span class="radio_mark_discount">
+                                                                -
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio_discount_content">
+                                                        <div class="discount_content radio_discount_1">
+                                                            <input type="number" placeholder="%%%">
+                                                        </div>
+                                                        <div class="discount_content radio_discount_2">
+                                                            <input type="number" placeholder="---">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Quantity</span></h2>
+                                                <input type="number" placeholder="Quantity">
+                                            </div>
+                                            <div class="input-box-expire">
+                                                <h2><span class="details">Effective Date</span></h2>
+                                                <input type="date">
+                                                <h2><span class="details">Expired Date</span></h2>
+                                                <input type="date">
+                                            </div>
+                                            <input type="submit" value="Create">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =========================================================================================== -->
+            <div class="wrapper">
+                <div class="radio_tabs">
+                    <label data-radio="radio_3" class="radio_wrap">
+                        <input type="radio" name="available" class="input">
+                        <span class="radio_mark">
+                            <div class="search-wrapper">
+                                <h2>Used Vouchers</h2>
+                                <div class="search-container">
+                                    <input class="search" type="search" placeholder="Search">
+                                </div>
+                            </div>
+                        </span>
+                    </label>
+                </div>
+                <div class="content">
+                    <div class="radio_content radio_3">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Code</th>
+                                    <th>Discount</th>
+                                    <th>Quantity</th>
+                                    <th>Effective Date</th>
+                                    <th>Expired Date</th>
+                                    <th>Used Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>SWD001</td>
+                                    <td>500.000VND</td>
+                                    <td>30</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>SWD002</td>
+                                    <td>30%</td>
+                                    <td>40</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>SWD001</td>
+                                    <td>500.000VND</td>
+                                    <td>30</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>SWD002</td>
+                                    <td>30%</td>
+                                    <td>40</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>SWD001</td>
+                                    <td>500.000VND</td>
+                                    <td>30</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>SWD002</td>
+                                    <td>30%</td>
+                                    <td>40</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Khách hàng thân thiết</h4>
+                                    </td>
+                                    <td>SWD001</td>
+                                    <td>500.000VND</td>
+                                    <td>30</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sử dụng lần đầu</h4>
+                                    </td>
+                                    <td>SWD002</td>
+                                    <td>30%</td>
+                                    <td>40</td>
+                                    <td>30/06/2023</td>
+                                    <td>15/07/2023</td>
+                                    <td>15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <ul>
+                                <li class="pagination_item onpage">
+                                    <a href="" class="pagination_item_link">1</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">2</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">3</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">...</a>
+                                </li>
+                                <li class="pagination_item">
+                                    <a href="" class="pagination_item_link">10</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="right">
+            <div class="top">
+                <div class="profile">
+                    <div class="wrap">
+                        <div class="noti-icon">
+                            <span class="material-symbols-sharp">notifications</span>
+                        </div>
+                        <div class="drop-down">
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/pro_photo.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p><b>Chạm Studio</b></p>
+                        <small class="text-muted">Studio</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../images/logo_stu.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

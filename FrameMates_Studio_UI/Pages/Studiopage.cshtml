@@ -1,0 +1,257 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.StudiopageModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestudiopage.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../images/GAM.jpg">
+                    <h1>SWD392</h1>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="createstudio.html">
+                    <span class="material-symbols-sharp">add_home</span>
+                    <h3>Profile Management</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-symbols-sharp">camera_indoor</span>
+                    <h3>Profile Management</h3>
+                </a>
+                <a href="studiochatpage.html">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Chat</h3>
+                </a>
+                <a href="studiodashboard.html">
+                    <span class="material-symbols-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="stuservicepage.html">
+                    <span class="material-symbols-sharp">wysiwyg</span>
+                    <h3>Services Management</h3>
+                </a>
+                <a href="stumanageorderpage.html">
+                    <span class="material-symbols-sharp">list_alt</span>
+                    <h3>Manage Orders</h3>
+                </a>
+                <a href="stufeedbackpage.html">
+                    <span class="material-symbols-sharp">reviews</span>
+                    <h3>Feedback</h3>
+                </a>
+                <a href="stuvoucherpage.html">
+                    <span class="material-symbols-sharp">book_online</span>
+                    <h3>Voucher</h3>
+                </a>
+                <a href="login.html">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Log out</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Studio's Profile</h1>
+            <div class="profile-container">
+                <div class="profile-detail">
+                    <div class="drop_box">
+                        <input type="file" id="fileID" onchange="getImagePreview(event)">
+                        <label for="fileID">
+                            <div id="preview" class="preview"><img src="../images/black.jpg" class="cover-img"></div>
+
+                        </label>
+                        <script type="text/javascript">
+                            function getImagePreview(event) {
+                                var image = URL.createObjectURL(event.target.files[0]);
+                                var imagediv01 = document.getElementById('preview');
+                                var newimg = document.createElement('img');
+
+                                imagediv01.innerHTML = '';
+                                newimg.src = image;
+                                newimg.width = "100%";
+                                newimg.height = "300";
+                                imagediv01.appendChild(newimg);
+                            }
+                        </script>
+                    </div>
+                    <div class="pd-left">
+                        <div class="pd-row">
+                            <div class="drop_box_ava">
+                                <input type="file" id="fileID_ava" onchange="getImagePreviewAva(event)">
+                                <label for="fileID_ava">
+                                    <div id="avatar-img-preview" class="avatar-img-preview"><img src="../images/logo_stu.png" class="avatar-img"></div>
+
+                                </label>
+                                <script type="text/javascript">
+                                    function getImagePreviewAva(event) {
+                                        var imageava = URL.createObjectURL(event.target.files[0]);
+                                        var imageavadiv = document.getElementById('avatar-img-preview');
+                                        var newimgava = document.createElement('img');
+
+                                        imageavadiv.innerHTML = '';
+                                        newimgava.src = imageava;
+                                        newimgava.height = "125";
+                                        newimgava.width = "125";
+                                        imageavadiv.appendChild(newimgava);
+                                    }
+                                </script>
+                            </div>
+                            <div>
+                                <h3>Cham Studio</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <div class="profile-intro">
+                        <h3>Introduce</h3>
+                        <p>Hi there!!!</p>
+                    </div>
+                    <div class="prof-col">
+                        <div class="prof-content">
+                            <div class="input-box">
+                                <h2><span class="details">Owner</span></h2>
+                                <h3>NguyenVanA</h3>
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Contact</span></h2>
+                                <h3>+8423516987</h3>
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Discription</span></h2>
+                                <h3>hjagsdahsdkjashdk</h3>
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Link</span></h2>
+                                <h3><a href="">facebook.com</a></h3>
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Address</span></h2>
+                                <h3>DongNai</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="album-col">
+                    <h2><a href="">Album Solo</a></h2>
+                    <div class="pic-album">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                    </div>
+                </div>
+                <div class="album-col">
+                    <h2><a href="">Album Solo</a></h2>
+                    <div class="pic-album">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                    </div>
+                </div>
+                <div class="album-col">
+                    <h2><a href="">Album Solo</a></h2>
+                    <div class="pic-album">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                    </div>
+                </div>
+                <div class="album-col">
+                    <h2><a href="">Album Solo</a></h2>
+                    <div class="pic-album">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                        <img src="../images/logo_stu.png" class="each-pic">
+                    </div>
+                </div>
+        </main>
+        
+        <div class="right">
+            <div class="top">
+                <div class="profile">
+                    <div class="wrap">
+                        <div class="noti-icon">
+                            <span class="material-symbols-sharp">notifications</span>
+                        </div>
+                        <div class="drop-down">
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/pro_photo.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p><b>Chạm Studio</b></p>
+                        <small class="text-muted">Studio</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../images/logo_stu.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

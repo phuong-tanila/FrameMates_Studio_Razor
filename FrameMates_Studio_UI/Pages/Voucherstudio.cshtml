@@ -233,7 +233,7 @@
                                     <div class="voucher-content">
                                         <div class="input-box">
                                             <h2><span class="details">Title</span></h2>
-                                            <input type="text" readonly value="Khách hàng thân thiết">
+                                            <input type="text" value="Khách hàng thân thiết">
                                         </div>
                                         <div class="input-box">
                                             <h2><span class="details">Code</span></h2>
@@ -284,44 +284,46 @@
                                 <div class="form-head">
                                     <form action="#">
                                         <div class="form-content">
-                                            <div class="input-box">
-                                                <h2><span class="details">Title</span></h2>
-                                                <input type="text" placeholder="Name">
-                                            </div>
-                                            <div class="input-box">
-                                                <h2><span class="details">Code</span></h2>
-                                                <input type="text" placeholder="Code">
-                                            </div>
-                                            <div class="input-choose">
-                                                <h2><span class="details">Discount</span></h2>
-                                                <div class="choose-type">
-                                                    <div class="radio_discount_tabs">
-                                                        <label data-radio="radio_discount_1" class="radio_wrap_discount label1">
-                                                            <input type="radio" name="percent">
-                                                            <span class="radio_mark_discount">
-                                                                %
-                                                            </span>
-                                                        </label>
-                                                        <label data-radio="radio_discount_2" class="radio_wrap_discount label2">
-                                                            <input type="radio" name="minus">
-                                                            <span class="radio_mark_discount">
-                                                                -
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio_discount_content">
-                                                        <div class="discount_content radio_discount_1">
-                                                            <input type="number" placeholder="%%%">
+                                            <div class="input-box-left">
+                                                <div class="input-box">
+                                                    <h2><span class="details">Title</span></h2>
+                                                    <input type="text" placeholder="Name">
+                                                </div>
+                                                <div class="input-box">
+                                                    <h2><span class="details">Code</span></h2>
+                                                    <input type="text" placeholder="Code">
+                                                </div>
+                                                <div class="input-choose">
+                                                    <h2><span class="details">Discount</span></h2>
+                                                    <div class="choose-type">
+                                                        <div class="radio_discount_tabs">
+                                                            <label data-radio="radio_discount_1" class="radio_wrap_discount label1">
+                                                                <input type="radio" name="percent">
+                                                                <span class="radio_mark_discount">
+                                                                    %
+                                                                </span>
+                                                            </label>
+                                                            <label data-radio="radio_discount_2" class="radio_wrap_discount label2">
+                                                                <input type="radio" name="minus">
+                                                                <span class="radio_mark_discount">
+                                                                    -
+                                                                </span>
+                                                            </label>
                                                         </div>
-                                                        <div class="discount_content radio_discount_2">
-                                                            <input type="number" placeholder="---">
+                                                        <div class="radio_discount_content">
+                                                            <div class="discount_content radio_discount_1">
+                                                                <input type="number" placeholder="%%%">
+                                                            </div>
+                                                            <div class="discount_content radio_discount_2">
+                                                                <input type="number" placeholder="---">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="input-box">
-                                                <h2><span class="details">Quantity</span></h2>
-                                                <input type="number" placeholder="Quantity">
+                                                <div class="input-box">
+                                                    <h2><span class="details">Quantity</span></h2>
+                                                    <input type="number" placeholder="Quantity">
+                                                </div>
                                             </div>
                                             <div class="input-box-expire">
                                                 <h2><span class="details">Effective Date</span></h2>
@@ -329,8 +331,9 @@
                                                 <h2><span class="details">Expired Date</span></h2>
                                                 <input type="date">
                                             </div>
-                                            <input type="submit" value="Create">
+
                                         </div>
+                                        <input type="submit" value="Create">
                                     </form>
                                 </div>
                             </div>

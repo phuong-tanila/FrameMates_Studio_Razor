@@ -107,7 +107,9 @@
                             <div class="drop_box_ava">
                                 <input type="file" id="fileID_ava" onchange="getImagePreviewAva(event)">
                                 <label for="fileID_ava">
-                                    <div id="avatar-img-preview" class="avatar-img-preview"><img src="../images/logo_stu.png" class="avatar-img"></div>
+                                    <div id="avatar-img-preview" class="avatar-img-preview">
+                                        <img src="../images/logo_stu.png" class="avatar-img">
+                                    </div>
 
                                 </label>
                                 <script type="text/javascript">
@@ -203,7 +205,7 @@
                     </div>
                 </div>
         </main>
-        
+
         <div class="right">
             <div class="top">
                 <div class="profile">
@@ -217,7 +219,9 @@
                                     <img src="../images/pro_photo.jpg">
                                 </div>
                                 <div class="noti-info">
-                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
                                     <p id="noti-time">5h ago</p>
                                 </div>
                             </div>
@@ -226,7 +230,9 @@
                                     <img src="../images/sbtc.jpg">
                                 </div>
                                 <div class="noti-info">
-                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
                                     <p id="noti-time">5h ago</p>
                                 </div>
                             </div>
@@ -235,7 +241,9 @@
                                     <img src="../images/sbtc.jpg">
                                 </div>
                                 <div class="noti-info">
-                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
                                     <p id="noti-time">5h ago</p>
                                 </div>
                             </div>
@@ -250,8 +258,24 @@
                     </div>
                 </div>
             </div>
+            <form action="">
+                <div class="create_album">
+                    <h2>Create Album</h2>
+                    <input type="text" required placeholder="Album's Name">
+                    <div class="btn_add_pics">
+                        <label for="add_pics">Post pictures or videos</label>
+                        <input type="file" id="add_pics">
+                    </div>
+                </div>
+                <div class="album-selected">
+                    <div class="list-pic" id="list_alb">
+                    </div>
+                    <input type="submit" value="Create">
+                </div>
+            </form>
         </div>
-    </div>
+
+        <script src="../js/album.js"></script>
 </body>
 
 </html>

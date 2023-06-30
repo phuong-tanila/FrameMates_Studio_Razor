@@ -109,6 +109,10 @@
       "PackagePath": "staticwebassets\\images\\sbtc.jpg"
     },
     {
+      "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\album.js",
+      "PackagePath": "staticwebassets\\js\\album.js"
+    },
+    {
       "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\confirmbooking.js",
       "PackagePath": "staticwebassets\\js\\confirmbooking.js"
     },

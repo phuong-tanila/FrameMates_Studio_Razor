@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dXNWH3oRs34tW0ae8fhQ46dr4saB38WvdwNHWbFM9fk=",
+  "Hash": "S326nW9HWYHzgHIgF+K98tH2eu1DpnvP5DR7urgbytE=",
   "Source": "FrameMates_Studio_UI",
   "BasePath": "_content/FrameMates_Studio_UI",
   "Mode": "Default",
@@ -491,6 +491,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\sbtc.jpg"
+    },
+    {
+      "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\album.js",
+      "SourceId": "FrameMates_Studio_UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\",
+      "BasePath": "_content/FrameMates_Studio_UI",
+      "RelativePath": "js/album.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\album.js"
     },
     {
       "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\confirmbooking.js",

@@ -1,2 +1,110 @@
-﻿@RenderBody()
-      
+﻿@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestudiopage.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        let ia = document.getElementsByClassName("aside-item");
+        function activeLink() {
+            for (i of ia) {
+                i.classList.remove("active");
+            }
+            event.target.classList.add("active");
+        }
+        function setActiveNavBar(){
+            console.log(1)
+            const relativePath =  window.location.pathname.replace("/", "");
+            for (i of ia) {
+                i.classList.remove("active");
+            }
+            document.querySelector(`a[href=${relativePath}]`).classList.add("active");
+        }
+    </script>
+</head>
+<body>
+        @{
+            var path = HttpContextAccessor.HttpContext.Request.Path;
+        }
+        @if (!path.Equals("/Login") && !path.Equals("/Signup"))
+        {
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../images/GAM.jpg">
+                    <h1>SWD392</h1>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                    <a href="CreatePage" class="active aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">add_home</span>
+                    <h3>Profile Management</h3>
+                </a>
+                    <a href="StudioPage" class="aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">camera_indoor</span>
+                    <h3>Profile Management</h3>
+                </a>
+                    <a href="ChatPage" class="aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Chat</h3>
+                </a>
+                    <a href="DashboardStudio" class="aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                    <a href="Service" class="aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">wysiwyg</span>
+                    <h3>Services Management</h3>
+                </a>
+                    <a href="ManageOrder" class="aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">list_alt</span>
+                    <h3>Manage Orders</h3>
+                </a>
+                    <a href="Feedback" class="aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">reviews</span>
+                    <h3>Feedback</h3>
+                </a>
+                    <a href="VoucherStudio" class="aside-item" onclick="activeLink()">
+                    <span class="material-symbols-sharp">book_online</span>
+                    <h3>Voucher</h3>
+                </a>
+                <a href="Login">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Log out</h3>
+                </a>
+            </div>
+        </aside>
+
+            @RenderBody()
+
+    </div>
+    }
+    else
+    {
+        @RenderBody()
+    }
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        setActiveNavBar();
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -98,7 +98,7 @@ header{
 }
 
 
-.container{
+.container_signup{
     margin-top: 30px;
     position: absolute;
     top: 50%;
@@ -114,7 +114,7 @@ header{
     border: 3px solid var(--color-info-light);
 }
 
-.container .content{
+.container_signup .content{
     position: absolute;
     top: 0;
     left: 0;
@@ -128,12 +128,12 @@ header{
     border-bottom-left-radius: 10px;
     filter: blur(5px);
 }
-.box-signin{
+.box-signup{
     top: 50%;
     left: 45%;
 }
 
-.container .box-signin{
+.container_signup .box-signup{
     margin-top: 2rem;
     text-align: center;
     justify-content: center;
@@ -143,7 +143,7 @@ header{
     width: 60%;
     height: 100%;
 }
-.box-signin .form-box{
+.box-signup .form-box{
     margin-left: 15%;
     display: flex;
     width: 100%;

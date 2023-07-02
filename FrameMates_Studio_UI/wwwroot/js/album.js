@@ -3,10 +3,20 @@ window.addEventListener("load",()=>{
     const listpic = document.getElementById("list_alb");
 
     input.addEventListener("change", (e)=>{
-        let imagealb = URL.createObjectURL(event.target.files[0]);
-        let fileName = e.target.files[0].name;
-        let fileType = e.target.value.split(".").pop();
-        fileshow(fileName, fileType, imagealb);
+        let files = e.target.files;
+        console.log(files);
+        for (var i = 0; i < files.length; i++) {
+            const f = files[i];
+            console.log(f);
+            let imagealb = URL.createObjectURL(f);
+            console.log(imagealb);
+            let fileName = '';
+            let fileType = '';
+            fileshow(fileName, fileType, imagealb);
+        }
+        //files.forEach(f => {
+            
+        //});
     })
 
     const fileshow=(fileName, fileType, file)=>{

@@ -101,7 +101,7 @@ header{
 }
 
 
-.container{
+.container_login{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -116,48 +116,48 @@ header{
     border: 3px solid var(--color-info-light);
 }
 
-.container .content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60%;
-    height: 100%;
-    padding-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    background: var(--color-background);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    .container_login .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+        padding-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        background: var(--color-background);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 
 
-.container .content .text-welcome{
-    padding-bottom: 50%;
-}
+        .container_login .content .text-welcome {
+            padding-bottom: 50%;
+        }
 
-.container .text-logo{
-    font-size: 32px;
-    align-items: center;
-}
-.container .content h2{
-    font-size: 40px;
-    padding-left: 15%;
-}
-.container .content p{
+    .container_login .text-logo {
+        font-size: 32px;
+        align-items: center;
+    }
+    .container_login .content h2 {
+        font-size: 40px;
+        padding-left: 15%;
+    }
+.container_login .content p{
     padding-top: 15px;
     padding-left: 15%;
 
 }
-.container p .red-text {
+.container_login p .red-text {
     font-weight: 600;
     color: var(--color-danger);
 }
-.container p .blue-text {
+.container_login p .blue-text {
     font-weight: 600;
     color: rgb(30, 78, 222);
 }
-.container .box-signin{
+.container_login .box-signin{
     position: absolute;
     top: 0;
     right: 0;

@@ -1,0 +1,102 @@
+﻿@page
+@model FrameMates_Admin_UI.Pages.LoginModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FrameMates_Admin_UI.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>CON <span class="pink">GÀ HỒNG</span></h1>
+        <nav class="navbar">
+            <div class="linked">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div class="background"></div>
+    <div class="container_login">
+        <div class="content">
+            <h2 class="text-logo"><img src="../images/GAM.jpg">SWP392</h2>
+            <div class="text-welcome">
+                <h2>SWP392 Welcome!<br></h2>
+                <p>
+                    <span>
+                        SWP392 helps you connect
+                        the
+                    </span><span class="red-text">Studio</span>
+                    and <span class="blue-text">Photographer</span>
+                </p>
+            </div>
+        </div>
+        <div class="box-signin">
+            <div class="form-box login">
+                <form action="Adminpage">
+                    <h2>Sign In</h2>
+                    <div class="input-box">
+                        <input type="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="forgot">
+                        <a href="#forgot-page">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Sign In</button>
+                    <div class="register">
+                        <p>Don't you have account?<a href="Signup"> Sign Up</a></p>
+                    </div>
+                </form>
+                <div class="dialog-decline overlay-decline" id="forgot-page">
+                    <div class="dialog-body-decline">
+                        <a class="dialog-close-decline" href="#">&times;</a>
+                        <h2>Find your account</h2>
+                        <form class="decline-form" action="#reset-password">
+                            <div class="decline-reason">
+                                <p>Please enter your email address or mobile <br>number to search for your account.</p>
+                                <input type="text" required placeholder="Email address or mobile phone">
+                            </div>
+                            <input class="search-acc" type="submit" value="Search">
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-password overlay-password" id="reset-password">
+                    <div class="dialog-body-password">
+                        <a class="dialog-close-password" href="#">&times;</a>
+                        <h2>Send an OTP</h2>
+                        <p>Please check your OTP code we just sent to your email address <br>or mobile number your just entered.</p>
+                        <form class="reset-password-form" action="login.html">
+                            <div class="confirm-password">
+                                <div class="input-box">
+                                    <input type="text" required placeholder="OTP">
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="Enter new password">
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="Confirm password">
+                                </div>
+                            </div>
+                            <input type="submit" class="confirm" value="Confirm">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

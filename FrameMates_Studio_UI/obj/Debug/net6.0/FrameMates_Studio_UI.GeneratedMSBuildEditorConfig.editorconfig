@@ -16,16 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\SWD\razor_page\FrameMates_Studio_Razor\FrameMates_Studio_UI
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Chatpage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhdHBhZ2UuY3NodG1s
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/ChatPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhdFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Createpage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlcGFnZS5jc2h0bWw=
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/CreatePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Dashboardstudio.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkc3R1ZGlvLmNzaHRtbA==
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/DashboardStudio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkU3R1ZGlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Error.cshtml]
@@ -40,8 +40,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Manageorder.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlb3JkZXIuY3NodG1s
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/ManageOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Privacy.cshtml]
@@ -56,12 +60,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Studiopage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGlvcGFnZS5jc2h0bWw=
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbnVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Voucherstudio.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVm91Y2hlcnN0dWRpby5jc2h0bWw=
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/StudioPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGlvUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/VoucherStudio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVm91Y2hlclN0dWRpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/_ViewImports.cshtml]

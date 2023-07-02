@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Studio Management Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/stylestuservice.css">
+    <link rel="stylesheet" href="../css/stylestuservice.css">
     <link href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script>
@@ -36,58 +36,7 @@
 </head>
 
 <body>
-    <div class="container">
-        <aside>
-            <div class="top">
-                <div class="logo">
-                    <img src="../images/GAM.jpg">
-                    <h1>SWD392</h1>
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-symbols-sharp">close</span>
-                </div>
-            </div>
-
-            <div class="sidebar">
-                <a href="createstudio.html">
-                    <span class="material-symbols-sharp">add_home</span>
-                    <h3>Profile Management</h3>
-                </a>
-                <a href="studiopage.html">
-                    <span class="material-symbols-sharp">camera_indoor</span>
-                    <h3>Profile Management</h3>
-                </a>
-                <a href="studiochatpage.html">
-                    <span class="material-symbols-sharp">forum</span>
-                    <h3>Chat</h3>
-                </a>
-                <a href="studiodashboard.html">
-                    <span class="material-symbols-sharp">grid_view</span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="#" class="active">
-                    <span class="material-symbols-sharp">wysiwyg</span>
-                    <h3>Services Management</h3>
-                </a>
-                <a href="stumanageorderpage.html">
-                    <span class="material-symbols-sharp">list_alt</span>
-                    <h3>Manage Orders</h3>
-                </a>
-                <a href="stufeedbackpage.html">
-                    <span class="material-symbols-sharp">reviews</span>
-                    <h3>Feedback</h3>
-                </a>
-                <a href="stuvoucherpage.html">
-                    <span class="material-symbols-sharp">book_online</span>
-                    <h3>Voucher</h3>
-                </a>
-                <a href="login.html">
-                    <span class="material-symbols-sharp">logout</span>
-                    <h3>Log out</h3>
-                </a>
-            </div>
-        </aside>
-
+    
         <main>
             <h1>Service Management</h1>
             <div class="wrapper">
@@ -175,19 +124,17 @@
                                 <h2 class="h2">Detail Service</h2>
                                 <div class="container_service">
                                     <div class="top-prof-serv">
-                                        <div class="serv-img">
-                                            <img src="../images/logo_stu.png" />
-                                        </div>
+                                        <img src="../images/black.jpg" />
                                     </div>
                                     <div class="main-serv">
                                         <div class="serv-content">
                                             <div class="input-box">
-                                                <h2><span class="details">Name Service</span></h2>
+                                                <h2><span class="details">Service</span></h2>
                                                 <input type="text" readonly value="Kỷ yếu">
                                             </div>
                                             <div class="input-box">
                                                 <h2><span class="details">Discount</span></h2>
-                                                <input type="number" readonly value="30">
+                                                <input type="text" readonly value="30%">
                                             </div>
                                             <div class="input-box">
                                                 <h2><span class="details">Discription</span></h2>
@@ -210,32 +157,44 @@
                                 <div class="form-head">
                                     <form action="#">
                                         <div class="form-content">
-                                            <div class="input-box">
-                                                <h2><span class="details">Service Name</span></h2>
-                                                <input type="text" placeholder="Name">
-                                            </div>
-                                            <div class="input-box">
-                                                <h2><span class="details">Price</span></h2>
-                                                <input type="number" placeholder="Price">
-                                            </div>
-                                            <div class="input-box">
-                                                <h2><span class="details">Discount</span></h2>
-                                                <input type="number" placeholder="Discount">
-                                            </div>
-                                            <div class="input-box">
-                                                <h2><span class="details">Discription</span></h2>
-                                                <textarea name="Discription">asdasdasd</textarea>
-                                            </div>
-                                            <div class="input-box-file">
-                                                <h2><span class="details">Avartar</span></h2>
-                                                <input type="file">
-                                            </div>
                                             <div class="input-box-file">
                                                 <h2><span class="details">Cover Image</span></h2>
-                                                <input type="file">
+                                                <div class="drop_box">
+                                                    <input type="file" id="fileID" onchange="getImagePreview(event)">
+                                                    <label for="fileID">
+                                                        <div id="preview" class="preview"><img src="../images/account_null.png" class="cover-img"></div>
+
+                                                    </label>
+                                                    <script type="text/javascript">
+                                                        function getImagePreview(event) {
+                                                            var image = URL.createObjectURL(event.target.files[0]);
+                                                            var imagediv01 = document.getElementById('preview');
+                                                            var newimg = document.createElement('img');
+
+                                                            imagediv01.innerHTML = '';
+                                                            newimg.src = image;
+                                                            imagediv01.appendChild(newimg);
+                                                        }
+                                                    </script>
+                                                </div>
+                                                <div class="input-box">
+                                                    <h2><span class="details">Service Name</span></h2>
+                                                    <input class="input" type="text" placeholder="Name">
+                                                </div>
+                                                <div class="input-box">
+                                                    <h2><span class="details">Price</span></h2>
+                                                    <input class="input" type="number" placeholder="Price">
+                                                </div>
+                                                <div class="input-box">
+                                                    <h2><span class="details">Discount</span></h2>
+                                                    <input class="input" type="number" placeholder="Discount">
+                                                </div>
+                                                <div class="input-box">
+                                                    <h2><span class="details">Discription</span></h2>
+                                                    <textarea placeholder="Discription"></textarea>
+                                                </div>
+                                                <input type="submit" value="Create">
                                             </div>
-                                            <input type="submit" value="Create">
-                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -297,7 +256,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

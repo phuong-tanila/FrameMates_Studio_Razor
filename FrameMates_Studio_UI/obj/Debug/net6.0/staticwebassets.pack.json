@@ -101,6 +101,10 @@
       "PackagePath": "staticwebassets\\images\\logo_stu5.png"
     },
     {
+      "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\images\\logoswd.png",
+      "PackagePath": "staticwebassets\\images\\logoswd.png"
+    },
+    {
       "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\images\\pro_photo.jpg",
       "PackagePath": "staticwebassets\\images\\pro_photo.jpg"
     },

@@ -143,8 +143,17 @@ aside {
     }
 
         aside .logo img {
-            width: 2rem;
-            height: 2rem;
+            position: relative;
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+        }
+
+        aside .logo h1 {
+            color: #04838e;
+            font-size: 20px;
+            margin-left: -0.5rem;
+            margin-top: 1.2rem;
         }
 
     aside .close {

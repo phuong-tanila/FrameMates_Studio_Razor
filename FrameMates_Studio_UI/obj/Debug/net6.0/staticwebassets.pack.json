@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
+      "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\css\\styleotp.css",
+      "PackagePath": "staticwebassets\\css\\styleotp.css"
+    },
+    {
       "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\css\\stylesignup.css",
       "PackagePath": "staticwebassets\\css\\stylesignup.css"
     },

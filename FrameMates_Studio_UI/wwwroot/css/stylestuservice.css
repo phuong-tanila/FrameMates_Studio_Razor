@@ -2,7 +2,9 @@
 main {
     margin-top: 1.4rem;
 }
-
+.sky {
+    color: #6571d1;
+}
     main .wrapper {
         margin-left: 2rem;
         background: var(--color-white);
@@ -310,15 +312,61 @@ main .content .container_create {
         width: 100%;
     }
 
+.main-serv .serv-content .above {
+    display: flex;
+    width: 100%;
+}
+
+.above .view {
+    justify-content: flex-start;
+}
+
+.above .rating {
+    margin-left: 75%;
+    right: 0;
+}
+
+    .above .rating .star {
+        margin-left: 2rem;
+        color: rgb(247, 235, 63);
+    }
+
+.above .view .views {
+    position: absolute;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+}
+
+.above .rating .vote {
+    color: rgb(247, 235, 63);
+    position: absolute;
+    margin-right: 9rem;
+    margin-top: 0.2rem;
+}
+
 .main-serv .serv-content .input-box {
     display: flex;
     margin-top: 1rem;
 }
 
+    .main-serv .serv-content .input-box .img-compo {
+        margin-left: -2rem;
+        width: 80%;
+        display: flex;
+    }
+
+    .main-serv .serv-content .input-box img {
+        margin: 0.5rem;
+        width: 125px;
+        height: 125px;
+        object-fit: contain;
+    }
+
     .main-serv .serv-content .input-box h2 {
         position: absolute;
         width: 20%;
         display: inline;
+        margin-top: 0.5rem;
     }
 
     .main-serv .serv-content .input-box input {
@@ -344,7 +392,165 @@ main .content .container_create {
         font-family: poppins, sans-serif;
         margin-left: 30%;
     }
+/* =========================== */
+.dialog-update {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity linear 0.2;
+}
 
+    .dialog-update:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .dialog-update .h2 {
+        color: var(--color-primary);
+        font-size: 20px;
+    }
+
+.overlay-update {
+    background-color: rgba(0, 0, 0, 0.41);
+}
+
+.dialog-body-update {
+    position: relative;
+    border-radius: var(--border-radius-2);
+    width: 600px;
+    padding: 16px;
+    background-color: var(--color-white);
+}
+
+.dialog-close-update {
+    position: absolute;
+    top: 2px;
+    right: 6px;
+    text-decoration: none;
+    color: #111e88;
+}
+
+
+.dialog-body-update .container_service {
+    display: block;
+    width: 100%;
+    gap: 1.8rem;
+}
+
+.top-prof-serv img {
+    position: relative;
+    width: 100%;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.container_service .top-prof-serv {
+    margin-top: 1.4rem;
+}
+
+.main-serv h2 {
+    text-align: start;
+}
+
+.container_service .main-serv {
+    position: relative;
+    margin-left: 2rem;
+}
+
+    .container_service .main-serv .serv-content {
+        margin-top: 1.8rem;
+        width: 100%;
+    }
+
+.main-serv .serv-content .above {
+    display: flex;
+    width: 100%;
+}
+
+.above .view {
+    justify-content: flex-start;
+}
+
+.above .rating {
+    margin-left: 75%;
+    right: 0;
+}
+
+    .above .rating .star {
+        margin-left: 2rem;
+        color: rgb(247, 235, 63);
+    }
+
+.above .view .views {
+    position: absolute;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+}
+
+.above .rating .vote {
+    color: rgb(247, 235, 63);
+    position: absolute;
+    margin-right: 9rem;
+    margin-top: 0.2rem;
+}
+
+.main-serv .serv-content .input-box {
+    display: flex;
+    margin-top: 1rem;
+}
+
+    .main-serv .serv-content .input-box .img-compo {
+        margin-left: -2rem;
+        width: 80%;
+        display: flex;
+    }
+
+    .main-serv .serv-content .input-box img {
+        margin: 0.5rem;
+        width: 125px;
+        height: 125px;
+        object-fit: contain;
+    }
+
+    .main-serv .serv-content .input-box h2 {
+        position: absolute;
+        width: 20%;
+        display: inline;
+        margin-top: 0.5rem;
+    }
+
+    .main-serv .serv-content .input-box input {
+        position: relative;
+        border-bottom: 1px solid var(--color-info-dark);
+        font-size: 16px;
+        width: 80%;
+        height: 40px;
+        outline: none;
+        padding-left: 0.5rem;
+        margin-left: 30%;
+    }
+
+    .main-serv .serv-content .input-box textarea {
+        height: fit-content;
+        text-align: start;
+        resize: none;
+        width: 80%;
+        border: 1px solid var(--color-info-dark);
+        border-radius: var(--border-radius-1);
+        font-size: 16px;
+        padding: 5px 0 0 5px;
+        font-family: poppins, sans-serif;
+        margin-left: 30%;
+    }
 /* ==============================MEDIA QUERIES============================== */
 @media screen and (max-width: 1200px) {
     .container {

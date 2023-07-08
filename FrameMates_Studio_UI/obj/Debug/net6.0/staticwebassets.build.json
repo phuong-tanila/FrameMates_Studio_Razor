@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JREd+1MchopsumIagHvVwD9dEwqOcRWMiKqLEYos/9I=",
+  "Hash": "WUKCBQsvrnZ/Y2mDhxzuqqxliLtCZtkVjIksvfCtdIo=",
   "Source": "FrameMates_Studio_UI",
   "BasePath": "_content/FrameMates_Studio_UI",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\css\\styleotp.css",
+      "SourceId": "FrameMates_Studio_UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\",
+      "BasePath": "_content/FrameMates_Studio_UI",
+      "RelativePath": "css/styleotp.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styleotp.css"
     },
     {
       "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\css\\stylesignup.css",

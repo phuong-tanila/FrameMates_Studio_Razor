@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/OTPPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT1RQUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/SWD/razor_page/FrameMates_Studio_Razor/FrameMates_Studio_UI/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

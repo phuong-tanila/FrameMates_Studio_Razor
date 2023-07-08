@@ -35,7 +35,7 @@
         @{
             var path = HttpContextAccessor.HttpContext.Request.Path;
         }
-        @if (!path.Equals("/Login") && !path.Equals("/Signup"))
+        @if (!path.Equals("/Login") && !path.Equals("/Signup") && !path.Equals("/OTPPage"))
         {
     <div class="container">
         <aside>

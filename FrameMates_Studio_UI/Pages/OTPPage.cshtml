@@ -1,0 +1,49 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.OTPPageModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="~/css/styleotp.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="header">
+        <h1><img src="../images/logoswd.png"><span>framemates</span></h1>
+        <nav class="navbar">
+            <div class="linked">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div class="background"></div>
+    <div class="container">
+        <div class="box-signin">
+            <div class="form-box signup">
+                <form action="Login">
+                    <h2>Enter OTP</h2>
+                    <p>Please check your OTP code we just sent to <br>your email address or mobile number your just entered.</p>
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>OTP Code</label>
+                    </div>
+                    <button type="submit" class="btn">Confirm</button>
+                    <div class="register">
+                        <p>You already have account?<a href="login.html"> Sign In</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="content"></div>
+    </div>
+</body>
+</html>

@@ -125,6 +125,10 @@
       "PackagePath": "staticwebassets\\js\\confirmbooking.js"
     },
     {
+      "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\minipictures.js",
+      "PackagePath": "staticwebassets\\js\\minipictures.js"
+    },
+    {
       "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

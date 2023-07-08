@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WUKCBQsvrnZ/Y2mDhxzuqqxliLtCZtkVjIksvfCtdIo=",
+  "Hash": "mjZRdhUR24pAe9DCLeVyxdB+iapqOsDpzYZV1fVd7Hw=",
   "Source": "FrameMates_Studio_UI",
   "BasePath": "_content/FrameMates_Studio_UI",
   "Mode": "Default",
@@ -559,6 +559,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\confirmbooking.js"
+    },
+    {
+      "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\minipictures.js",
+      "SourceId": "FrameMates_Studio_UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\",
+      "BasePath": "_content/FrameMates_Studio_UI",
+      "RelativePath": "js/minipictures.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\minipictures.js"
     },
     {
       "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\site.js",

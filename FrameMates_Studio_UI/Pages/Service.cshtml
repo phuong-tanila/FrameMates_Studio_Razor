@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="../css/stylestuservice.css">
     <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="../js/minipictures.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -65,63 +66,63 @@
                                 </td>
                                 <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h4>Look book</h4>
                                 </td>
-                                <td><a href="#" class="sky">Update</a></td>
+                                <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h4>Kỷ yếu</h4>
                                 </td>
-                                <td><a href="#" class="sky">Update</a></td>
+                                <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h4>Look book</h4>
                                 </td>
-                                <td><a href="#" class="sky">Update</a></td>
+                                <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h4>Kỷ yếu</h4>
                                 </td>
-                                <td><a href="#" class="sky">Update</a></td>
+                                <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h4>Look book</h4>
                                 </td>
-                                <td><a href="#" class="sky">Update</a></td>
+                                <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h4>Kỷ yếu</h4>
                                 </td>
-                                <td><a href="#" class="sky">Update</a></td>
+                                <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h4>Look book</h4>
                                 </td>
-                                <td><a href="#" class="sky">Update</a></td>
+                                <td><a href="#update-service" class="sky">Update</a></td>
                                 <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#" class="danger">Delete</a></td>
+                                <td><a href="#delete-service" class="danger">Delete</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -188,33 +189,149 @@
                             <h2 class="h2">Update Service</h2>
                             <div class="container_service">
                                 <div class="top-prof-serv">
-                                    <img src="../images/black.jpg" />
-                                </div>
-                                <div class="main-serv">
-                                    <div class="serv-content">
-                                        <div class="input-box">
-                                            <h2><span class="details">Service</span></h2>
-                                            <input type="text" value="Kỷ yếu">
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Discount</span></h2>
-                                            <input type="text" value="30%">
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Discription</span></h2>
-                                            <textarea name="Discription">asdasdasd</textarea>
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Price</span></h2>
-                                            <input type="number" value="3200000">
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Created</span></h2>
-                                            <input type="datetime" value="12/06/2023">
-                                        </div>
+                                    <div class="drop_box">
+                                        <input type="file" id="fileID_top" onchange="getImagePreview1(event)">
+                                        <label for="fileID_top">
+                                            <div id="preview_1" class="preview"><img src="../images/black.jpg" class="conp_img"></div>
+                                        </label>
+                                        <script type="text/javascript">
+                                            function getImagePreview1(event) {
+                                                var image01 = URL.createObjectURL(event.target.files[0]);
+                                                var imagediv01 = document.getElementById('preview_1');
+                                                var newimg01 = document.createElement('img');
+
+                                                imagediv01.innerHTML = '';
+                                                newimg01.src = image01;
+                                                newimg01.width = "100%";
+                                                newimg01.height = "125px";
+                                                imagediv01.appendChild(newimg01);
+                                            }
+                                        </script>
                                     </div>
                                 </div>
+                                <div class="main-serv">
+                                    <form action="#">
+                                        <div class="serv-content">
+                                            <div class="input-box">
+                                                <h2><span class="details">Service</span></h2>
+                                                <input type="text" value="Kỷ yếu">
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Discount</span></h2>
+                                                <input type="text" value="30%">
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Discription</span></h2>
+                                                <textarea name="Discription">asdasdasd</textarea>
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Price</span></h2>
+                                                <input type="number" value="3200000">
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Created</span></h2>
+                                                <input type="datetime" value="12/06/2023">
+                                            </div>
+                                            <div class="input-box">
+                                                <div class="img-compo">
+                                                    <div class="drop_box">
+                                                        <input type="file" id="fileID_01" onchange="getImagePreview1(event)">
+                                                        <label for="fileID_01">
+                                                            <div id="preview_1" class="preview"><img src="../images/black.jpg" class="conp_img"></div>
+
+                                                        </label>
+                                                        <script type="text/javascript">
+                                                            function getImagePreview1(event) {
+                                                                var image01 = URL.createObjectURL(event.target.files[0]);
+                                                                var imagediv01 = document.getElementById('preview_1');
+                                                                var newimg01 = document.createElement('img');
+
+                                                                imagediv01.innerHTML = '';
+                                                                newimg01.src = image01;
+                                                                newimg01.width = "125px";
+                                                                newimg01.height = "125px";
+                                                                imagediv01.appendChild(newimg01);
+                                                            }
+                                                        </script>
+                                                    </div>
+                                                    <div class="drop_box">
+                                                        <input type="file" id="fileID_02" onchange="getImagePreview2(event)">
+                                                        <label for="fileID_02">
+                                                            <div id="preview_2" class="preview"><img src="../images/black.jpg" class="conp_img"></div>
+
+                                                        </label>
+                                                        <script type="text/javascript">
+                                                            function getImagePreview2(event) {
+                                                                var image02 = URL.createObjectURL(event.target.files[0]);
+                                                                var imagediv02 = document.getElementById('preview_2');
+                                                                var newimg02 = document.createElement('img');
+
+                                                                imagediv02.innerHTML = '';
+                                                                newimg02.src = image02;
+                                                                newimg02.width = "125px";
+                                                                newimg02.height = "125px";
+                                                                imagediv02.appendChild(newimg02);
+                                                            }
+                                                        </script>
+                                                    </div>
+                                                    <div class="drop_box">
+                                                        <input type="file" id="fileID_03" onchange="getImagePreview3(event)">
+                                                        <label for="fileID_03">
+                                                            <div id="preview_3" class="preview"><img src="../images/black.jpg" class="conp_img"></div>
+
+                                                        </label>
+                                                        <script type="text/javascript">
+                                                            function getImagePreview3(event) {
+                                                                var image = URL.createObjectURL(event.target.files[0]);
+                                                                var imagediv01 = document.getElementById('preview_3');
+                                                                var newimg = document.createElement('img');
+
+                                                                imagediv01.innerHTML = '';
+                                                                newimg.src = image;
+                                                                newimg.width = "125px";
+                                                                newimg.height = "125px";
+                                                                imagediv01.appendChild(newimg);
+                                                            }
+                                                        </script>
+                                                    </div>
+                                                    <div class="drop_box">
+                                                        <input type="file" id="fileID_04" onchange="getImagePreview4(event)">
+                                                        <label for="fileID_04">
+                                                            <div id="preview_4" class="preview"><img src="../images/black.jpg" class="conp_img"></div>
+
+                                                        </label>
+                                                        <script type="text/javascript">
+                                                            function getImagePreview4(event) {
+                                                                var image = URL.createObjectURL(event.target.files[0]);
+                                                                var imagediv01 = document.getElementById('preview_4');
+                                                                var newimg = document.createElement('img');
+
+                                                                imagediv01.innerHTML = '';
+                                                                newimg.src = image;
+                                                                newimg.width = "125px";
+                                                                newimg.height = "125px125px";
+                                                                imagediv01.appendChild(newimg);
+                                                            }
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="update-submit">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="dialog-delete overlay-delete" id="delete-service">
+                        <div class="dialog-body-delete">
+                            <a class="dialog-close-delete" href="#">&times;</a>
+                            <h2 class="h2">Delete Service</h2>
+                            <form action="#">
+                                <span class="delete-letter"><p>Are you sure to delete this service?</p></span>
+                                <button class="primary btn-yes">Yes</button>
+                                <button class="danger btn-no">No</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -260,7 +377,18 @@
                                                 <div class="input-box">
                                                     <h2><span class="details">Discription</span></h2>
                                                     <textarea placeholder="Discription"></textarea>
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Mini Pictures</span><p>(Required 4)</p></h2>
+                                                <div class="btn_add_pics">
+                                                    <label for="add_mini_pics">Post pictures</label>
+                                                    <input multiple accept=".jpeg, .jpg, .png" type="file" id="add_mini_pics">
                                                 </div>
+                                                <div class="album-selected">
+                                                    <div class="list-pic" id="list_mini_pics">
+                                                    </div>
+                                                </div>
+                                            </div>
                                                 <input type="submit" value="Create">
                                             </div>
                                     </form>

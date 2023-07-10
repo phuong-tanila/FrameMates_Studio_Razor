@@ -56,7 +56,7 @@
                 </a>
                     <a href="StudioPage" class="aside-item" onclick="activeLink()">
                     <span class="material-symbols-sharp">camera_indoor</span>
-                    <h3>Profile Management</h3>
+                    <h3>Studio Management</h3>
                 </a>
                     <a href="ChatPage" class="aside-item" onclick="activeLink()">
                     <span class="material-symbols-sharp">forum</span>
@@ -82,7 +82,7 @@
                     <span class="material-symbols-sharp">book_online</span>
                     <h3>Voucher</h3>
                 </a>
-                <a href="Login">
+                <a href="Login" id="logout">
                     <span class="material-symbols-sharp">logout</span>
                     <h3>Log out</h3>
                 </a>
@@ -106,5 +106,13 @@
         setActiveNavBar();
     </script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $('#logout').click(function (event) {
+                localStorage.removeItem('accessToken');
+            });
+        });
+    </script>
 </body>
 </html>

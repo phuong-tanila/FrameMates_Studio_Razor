@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "bmZOCWj/NPC7fFjACPqZ60/5IaxZtfq+nxGxUwJNQ0vON+yO5A+uE4VSMDcFc3Ttmvq8WW7vXFQxxQVvls6OIw==",
+  "dgSpecHash": "ZtbpXehv+5GzC2PixK7vosaPt78ZVaBDfGntViOAaKyoApl90wcULgQEpjABBxG9kKcyO4RRrACvqD9PlSaqOg==",
   "success": true,
-  "projectFilePath": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\FrameMates_Studio_UI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "F:\\IT lessons fpt\\Kì 7\\PRN221\\projects\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\FrameMates_Studio_UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

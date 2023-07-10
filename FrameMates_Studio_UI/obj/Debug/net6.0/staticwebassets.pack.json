@@ -137,6 +137,10 @@
       "PackagePath": "staticwebassets\\js\\studashboard.js"
     },
     {
+      "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\talkjs-wrapper.js",
+      "PackagePath": "staticwebassets\\js\\talkjs-wrapper.js"
+    },
+    {
       "Id": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

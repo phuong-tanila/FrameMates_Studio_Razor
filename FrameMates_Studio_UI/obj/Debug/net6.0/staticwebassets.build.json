@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mjZRdhUR24pAe9DCLeVyxdB+iapqOsDpzYZV1fVd7Hw=",
+  "Hash": "lpZmHtnMpCl3JQigzThec+Cz/buj/+vj1sQJxxsn+KY=",
   "Source": "FrameMates_Studio_UI",
   "BasePath": "_content/FrameMates_Studio_UI",
   "Mode": "Default",
@@ -610,6 +610,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\studashboard.js"
+    },
+    {
+      "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\talkjs-wrapper.js",
+      "SourceId": "FrameMates_Studio_UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\",
+      "BasePath": "_content/FrameMates_Studio_UI",
+      "RelativePath": "js/talkjs-wrapper.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\talkjs-wrapper.js"
     },
     {
       "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

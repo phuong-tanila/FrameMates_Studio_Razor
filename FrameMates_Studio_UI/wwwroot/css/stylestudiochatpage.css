@@ -354,6 +354,13 @@ main .container_profile script{
 .wrap .drop-down .active{
     display: block;
 }
+
+.right .talkjs {
+    margin-left: 0.7rem;
+    margin-top: 85%;
+    right: 0;
+    bottom: 10px;
+}
 /* ==============================MEDIA QUERIES============================== */
 @media screen and (max-width: 1200px) {
     .container{

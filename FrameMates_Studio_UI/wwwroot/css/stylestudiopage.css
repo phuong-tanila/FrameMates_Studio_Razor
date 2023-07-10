@@ -180,9 +180,48 @@ main {
     }
 
 .each-pic {
+    margin-left: 0.5rem;
     width: 150px;
     height: 150px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.329);
+    border-radius: 2px;
 }
+
+.popup-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+    .popup-img span {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 30px;
+        font-weight: bolder;
+        color: #ffffffd5;
+        z-index: 100;
+        cursor: pointer;
+        margin-right: 5rem;
+        margin-top: 5rem;
+    }
+
+    .popup-img img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid #fff;
+        border-radius: 5px;
+        width: 500px;
+        object-fit: cover;
+    }
 /* ======================================RIGHT=================================== */
 .right {
     margin-top: 1.4rem;

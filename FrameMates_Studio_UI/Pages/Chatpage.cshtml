@@ -23,165 +23,201 @@
             });
         });
     </script>
+    <script src="talkjs-wrapper.js"></script>
 </head>
 
 <body>
-    
-        <main>
-            <h1>Studio Chat</h1>
-            <div class="container_profile">
-                <div class="main-prof">
-                    <div class="profile-head">
-                        <h1>
-                            Confirm Booking
-                        </h1>
-                        <form action="#">
-                            <div class="prof-content">
-                                <div class="input-box">
-                                    <h2><span class="details">Customer Name</span></h2>
-                                    <input type="text" placeholder="Customer Name">
-                                </div>
-                                <div class="input-box">
-                                    <h2><span class="details">Address</span></h2>
-                                    <input type="text" placeholder="Address">
-                                </div>
-                                <div class="input-box">
-                                    <h2><span class="details">Date</span></h2>
-                                    <input type="date">
-                                </div>
-                                <div class="input-box">
-                                    <h2><span class="details">Deposit</span></h2>
-                                    <input type="number" placeholder="VND">
-                                </div>
-                                <div class="input-box">
-                                    <div class="box-disc">
-                                        <h2><span class="details">Service</span></h2>
-                                        <select id="Options" size="1">
-                                            <option selected="selected" value="">None</option>
-                                        </select>
-                                        <select id="Type" size="1">
-                                            <option selected="selected" value="">type</option>
-                                        </select>
-                                        <select id="Price" size="1">
-                                            <option selected="selected" value="">price</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <input type="submit" value="Confirm">
-                                <a href="#preview-booking">Preview</a>
 
+    <main>
+        <h1>Studio Chat</h1>
+        <div class="container_profile">
+            <div class="main-prof">
+                <div class="profile-head">
+                    <h1>
+                        Confirm Booking
+                    </h1>
+                    <form action="#">
+                        <div class="prof-content">
+                            <div class="input-box">
+                                <h2><span class="details">Customer Name</span></h2>
+                                <input type="text" placeholder="Customer Name">
                             </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="dialog-prev overlay-prev" id="preview-booking">
-                    <div class="dialog-body-prev">
-                        <a class="dialog-close-prev" href="#">&times;</a>
-                        <h2>PREVIEW</h2>
-                        <form class="prev-form" action="#">
-                            <div class="prev-box">
-                                <div class="input-box-prev">
-                                    <h2><span class="details">Customer Name</span></h2>
-                                    <input type="text" readonly value="NguyenVanA">
-                                </div>
-                                <div class="input-box-prev">
-                                    <h2><span class="details">Address</span></h2>
-                                    <input type="text" readonly value="+8403123232">
-                                </div>
-                                <div class="input-box-prev">
-                                    <div class="box-disc">
-                                        <h2><span class="details">Discription</span></h2>
-                                        <input type="text" readonly value="aloalo 1234 alo aloaskdjkj">
-                                    </div>
-                                </div>
-                                <div class="input-box-prev">
-                                    <h2><span class="details">Date</span></h2>
-                                    <input type="text" readonly value="12/06/2023">
-                                </div>
-                                <div class="input-box-prev">
+                            <div class="input-box">
+                                <h2><span class="details">Address</span></h2>
+                                <input type="text" placeholder="Address">
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Date</span></h2>
+                                <input type="date">
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Deposit</span></h2>
+                                <input type="number" placeholder="VND">
+                            </div>
+                            <div class="input-box">
+                                <div class="box-disc">
                                     <h2><span class="details">Service</span></h2>
-                                    <input type="text" readonly value="Kỷ yếu">
-                                </div>
-                                <div class="input-box-prev">
-                                    <h2><span class="details">Price</span></h2>
-                                    <input type="text" readonly value="3200000">
+                                    <select id="Options" size="1">
+                                        <option selected="selected" value="">None</option>
+                                    </select>
+                                    <select id="Type" size="1">
+                                        <option selected="selected" value="">type</option>
+                                    </select>
+                                    <select id="Price" size="1">
+                                        <option selected="selected" value="">price</option>
+                                    </select>
                                 </div>
                             </div>
                             <input type="submit" value="Confirm">
-                        </form>
+                            <a href="#preview-booking">Preview</a>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="dialog-prev overlay-prev" id="preview-booking">
+                <div class="dialog-body-prev">
+                    <a class="dialog-close-prev" href="#">&times;</a>
+                    <h2>PREVIEW</h2>
+                    <form class="prev-form" action="#">
+                        <div class="prev-box">
+                            <div class="input-box-prev">
+                                <h2><span class="details">Customer Name</span></h2>
+                                <input type="text" readonly value="NguyenVanA">
+                            </div>
+                            <div class="input-box-prev">
+                                <h2><span class="details">Address</span></h2>
+                                <input type="text" readonly value="+8403123232">
+                            </div>
+                            <div class="input-box-prev">
+                                <div class="box-disc">
+                                    <h2><span class="details">Discription</span></h2>
+                                    <input type="text" readonly value="aloalo 1234 alo aloaskdjkj">
+                                </div>
+                            </div>
+                            <div class="input-box-prev">
+                                <h2><span class="details">Date</span></h2>
+                                <input type="text" readonly value="12/06/2023">
+                            </div>
+                            <div class="input-box-prev">
+                                <h2><span class="details">Service</span></h2>
+                                <input type="text" readonly value="Kỷ yếu">
+                            </div>
+                            <div class="input-box-prev">
+                                <h2><span class="details">Price</span></h2>
+                                <input type="text" readonly value="3200000">
+                            </div>
+                        </div>
+                        <input type="submit" value="Confirm">
+                    </form>
+                </div>
+            </div>
+            <script src="../js/confirmbooking.js"></script>
+        </div>
+    </main>
+    <div class="right">
+        <div class="top">
+            <div class="profile">
+                <div class="wrap">
+                    <div class="noti-icon">
+                        <span class="material-symbols-sharp">notifications</span>
+                    </div>
+                    <div class="drop-down">
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/pro_photo.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>
+                                    he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                </p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/sbtc.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>
+                                    he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                </p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/sbtc.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>
+                                    he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                </p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <script src="../js/confirmbooking.js"></script>
-            </div>
-        </main>
-        <div class="right">
-            <div class="top">
-                <div class="profile">
-                    <div class="wrap">
-                        <div class="noti-icon">
-                            <span class="material-symbols-sharp">notifications</span>
-                        </div>
-                        <div class="drop-down">
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/pro_photo.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>
-                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
-                                    </p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/sbtc.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>
-                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
-                                    </p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/sbtc.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>
-                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
-                                    </p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <p><b>Chạm Studio</b></p>
-                        <small class="text-muted">Studio</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="../images/logo_stu.png">
-                    </div>
+                <div class="info">
+                    <p><b>Chạm Studio</b></p>
+                    <small class="text-muted">Studio</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../images/logo_stu.png">
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container_profile">
-        <!--Start of Tawk.to Script-->
+
+        <!--Start of TALKJS-->
+        <div class="talkjs" id="talkjs-container" style="width: 100%; height: 400px;"> </div>
+        <!--END of TALKJS-->
+        <!--Start of TALKJS.to Script-->
         <script type="text/javascript">
-            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-            (function () {
-                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-                s1.async = true;
-                s1.src = 'https://embed.tawk.to/64868c13cc26a871b021ee20/1h2mp6c45';
-                s1.charset = 'UTF-8';
-                s1.setAttribute('crossorigin', '*');
-                s0.parentNode.insertBefore(s1, s0);
-            })();
+            (function (t, a, l, k, j, s) {
+                s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
+                    ; k = t.Promise; t.Talk = {
+                        v: 3, ready: {
+                            then: function (f) {
+                                if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
+                                    .push([f])
+                            }, catch: function () { return k && new k() }, c: l
+                        }
+                    };
+            })(window, document, []);
+
+            Talk.ready.then(function () {
+                var me = new Talk.User({
+                    id: '123456',
+                    name: 'Alice',
+                    email: 'alice@example.com',
+                    photoUrl: 'https://talkjs.com/images/avatar-1.jpg',
+                    welcomeMessage: 'Hey there! How are you? :-)',
+                });
+                window.talkSession = new Talk.Session({
+                    appId: 'tQ6S3FD4', // APPID
+                    me: me,
+                });
+                var other = new Talk.User({
+                    id: '654321',
+                    name: 'Sebastian',
+                    email: 'Sebastian@example.com',
+                    photoUrl: 'https://talkjs.com/images/avatar-5.jpg',
+                    welcomeMessage: 'Hey, how can I help?',
+                });
+
+                var conversation = talkSession.getOrCreateConversation(
+                    Talk.oneOnOneId(me, other)
+                );
+                conversation.setParticipant(me);
+                conversation.setParticipant(other);
+
+                var inbox = talkSession.createInbox({ selected: conversation });
+                inbox.mount(document.getElementById('talkjs-container'));
+            });
         </script>
-        <!--End of Tawk.to Script-->
+        <!--End of TALKJS Script-->
+    </div>
 </body>
+
 
 </html>

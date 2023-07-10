@@ -63,13 +63,9 @@ main #all-feedback .feedback_box_container{
     flex-direction: column;
     margin-right: 3rem;
 }
-.review .material-symbols-sharp{
-    margin-right: 3rem;
-    color: rgb(247, 235, 63);
-}
-.review .dissatisfied{
-    color: red;
-}
+    .review .star {
+        display: flex;
+    }
 .box_top{
     display: flex;
     justify-content: space-between;

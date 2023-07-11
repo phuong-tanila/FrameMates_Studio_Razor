@@ -26,7 +26,6 @@
 </head>
 
 <body>
-    
         <main>
             <h1>Studio's Profile</h1>
             <div class="profile-container">
@@ -76,7 +75,7 @@
                                 </script>
                             </div>
                             <div>
-                                <h3>Cham Studio</h3>
+                                <h3 id="studio_name">Cham Studio</h3>
                             </div>
                         </div>
                     </div>
@@ -91,23 +90,23 @@
                         <div class="prof-content">
                             <div class="input-box">
                                 <h2><span class="details">Owner</span></h2>
-                                <h3>NguyenVanA</h3>
+                                <h3 id="studio_owner_fullName">NguyenVanA</h3>
                             </div>
                             <div class="input-box">
                                 <h2><span class="details">Contact</span></h2>
-                                <h3>+8423516987</h3>
+                                <h3 id="studio_owner_phone">+8423516987</h3>
                             </div>
                             <div class="input-box">
-                                <h2><span class="details">Discription</span></h2>
-                                <h3>hjagsdahsdkjashdk</h3>
+                                <h2><span class="details">Description</span></h2>
+                                <h3 id="studio_description">hjagsdahsdkjashdk</h3>
                             </div>
-                            <div class="input-box">
+                            @*<div class="input-box">
                                 <h2><span class="details">Link</span></h2>
                                 <h3><a href="">facebook.com</a></h3>
-                            </div>
+                            </div>*@
                             <div class="input-box">
                                 <h2><span class="details">Address</span></h2>
-                                <h3>DongNai</h3>
+                                <h3 id="studio_address">DongNai</h3>
                             </div>
                         </div>
                     </div>
@@ -266,10 +265,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="info">
-                        <p><b>Chạm Studio</b></p>
-                        <small class="text-muted">Studio</small>
-                    </div>
+                <div class="info">
+                    <p id="user_fullName"><b>Chạm Studio</b></p>
+                    <small id="user_username" class="text-muted">Studio</small>
+                </div>
                     <div class="profile-photo">
                         <img src="../images/logo_stu.png">
                     </div>
@@ -292,6 +291,81 @@
             </form>
 
         <script src="../js/album.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                function logout() {
+                    localStorage.removeItem('accessToken');
+                    window.location.href = '/Login';
+                }
+
+                var employee = null;
+
+                $(document).ready(function () {
+                    $.ajax({
+                        async: false,
+                        url: '@Model.ApiDomain' + 'api/employees/current',
+                        type: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        beforeSend: function (xhr) {
+                            let accessToken = localStorage.getItem('accessToken');
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                        },
+                        success: function (response, status, xhr) {
+                            if (!response) {
+                                logout()
+                                return
+                            }
+                            employee = response
+                            let user_fullName = document.getElementById('user_fullName')
+                            let user_username = document.getElementById('user_username')
+                            user_fullName.innerHTML = response.accountModel.fullName
+                            user_username.innerHTML = response.accountModel.username
+                        },
+                        error: function (error) {
+                            // Handle any errors that occur during the request
+                            console.error(error);
+                            logout()
+                        }
+                    });
+
+                    $.ajax({
+                        async: false,
+                        url: '@Model.ApiDomain' + 'api/studios/current-owner',
+                        type: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        beforeSend: function (xhr) {
+                            let accessToken = localStorage.getItem('accessToken');
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                        },
+                        success: function (response, status, xhr) {
+                            let currentEmployee = employee
+                            console.log(employee)
+                            let studio_name = document.getElementById('studio_name')
+                            let studio_owner_fullName = document.getElementById('studio_owner_fullName')
+                            let studio_owner_phone = document.getElementById('studio_owner_phone')
+                            let studio_description = document.getElementById('studio_description')
+                            let studio_address = document.getElementById('studio_address')
+                            studio_name.innerHTML = response.name
+                            studio_owner_fullName.innerHTML = currentEmployee.accountModel.fullName
+                            studio_owner_phone.innerHTML = currentEmployee.accountModel.phone
+                            studio_description.innerHTML = response.description
+                            studio_address.innerHTML = response.address
+                        },
+                        error: function (error) {
+                            // Handle any errors that occur during the request
+                            console.error(error);
+                            logout()
+                        }
+                    });
+
+                });
+
+               
+            });
+        </script>
 </body>
 
 </html>

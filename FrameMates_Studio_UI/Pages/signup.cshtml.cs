@@ -5,8 +5,18 @@ namespace FrameMates_Admin_UI.Pages
 {
     public class signupModel : PageModel
     {
+        private readonly IConfiguration _configuration;
+
+        public signupModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        public string ApiDomain { get; private set; }
+
         public void OnGet()
         {
+            ApiDomain = _configuration["apiDomain"];
         }
     }
 }

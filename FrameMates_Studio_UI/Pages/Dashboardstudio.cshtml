@@ -75,8 +75,8 @@
                         </div>
                     </div>
                     <div class="info">
-                        <p><b>Chạm Studio</b></p>
-                        <small class="text-muted">Studio</small>
+                        <p id="user_fullName"><b>Chạm Studio</b></p>
+                        <small id="user_username" class="text-muted">Studio</small>
                     </div>
                     <div class="profile-photo">
                         <img src="../images/logo_stu.png">
@@ -102,6 +102,42 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="../js/studashboard.js"></script>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('accessToken');
+            window.location.href = '/Login';
+        }
+
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Model.ApiDomain' + 'api/employees/current',
+                type: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    let accessToken = localStorage.getItem('accessToken');
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                },
+                success: function (response, status, xhr) {
+                    if (!response) {
+                        logout()
+                        return
+                    }
+                    let user_fullName = document.getElementById('user_fullName')
+                    let user_username = document.getElementById('user_username')
+                    user_fullName.innerHTML = response.accountModel.fullName
+                    user_username.innerHTML = response.accountModel.username
+                },
+                error: function (error) {
+                    // Handle any errors that occur during the request
+                    console.error(error);
+                    logout()
+                }
+            });
+        });
+
+    </script>
 </body>
 
 </html>

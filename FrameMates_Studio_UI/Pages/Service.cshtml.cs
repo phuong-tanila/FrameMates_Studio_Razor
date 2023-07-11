@@ -5,8 +5,18 @@ namespace FrameMates_Studio_UI.Pages
 {
     public class ServiceModel : PageModel
     {
+        private readonly IConfiguration _configuration;
+
+        public ServiceModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        public string ApiDomain { get; private set; }
+
         public void OnGet()
         {
+            ApiDomain = _configuration["apiDomain"];
         }
     }
 }

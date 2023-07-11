@@ -340,12 +340,12 @@
                         <div class="container_create">
                             <div class="main-form">
                                 <div class="form-head">
-                                    <form action="#">
+                                    <form id="createService" method="post">
                                         <div class="form-content">
                                             <div class="input-box-file">
                                                 <h2><span class="details">Cover Image</span></h2>
                                                 <div class="drop_box">
-                                                    <input type="file" id="fileID" onchange="getImagePreview(event)">
+                                                    <input type="file" id="fileID" name="coverImage" onchange="getImagePreview(event)">
                                                     <label for="fileID">
                                                         <div id="preview" class="preview"><img src="../images/account_null.png" class="cover-img"></div>
 
@@ -364,31 +364,31 @@
                                                 </div>
                                                 <div class="input-box">
                                                     <h2><span class="details">Service Name</span></h2>
-                                                    <input class="input" type="text" placeholder="Name">
+                                                    <input class="input" name="serviceName" type="text" placeholder="Name">
                                                 </div>
                                                 <div class="input-box">
                                                     <h2><span class="details">Price</span></h2>
-                                                    <input class="input" type="number" placeholder="Price">
+                                                    <input class="input" name="price" type="number" placeholder="Price">
                                                 </div>
-                                                <div class="input-box">
+                                                @*<div class="input-box">
                                                     <h2><span class="details">Discount</span></h2>
-                                                    <input class="input" type="number" placeholder="Discount">
+                                                    <input class="input" name="discount" type="number" placeholder="Discount">
+                                                </div>*@
+                                                <div class="input-box">
+                                                    <h2><span class="details">Description</span></h2>
+                                                    <textarea name="description" placeholder="Description"></textarea>
                                                 </div>
                                                 <div class="input-box">
-                                                    <h2><span class="details">Discription</span></h2>
-                                                    <textarea placeholder="Discription"></textarea>
-                                            </div>
-                                            <div class="input-box">
-                                                <h2><span class="details">Mini Pictures</span><p>(Required 4)</p></h2>
-                                                <div class="btn_add_pics">
-                                                    <label for="add_mini_pics">Post pictures</label>
-                                                    <input multiple accept=".jpeg, .jpg, .png" type="file" id="add_mini_pics">
-                                                </div>
-                                                <div class="album-selected">
-                                                    <div class="list-pic" id="list_mini_pics">
+                                                    <h2><span class="details">Mini Pictures</span><p>(Required 4)</p></h2>
+                                                    <div class="btn_add_pics">
+                                                        <label for="add_mini_pics">Post pictures</label>
+                                                        <input name="miniPictures" multiple accept=".jpeg, .jpg, .png" type="file" id="add_mini_pics">
+                                                    </div>
+                                                    <div class="album-selected">
+                                                        <div class="list-pic" id="list_mini_pics">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                                 <input type="submit" value="Create">
                                             </div>
                                     </form>
@@ -452,6 +452,61 @@
                 </div>
             </div>
         </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#createService').submit(function (event) {
+                event.preventDefault();
+
+                let coverImage = $('input[name="coverImage"]').val()
+                let serviceName = $('input[name="serviceName"]').val()
+                let price = $('input[name="price"]').val()
+                let description = $('textarea[name="description"]').val()
+                let input = document.getElementById("add_mini_pics")
+                console.log(input)
+                let files = document.getElementById("add_mini_pics").files;
+                let filenames = [];
+                for (var i = 0; i < files.length; i++) {
+                    filenames.push(files[i].name);
+                }
+                let images = filenames.map(f => {
+                    return {
+                        filePath: f,
+                        fileIndex: filenames.indexOf(f) + 1
+                    }
+                })
+
+                let data = {
+                    name: serviceName,
+                    price: price,
+                    description: description,
+                    servicePack_mediaService: images
+                }
+
+                $.ajax({
+                    url: '@Model.ApiDomain' + 'api/services',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    beforeSend: function (xhr) {
+                        let accessToken = localStorage.getItem('accessToken');
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        window.location.href = '/Service'
+                    },
+                    error: function (error) {
+                        // Handle any errors that occur during the request
+                        console.error(error);
+                        // Display an error message to the user
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

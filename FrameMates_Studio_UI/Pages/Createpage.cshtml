@@ -31,7 +31,7 @@
             <div class="profile-detail">
                 <h2>Choose Avatar and Cover Image</h2>
                 <div class="drop_box">
-                    <input type="file" id="fileID" onchange="getImagePreview(event)">
+                    <input type="file" id="fileID" name="coverImage" onchange="getImagePreview(event)">
                     <label for="fileID">
                         <div id="preview" class="preview"><img src="../images/account_null.png" class="cover-img"></div>
 
@@ -54,7 +54,7 @@
                     <div class="pd-row">
 
                         <div class="drop_box_ava">
-                            <input type="file" id="fileID_ava" onchange="getImagePreviewAva(event)">
+                            <input type="file" id="fileID_ava" name="avatar" onchange="getImagePreviewAva(event)">
                             <label for="fileID_ava">
                                 <div id="avatar-img-preview" class="avatar-img-preview">
                                     <img src="../images/account_null.png" class="avatar-img">
@@ -78,34 +78,34 @@
                     </div>
                 </div>
                 <div class="main-prof">
-                    <form action="#">
+                    <form id="createStudio" method="post">
                         <div class="profile-head">
                             <div class="prof-content">
                                 <div class="input-box">
                                     <h1><span class="details">Studio's Name</span></h1>
-                                    <input type="text" placeholder="Studio's Name">
+                                    <input type="text" name="studioName" placeholder="Studio's Name">
                                 </div>
-                                <div class="input-box">
+                                @*<div class="input-box">
                                     <h2><span class="details">Owner</span></h2>
-                                    <input type="text" placeholder="Owner">
+                                    <input type="text"  placeholder="Owner">
                                 </div>
                                 <div class="input-box">
                                     <h2><span class="details">Contact</span></h2>
                                     <input type="text" placeholder="+8403123232">
-                                </div>
+                                </div>*@
                                 <div class="input-box">
                                     <div class="box-disc">
-                                        <h2><span class="details">Discription</span></h2>
-                                        <textarea placeholder="Discription"></textarea>
+                                        <h2><span class="details">Description</span></h2>
+                                        <textarea name="description" placeholder="Description"></textarea>
                                     </div>
                                 </div>
-                                <div class="input-box">
+                                @*<div class="input-box">
                                     <h2><span class="details">Link</span></h2>
                                     <input type="text" placeholder="facebook.com">
-                                </div>
+                                </div>*@
                                 <div class="input-box">
                                     <h2><span class="details">Address</span></h2>
-                                    <input type="text" placeholder="dongnai">
+                                    <input type="text" name="address" placeholder="dongnai">
                                 </div>
                             </div>
                         </div>
@@ -167,6 +167,49 @@
                 </div>
             </div>
         </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#createStudio').submit(function (event) {
+                event.preventDefault();
+
+                let coverImage = $('input[name="coverImage"]').val()
+                let avatar = $('input[name="avatar"]').val()
+                let studioName = $('input[name="studioName"]').val()
+                let description = $('textarea[name="description"]').val()
+                let address = $('input[name="address"]').val()
+
+                let data = {
+                    name: studioName,
+                    address: address,
+                    description: description,
+                    avatarStudio: avatar,
+                    coverImage: coverImage
+                };
+
+                
+                $.ajax({
+                    url: '@Model.ApiDomain' + 'api/studios',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    beforeSend: function (xhr) {
+                        let accessToken = localStorage.getItem('accessToken');
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    },
+                    success: function (response) {
+                        window.location.href = '/Studiopage'
+                    },
+                    error: function (error) {
+                        // Handle any errors that occur during the request
+                        console.error(error);
+                        // Display an error message to the user
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

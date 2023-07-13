@@ -172,9 +172,10 @@ header {
 .form-box .input-box {
     position: relative;
     width: 340px;
-    height: 50px;
+    height: 35px;
     border-bottom: 2px solid var(--color-info-dark);
     margin: 15px 0;
+    margin-bottom: 2.5rem;
 }
 
     .form-box .input-box:hover {
@@ -202,6 +203,14 @@ header {
 .input-box input:valid ~ label {
     top: -5px;
     color: var(--color-primary);
+}
+
+.input-box .error {
+    position: relative;
+    color: #ff3860;
+    font-size: 14px;
+    height: 13px;
+    text-align: start;
 }
 
 .btn {

@@ -29,21 +29,34 @@
     <div class="container">
         <div class="box-signin">
             <div class="form-box signup">
-                <form action="Login">
+                <form id="form-otp" action="Login">
                     <h2>Enter OTP</h2>
                     <p>Please check your OTP code we just sent to <br>your email address or mobile number your just entered.</p>
                     <div class="input-box">
-                        <input type="text" required>
+                        <input id="OTP" type="text" required>
                         <label>OTP Code</label>
+                        <div class="error"></div>
                     </div>
                     <button type="submit" class="btn">Confirm</button>
                     <div class="register">
-                        <p>You already have account?<a href="login.html"> Sign In</a></p>
+                        <p>You already have account?<a href="Login"> Sign In</a></p>
                     </div>
                 </form>
             </div>
         </div>
         <div class="content"></div>
     </div>
+    <script src="../js/validate.js"></script>
+    <script>
+
+        Validator({
+            form: '#form-otp',
+            errorSelector: '.error',
+            rules: [
+                Validator.isRequired('#OTP', 'Please enter your OTP Code')
+            ]
+        })
+
+    </script>
 </body>
 </html>

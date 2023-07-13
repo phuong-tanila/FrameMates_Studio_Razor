@@ -29,31 +29,37 @@
     <div class="container_signup">
         <div class="box-signup">
             <div class="form-box signup">
-                <form action="OTPPage">
+                <form id="form" action="OTPPage">
                     <h2>Sign Up</h2>
                     <div class="input-box">
-                        <input type="text" required>
+                        <input id="fullName" type="text">
                         <label>Full Name</label>
+                        <div class="error"></div>
                     </div>
                     <div class="input-box">
-                        <input type="email" required>
+                        <input id="email" type="text">
                         <label>Email</label>
+                        <div class="error"></div>
                     </div>
                     <div class="input-box">
-                        <input type="password" required>
+                        <input id="password" type="password">
                         <label>Password</label>
+                        <div class="error"></div>
                     </div>
                     <div class="input-box">
-                        <input type="password" required>
+                        <input id="passwordConfirm" type="password">
                         <label>Confirm Password</label>
+                        <div class="error"></div>
                     </div>
                     <div class="input-box">
-                        <input type="number" required>
+                        <input id="phone" type="number">
                         <label>Phone Number</label>
+                        <div class="error"></div>
                     </div>
                     <div class="input-box">
-                        <input type="text" required>
+                        <input id="address" type="text">
                         <label>Address</label>
+                        <div class="error"></div>
                     </div>
                     <button type="submit" class="btn">Sign Up</button>
                     <div class="register">
@@ -66,5 +72,25 @@
 
         </div>
     </div>
+
+    <script src="../js/validate.js"></script>
+    <script>
+
+        Validator({
+            form: '#form',
+            errorSelector: '.error',
+            rules: [
+                Validator.isRequired('#fullName', 'Please enter your name'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password', 6),
+                Validator.isConfirmed('#passwordConfirm', function () {
+                    return document.querySelector('#form #password').value;
+                }),
+                Validator.isPhoneNumber('#phone'),
+                Validator.isRequired('#address'),
+            ]
+        })
+
+    </script>
 </body>
 </html>

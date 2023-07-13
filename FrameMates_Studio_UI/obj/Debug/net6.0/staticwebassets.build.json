@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lpZmHtnMpCl3JQigzThec+Cz/buj/+vj1sQJxxsn+KY=",
+  "Hash": "vV4hJn5gNS2E8kcJtBGr0/XTd3DCZPyNJ4TpaMlM0Eo=",
   "Source": "FrameMates_Studio_UI",
   "BasePath": "_content/FrameMates_Studio_UI",
   "Mode": "Default",
@@ -627,6 +627,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\talkjs-wrapper.js"
+    },
+    {
+      "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\js\\validate.js",
+      "SourceId": "FrameMates_Studio_UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\",
+      "BasePath": "_content/FrameMates_Studio_UI",
+      "RelativePath": "js/validate.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\validate.js"
     },
     {
       "Identity": "D:\\SWD\\razor_page\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

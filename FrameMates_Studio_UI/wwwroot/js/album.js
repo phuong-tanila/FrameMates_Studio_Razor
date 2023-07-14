@@ -4,6 +4,7 @@ window.addEventListener("load",()=>{
 
     input.addEventListener("change", (e)=>{
         let files = e.target.files;
+        console.log("filesss")
         console.log(files);
         for (var i = 0; i < files.length; i++) {
             const f = files[i];

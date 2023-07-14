@@ -26,279 +26,145 @@
 </head>
 
 <body>
-        <main>
-            <h1>Studio's Profile</h1>
-            <div class="profile-container">
-                <div class="profile-detail">
-                    <div class="drop_box">
-                        <input type="file" id="fileID" onchange="getImagePreview(event)">
-                        <label for="fileID">
-                            <div id="preview" class="preview"><img src="../images/black.jpg" class="cover-img"></div>
+    <main>
+        <h1>Studio's Profile</h1>
+        <div class="profile-container">
+            <div class="profile-detail">
+                <div class="drop_box">
+                    <input type="file" id="fileID" onchange="getImagePreview(event)">
+                    <label for="fileID">
+                        <div id="preview" class="preview"><img src="../images/black.jpg" class="cover-img"></div>
 
-                        </label>
-                        <script type="text/javascript">
-                            function getImagePreview(event) {
-                                var image = URL.createObjectURL(event.target.files[0]);
-                                var imagediv01 = document.getElementById('preview');
-                                var newimg = document.createElement('img');
+                    </label>
+                    <script type="text/javascript">
+                        function getImagePreview(event) {
+                            var image = URL.createObjectURL(event.target.files[0]);
+                            var imagediv01 = document.getElementById('preview');
+                            var newimg = document.createElement('img');
 
-                                imagediv01.innerHTML = '';
-                                newimg.src = image;
-                                newimg.width = "100%";
-                                newimg.height = "300";
-                                imagediv01.appendChild(newimg);
-                            }
-                        </script>
-                    </div>
-                    <div class="pd-left">
-                        <div class="pd-row">
-                            <div class="drop_box_ava">
-                                <input type="file" id="fileID_ava" onchange="getImagePreviewAva(event)">
-                                <label for="fileID_ava">
-                                    <div id="avatar-img-preview" class="avatar-img-preview">
-                                        <img src="../images/logo_stu.png" class="avatar-img">
-                                    </div>
+                            imagediv01.innerHTML = '';
+                            newimg.src = image;
+                            newimg.width = "100%";
+                            newimg.height = "300";
+                            imagediv01.appendChild(newimg);
+                        }
+                    </script>
+                </div>
+                <div class="pd-left">
+                    <div class="pd-row">
+                        <div class="drop_box_ava">
+                            <input type="file" id="fileID_ava" onchange="getImagePreviewAva(event)">
+                            <label for="fileID_ava">
+                                <div id="avatar-img-preview" class="avatar-img-preview">
+                                    <img src="../images/logo_stu.png" class="avatar-img">
+                                </div>
 
-                                </label>
-                                <script type="text/javascript">
-                                    function getImagePreviewAva(event) {
-                                        var imageava = URL.createObjectURL(event.target.files[0]);
-                                        var imageavadiv = document.getElementById('avatar-img-preview');
-                                        var newimgava = document.createElement('img');
+                            </label>
+                            <script type="text/javascript">
+                                function getImagePreviewAva(event) {
+                                    var imageava = URL.createObjectURL(event.target.files[0]);
+                                    var imageavadiv = document.getElementById('avatar-img-preview');
+                                    var newimgava = document.createElement('img');
 
-                                        imageavadiv.innerHTML = '';
-                                        newimgava.src = imageava;
-                                        newimgava.height = "125";
-                                        newimgava.width = "125";
-                                        imageavadiv.appendChild(newimgava);
-                                    }
-                                </script>
-                            </div>
-                            <div>
-                                <h3 id="studio_name">Cham Studio</h3>
-                            </div>
+                                    imageavadiv.innerHTML = '';
+                                    newimgava.src = imageava;
+                                    newimgava.height = "125";
+                                    newimgava.width = "125";
+                                    imageavadiv.appendChild(newimgava);
+                                }
+                            </script>
+                        </div>
+                        <div>
+                            <h3 id="studio_name">Cham Studio</h3>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="profile-info">
-                    <div class="profile-intro">
-                        <h3>Introduce</h3>
-                        <p>Hi there!!!</p>
-                    </div>
-                    <div class="prof-col">
-                        <div class="prof-content">
-                            <div class="input-box">
-                                <h2><span class="details">Owner</span></h2>
-                                <h3 id="studio_owner_fullName">NguyenVanA</h3>
-                            </div>
-                            <div class="input-box">
-                                <h2><span class="details">Contact</span></h2>
-                                <h3 id="studio_owner_phone">+8423516987</h3>
-                            </div>
-                            <div class="input-box">
-                                <h2><span class="details">Description</span></h2>
-                                <h3 id="studio_description">hjagsdahsdkjashdk</h3>
-                            </div>
-                            @*<div class="input-box">
-                                <h2><span class="details">Link</span></h2>
-                                <h3><a href="">facebook.com</a></h3>
-                            </div>*@
-                            <div class="input-box">
-                                <h2><span class="details">Address</span></h2>
-                                <h3 id="studio_address">DongNai</h3>
-                            </div>
+            <div class="profile-info">
+                <div class="profile-intro">
+                    <h3>Introduce</h3>
+                    <p>Hi there!!!</p>
+                </div>
+                <div class="prof-col">
+                    <div class="prof-content">
+                        <div class="input-box">
+                            <h2><span class="details">Owner</span></h2>
+                            <h3 id="studio_owner_fullName">NguyenVanA</h3>
+                        </div>
+                        <div class="input-box">
+                            <h2><span class="details">Contact</span></h2>
+                            <h3 id="studio_owner_phone">+8423516987</h3>
+                        </div>
+                        <div class="input-box">
+                            <h2><span class="details">Description</span></h2>
+                            <h3 id="studio_description">hjagsdahsdkjashdk</h3>
+                        </div>
+                        @*<div class="input-box">
+                        <h2><span class="details">Link</span></h2>
+                        <h3><a href="">facebook.com</a></h3>
+                        </div>*@
+                        <div class="input-box">
+                            <h2><span class="details">Address</span></h2>
+                            <h3 id="studio_address">DongNai</h3>
                         </div>
                     </div>
                 </div>
-
-            <div class="album-col">
-                <h2><a href="">Album Solo</a></h2>
-                <div class="pic-album">
-                    <div class="image"><img src="../images/logo_stu.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/account_null.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu2.jpg" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu3.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu4.jpg" class="each-pic"></div>
-                </div>
-                <div class="popup-img">
-                    <span>&times;</span>
-                    <img src="">
-                </div>
-
-                <script>
-                    document.querySelectorAll('.pic-album img').forEach(image => {
-                        image.onclick = () => {
-                            document.querySelector('.popup-img').style.display = 'block';
-                            document.querySelector('.popup-img img').src = image.getAttribute('src');
-                        }
-                    });
-
-                    document.querySelector('.popup-img span').onclick = () => {
-                        document.querySelector('.popup-img').style.display = 'none';
-                    }
-                </script>
             </div>
-            <div class="album-col">
-                <h2><a href="">Album Solo</a></h2>
-                <div class="pic-album">
-                    <div class="image"><img src="../images/logo_stu.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/account_null.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu2.jpg" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu3.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu4.jpg" class="each-pic"></div>
-                </div>
-                <div class="popup-img">
-                    <span>&times;</span>
-                    <img src="">
-                </div>
-
-                <script>
-                    document.querySelectorAll('.pic-album img').forEach(image => {
-                        image.onclick = () => {
-                            document.querySelector('.popup-img').style.display = 'block';
-                            document.querySelector('.popup-img img').src = image.getAttribute('src');
-                        }
-                    });
-
-                    document.querySelector('.popup-img span').onclick = () => {
-                        document.querySelector('.popup-img').style.display = 'none';
-                    }
-                </script>
-            </div>
-            <div class="album-col">
-                <h2><a href="">Album Solo</a></h2>
-                <div class="pic-album">
-                    <div class="image"><img src="../images/logo_stu.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/account_null.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu2.jpg" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu3.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu4.jpg" class="each-pic"></div>
-                </div>
-                <div class="popup-img">
-                    <span>&times;</span>
-                    <img src="">
-                </div>
-
-                <script>
-                    document.querySelectorAll('.pic-album img').forEach(image => {
-                        image.onclick = () => {
-                            document.querySelector('.popup-img').style.display = 'block';
-                            document.querySelector('.popup-img img').src = image.getAttribute('src');
-                        }
-                    });
-
-                    document.querySelector('.popup-img span').onclick = () => {
-                        document.querySelector('.popup-img').style.display = 'none';
-                    }
-                </script>
-            </div>
-            <div class="album-col">
-                <h2><a href="">Album Solo</a></h2>
-                <div class="pic-album">
-                    <div class="image"><img src="../images/logo_stu.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/account_null.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu2.jpg" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu3.png" class="each-pic"></div>
-                    <div class="image"><img src="../images/logo_stu4.jpg" class="each-pic"></div>
-                </div>
-                <div class="popup-img">
-                    <span>&times;</span>
-                    <img src="">
-                </div>
-
-                <script>
-                    document.querySelectorAll('.pic-album img').forEach(image => {
-                        image.onclick = () => {
-                            document.querySelector('.popup-img').style.display = 'block';
-                            document.querySelector('.popup-img img').src = image.getAttribute('src');
-                        }
-                    });
-
-                    document.querySelector('.popup-img span').onclick = () => {
-                        document.querySelector('.popup-img').style.display = 'none';
-                    }
-                </script>
-            </div>
-        </main>
-
-        <div class="right">
-            <div class="top">
-                <div class="profile">
-                    <div class="wrap">
-                        <div class="noti-icon">
-                            <span class="material-symbols-sharp">notifications</span>
-                        </div>
-                        <div class="drop-down">
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/pro_photo.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>
-                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
-                                    </p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/sbtc.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>
-                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
-                                    </p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/sbtc.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>
-                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
-                                    </p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                        </div>
+            <div class="album-container">
+                
+                <div class="album-col">
+                    
+                    <div class="popup-img">
+                        <span>&times;</span>
+                        <img src="">
                     </div>
+
+                    
+                </div>
+            </div>
+    </main>
+
+    <div class="right">
+        <div class="top">
+            <div class="profile">
+                <div class="wrap">
+                </div>
                 <div class="info">
                     <p id="user_fullName"><b>Chạm Studio</b></p>
                     <small id="user_username" class="text-muted">Studio</small>
                 </div>
-                    <div class="profile-photo">
-                        <img src="../images/logo_stu.png">
-                    </div>
+                <div class="profile-photo">
+                    <img src="../images/logo_stu.png">
                 </div>
             </div>
-            <form action="">
-                <div class="create_album">
-                    <h2>Create Album</h2>
-                    <input type="text" required placeholder="Album's Name">
-                    <div class="btn_add_pics">
-                        <label for="add_pics">Post pictures or videos</label>
-                        <input multiple accept=".jpeg, .jpg, .png" type="file" id="add_pics">
-                    </div>
+        </div>
+        <form id="album-form">
+            <div class="create_album">
+                <h2>Create Album</h2>
+                <input type="text" required placeholder="Album's Name">
+                <div class="btn_add_pics">
+                    <label for="add_pics">Post pictures or videos</label>
+                    <input multiple accept=".jpeg, .jpg, .png" type="file" id="add_pics">
                 </div>
-                <div class="album-selected">
-                    <div class="list-pic" id="list_alb">
-                    </div>
-                    <input type="submit" value="Create">
+            </div>
+            <div class="album-selected">
+                <div class="list-pic" id="list_alb">
                 </div>
-            </form>
+                <input type="submit" value="Create">
+            </div>
+        </form>
 
         <script src="../js/album.js"></script>
-
+        
         <script>
+            var currentStudio = "";
             $(document).ready(function () {
                 function logout() {
                     localStorage.removeItem('accessToken');
                     window.location.href = '/Login';
                 }
-
+                var apiDomain = "@Model.ApiDomain";
                 var employee = null;
 
                 $(document).ready(function () {
@@ -341,6 +207,7 @@
                             xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
                         },
                         success: function (response, status, xhr) {
+                            currentStudio = response
                             let currentEmployee = employee
                             console.log(employee)
                             let studio_name = document.getElementById('studio_name')
@@ -353,6 +220,8 @@
                             studio_owner_phone.innerHTML = currentEmployee.accountModel.phone
                             studio_description.innerHTML = response.description
                             studio_address.innerHTML = response.address
+                            document.querySelector(".cover-img").src = response.coverImage
+                            document.querySelector(".avatar-img").src = response.avatarStudio
                         },
                         error: function (error) {
                             // Handle any errors that occur during the request
@@ -360,12 +229,57 @@
                             logout()
                         }
                     });
+                    $.ajax({
+                        async: false,
+                        url: '@Model.ApiDomain' + 'api/albums/studio/' + currentStudio.studioId,
+                        type: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response, status, xhr) {
+                            const albumList = response.sort((a, b) => b.albumId - a.albumId);
+                            console.log(albumList)
+                            const htmls = albumList.map(album => {
+                                const fileEls = album.album_mediaFile.map(file => `<div class="image"><img src="${file.filePath}" class="each-pic"></div>`).join("");
+                                console.log(fileEls)
+                                const data = `<div class="album-col">
+                                                            <h2><a href="">${album.title}</a></h2>
+                                                <div class="pic-album">
+                                                                ${fileEls}
+                                                </div>
+                                                <div class="popup-img">
+                                                    <span>&times;</span>
+                                                    <img src="">
+                                                </div>
 
+                                            </div>`;
+                                return data;
+                            });
+                            document.querySelector(".album-col").innerHTML = htmls.join("");
+                        },
+                        error: function (error) {
+                            // Handle any errors that occur during the request
+                            console.error(error);
+                            //logout()
+                        }
+                    }).done(() => {
+                        document.querySelectorAll('.pic-album img').forEach(image => {
+                            image.onclick = () => {
+                                document.querySelector('.popup-img').style.display = 'block';
+                                document.querySelector('.popup-img img').src = image.getAttribute('src');
+                            }
+                        });
+
+                        document.querySelector('.popup-img span').onclick = () => {
+                            document.querySelector('.popup-img').style.display = 'none';
+                        }
+                    });
                 });
 
-               
+
             });
         </script>
+        <script type="module" src="~/js/firebase-upload-album.js"></script>
+        <script type ="module" src="~/js/firebase-upload-album.js"></script>
 </body>
 
 </html>

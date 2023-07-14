@@ -192,26 +192,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {}
+    "C:\\Users\\15tha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\IT lessons fpt\\Kì 7\\PRN221\\projects\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\FrameMates_Studio_UI.csproj",
+      "projectUniqueName": "D:\\code\\aSWD\\1-new\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\FrameMates_Studio_UI.csproj",
       "projectName": "FrameMates_Studio_UI",
-      "projectPath": "F:\\IT lessons fpt\\Kì 7\\PRN221\\projects\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\FrameMates_Studio_UI.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "F:\\IT lessons fpt\\Kì 7\\PRN221\\projects\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\obj\\",
+      "projectPath": "D:\\code\\aSWD\\1-new\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\FrameMates_Studio_UI.csproj",
+      "packagesPath": "C:\\Users\\15tha\\.nuget\\packages\\",
+      "outputPath": "D:\\code\\aSWD\\1-new\\FrameMates_Studio_Razor\\FrameMates_Studio_UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\15tha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -254,7 +255,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

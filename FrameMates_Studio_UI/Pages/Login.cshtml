@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-
+    <script src="~/js/site.js"></script>
     <script>
         //redirect to dashboard page if JWT exists
         let accessToken = localStorage.getItem("accessToken")
@@ -116,6 +116,7 @@
                             let accessToken = response.accessToken
                             localStorage.setItem('accessToken', accessToken);
                             window.location.href = '/Dashboardstudio';
+                            setCookie("accessToken", accessToken, 10);
                         }
                         else {
                             //handle error

@@ -32,236 +32,50 @@
             <h2>All Comments</h2>
             <section id="all-feedback">
                 <div class="feedback_box_container">
-                    <!-- headbox -->
-                    <div class="feedback_box">
-                        <div class="box_top">
-                            <div class="info_top">
-                                <div class="info_img">
-                                    <img src="../images/pro_photo.jpg">
+                @foreach(var order in Model.Orders)
+                {
+                    foreach(var orderDetail in order.OrderDetails)
+                    {
+                        <div class="feedback_box">
+                            <div class="box_top">
+                                <div class="info_top">
+                                    <div class="info_img">
+                                        <img src="../images/pro_photo.jpg">
+                                    </div>
+                                    <div class="info_name">
+                                        <h2>@orderDetail.ServicePack.Name</h2>
+                                        <strong>@order.Customer.AccountModel.FullName</strong>
+                                        <span>>@order.Customer.AccountModel.Email</span>
+                                    </div>
                                 </div>
-                                <div class="info_name">
-                                    <h2>Wedding Album</h2>
-                                    <strong>Mai Trung</strong>
-                                    <span>trung@gmail.com</span>
+                                <div class="review">
+                                    <div class="star">
+                                        @for (var i = 1; i <= orderDetail.Rating; i++)
+                                        {
+                                            <i class="fa-solid fa-star" style="color: #f7f145;"></i>
+                                        }
+                                    </div>
+                                    <h5>Day: <span>@orderDetail.PostDate</span></h5>
                                 </div>
                             </div>
-                            <div class="review">
-                            <div class="star">
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                            </div>
-                                <h5>Day: <span>14/06/2023</span></h5>
-                            </div>
-                        </div>
 
-                        <div class="comment">
-                            <p>mmmmmmmmmmmmmmmmmmmmmmmm kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  ppppppppppppp jjjjjjjjjjjjjj iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
-                        </div>
-                        <div class="text-reply">
-                            <textarea name="Reply" placeholder="Reply"></textarea>
-                            <button>Post Comment</button>
-                        </div>
-                        <div class="extra_inf">
-                            <p>Booking Date: </p><span>30/05/2023</span>
-                            <p>Total Price: </p><span>3.500.000 VND</span>
-                        </div>
-                    </div>
-                    <!-- endbox -->
-                    <!-- headbox -->
-                    <div class="feedback_box">
-                        <div class="box_top">
-                            <div class="info_top">
-                                <div class="info_img">
-                                    <img src="../images/pro_photo.jpg">
-                                </div>
-                                <div class="info_name">
-                                    <h2>Wedding Album</h2>
-                                    <strong>Mai Trung</strong>
-                                    <span>trung@gmail.com</span>
-                                </div>
+                            <div class="comment">
+                                <p>@orderDetail.Content</p>
                             </div>
-                            <div class="review">
-                            <div class="star">
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                            </div>
-                                <h5>Day: <span>14/06/2023</span></h5>
-                            </div>
-                        </div>
 
-                        <div class="comment">
-                            <p>mmmmmmmmmmmmmmmmmmmmmmmm kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  ppppppppppppp jjjjjjjjjjjjjj iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
-                        </div>
-                        <div class="text-reply">
-                            <textarea name="Reply" placeholder="Reply"></textarea>
-                            <button>Post Comment</button>
-                        </div>
-                        <div class="extra_inf">
-                            <p>Booking Date: </p><span>30/05/2023</span>
-                            <p>Total Price: </p><span>3.500.000 VND</span>
-                        </div>
-                    </div>
-                    <!-- endbox -->
-                    <!-- headbox -->
-                    <div class="feedback_box">
-                        <div class="box_top">
-                            <div class="info_top">
-                                <div class="info_img">
-                                    <img src="../images/pro_photo.jpg">
-                                </div>
-                                <div class="info_name">
-                                    <h2>Wedding Album</h2>
-                                    <strong>Mai Trung</strong>
-                                    <span>trung@gmail.com</span>
-                                </div>
-                            </div>
-                            <div class="review">
-                            <div class="star">
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                            </div>
-                                <h5>Day: <span>14/06/2023</span></h5>
+                            <div class="extra_inf">
+                                <p>Booking Date: </p><span>@order.OrderDate</span>
+                                <p>Price: </p><span>@orderDetail.Price</span>
                             </div>
                         </div>
-
-                        <div class="comment">
-                            <p>mmmmmmmmmmmmmmmmmmmmmmmm kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  ppppppppppppp jjjjjjjjjjjjjj iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
-                        </div>
-                        <div class="text-reply">
-                            <textarea name="Reply" placeholder="Reply"></textarea>
-                            <button>Post Comment</button>
-                        </div>
-                        <div class="extra_inf">
-                            <p>Booking Date: </p><span>30/05/2023</span>
-                            <p>Total Price: </p><span>3.500.000 VND</span>
-                        </div>
-                    </div>
-                    <!-- endbox -->
-                    <!-- headbox -->
-                    <div class="feedback_box">
-                        <div class="box_top">
-                            <div class="info_top">
-                                <div class="info_img">
-                                    <img src="../images/pro_photo.jpg">
-                                </div>
-                                <div class="info_name">
-                                    <h2>Wedding Album</h2>
-                                    <strong>Mai Trung</strong>
-                                    <span>trung@gmail.com</span>
-                                </div>
-                            </div>
-                            <div class="review">
-                            <div class="star">
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                            </div>
-                                <h5>Day: <span>14/06/2023</span></h5>
-                            </div>
-                        </div>
-
-                        <div class="comment">
-                            <p>mmmmmmmmmmmmmmmmmmmmmmmm sjfkjadsfn adnckand jn kl nklankjdbks lkn lkasnv lknkjbalsjcblakn jbljb lknkjbalsjcblakn kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  ppppppppppppp jjjjjjjjjjjjjj iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
-                        </div>
-                        <div class="text-reply">
-                            <textarea name="Reply" placeholder="Reply"></textarea>
-                            <button>Post Comment</button>
-                        </div>
-                        <div class="extra_inf">
-                            <p>Booking Date: </p><span>30/05/2023</span>
-                            <p>Total Price: </p><span>3.500.000 VND</span>
-                        </div>
-                    </div>
-                    <!-- endbox -->
-                    <!-- headbox -->
-                    <div class="feedback_box">
-                        <div class="box_top">
-                            <div class="info_top">
-                                <div class="info_img">
-                                    <img src="../images/pro_photo.jpg">
-                                </div>
-                                <div class="info_name">
-                                    <h2>Wedding Album</h2>
-                                    <strong>Mai Trung</strong>
-                                    <span>trung@gmail.com</span>
-                                </div>
-                            </div>
-                            <div class="review">
-                            <div class="star">
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                                <i class="fa-solid fa-star" style="color: #f7f145;"></i>
-                            </div>
-                                <h5>Day: <span>14/06/2023</span></h5>
-                            </div>
-                        </div>
-
-                        <div class="comment">
-                            <p>mmmmmmmmmmmmmmmmmmmmmmmm kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  ppppppppppppp jjjjjjjjjjjjjj iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
-                        </div>
-                        <div class="text-reply">
-                            <textarea name="Reply" placeholder="Reply"></textarea>
-                            <button>Post Comment</button>
-                        </div>
-                        <div class="extra_inf">
-                            <p>Booking Date: </p><span>30/05/2023</span>
-                            <p>Total Price: </p><span>3.500.000 VND</span>
-                        </div>
-                    </div>
-                    <!-- endbox -->
-                </div>
+                    }
+                }
+            </div>
             </section>
         </main>
         <div class="right">
             <div class="top">
                 <div class="profile">
-                    <div class="wrap">
-                        <div class="noti-icon">
-                            <span class="material-symbols-sharp">notifications</span>
-                        </div>
-                        <div class="drop-down">
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/pro_photo.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/sbtc.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                            <div class="noti-item">
-                                <div class="noti-img">
-                                    <img src="../images/sbtc.jpg">
-                                </div>
-                                <div class="noti-info">
-                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
-                                    <p id="noti-time">5h ago</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="info">
                         <p><b>Chạm Studio</b></p>
                         <small class="text-muted">Studio</small>

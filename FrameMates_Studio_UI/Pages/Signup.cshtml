@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="~/css/stylesignup.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <style>
+              .error{
+            text-align: left !important;
+                  color: red !important;
+                  margin-top: 5px !important;
+              }
+          </style>
 </head>
 
 <body>
@@ -35,18 +42,23 @@
                     <div class="input-box">
                         <input type="text" name="username" required>
                         <label>Username</label>
+                        <p class="username-error error"></p>
                     </div>
                     <div class="input-box">
                         <input type="text" name="fullname" required>
                         <label>Full Name</label>
+                        <p class="fullName-error error"></p>
                     </div>
                     <div class="input-box">
                         <input type="email" name="email" required>
                         <label>Email</label>
+                        <p class="email-error error"></p>
+
                     </div>
                     <div class="input-box">
                         <input type="password" name="password" required>
                         <label>Password</label>
+                        <p class="password-error  error"></p>
                     </div>
                     <div class="input-box">
                         <input type="password" name="confirmPassword" required>
@@ -55,6 +67,7 @@
                     <div class="input-box">
                         <input type="number" name="phoneNumber" required>
                         <label>Phone Number</label>
+                        <p class="phone-error error"></p>
                     </div>
                     @*<div class="input-box">
                         <input type="text" name="address" required>
@@ -113,9 +126,16 @@
                         window.location.href = '/login'
                     },
                     error: function (error) {
-                        // Handle any errors that occur during the request
-                        console.error(error);
-                        // Display an error message to the user
+                        const responseError = error.responseJSON.messages;
+                        console.log(responseError)
+                        responseError.forEach(msg => {
+                            const error = msg.split(":");
+                            const errorField = error[0].replace("accountModel.", "");
+                            const errorMessage = error[1];      
+                            console.log(errorField + "-error");
+                            document.querySelector("." + errorField + "-error").innerHTML = errorMessage;
+
+                        });
                     }
                 });
             });

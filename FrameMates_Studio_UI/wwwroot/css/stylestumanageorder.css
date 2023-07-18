@@ -36,11 +36,13 @@ main {
     main table tbody tr:last-child td {
         border: none;
     }
-
-    /*authorize studio */
-    main .list-booking-cancle {
-        margin-top: 2rem;
-    }
+.input-box-customer table {
+flex-basis:80%;
+}
+/*authorize studio */
+main .list-booking-cancle {
+    margin-top: 2rem;
+}
 
         main .list-booking-cancle h2 {
             margin-bottom: 0.8rem;
@@ -170,14 +172,19 @@ select {
     }
 
 .prof-customer-col .prof-customer-content {
+    height: 300px;
+    overflow-x: auto;
     margin-top: 1rem;
     padding-bottom: 1rem;
+    padding:20px;
 }
 
 .prof-customer-content .input-box-customer {
     display: flex;
     border-bottom: 1px solid #a29e9e;
     margin-top: 0.5rem;
+    justify-content:space-between;
+    align-items:center;
 }
 
     .prof-customer-content .input-box-customer h2 {
@@ -185,14 +192,10 @@ select {
     }
 
     .prof-customer-content .input-box-customer h3 {
-        position: absolute;
-        margin-left: 200px;
-        margin-top: -1.5rem;
-        font-size: 14px;
+
     }
 
 .input-box-customer h3 input {
-    position: absolute;
     font-size: 14px;
     font-family: poppins, sans-serif;
     margin-top: -0.4rem;
@@ -355,4 +358,11 @@ select {
             position: relative;
             margin-top: 1.8rem;
         }
+}
+
+.cke_top, .cke_bottom {
+    display: none;
+}
+.cke_contents {
+    height: 100px !important;
 }

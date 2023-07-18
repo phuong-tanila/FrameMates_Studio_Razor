@@ -19,14 +19,11 @@ namespace FrameMates_Studio_UI.Pages
             _configuration = configuration;
         }
 
-
-
-
         public async Task OnGetAsync()
         {
             ApiDomain = _configuration["apiDomain"];
             var tmpOrders = new List<Order>();
-            
+
             using (HttpClient client = new HttpClient())
             {
                 var accessToken = Request.Cookies["accessToken"];
@@ -41,7 +38,7 @@ namespace FrameMates_Studio_UI.Pages
                 {
                     var jsonHelper = new JsonHelper<List<Order>>();
                     tmpOrders = jsonHelper.ToModel(responseBody);
-                    
+
                     foreach (var o in tmpOrders)
                     {
                         HttpClient client2 = new HttpClient();

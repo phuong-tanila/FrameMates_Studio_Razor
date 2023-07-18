@@ -15,6 +15,9 @@
     <link href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="../js/minipictures.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- ckeditor -->
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function () {
             $(".content .radio_content").hide();
@@ -37,148 +40,145 @@
 </head>
 
 <body>
-    
-        <main>
-            <h1>Service Management</h1>
-            <div class="wrapper">
-                <div class="radio_tabs">
-                    <label data-radio="radio_1" class="radio_wrap">
-                        <input type="radio" name="available" class="input">
-                        <span class="radio_mark">
-                            Available Services
-                        </span>
-                    </label>
-                    <label data-radio="radio_2" class="radio_wrap">
-                        <input type="radio" name="available" class="input">
-                        <span class="radio_mark">
-                            Create Service
-                        </span>
-                    </label>
-                </div>
+    <div id="loading"></div>
+    <main>
+        <h1>Service Management</h1>
 
-                <div class="content">
+        <div class="wrapper">
+
+            <div class="radio_tabs">
+                <label data-radio="radio_1" class="radio_wrap">
+                    <input type="radio" name="available" class="input">
+                    <span class="radio_mark">
+                        Available Services
+                    </span>
+                </label>
+                <label data-radio="radio_2" class="radio_wrap">
+                    <input type="radio" name="available" class="input">
+                    <span class="radio_mark">
+                        Create Service
+                    </span>
+                </label>
+            </div>
+
+            <div class="content">
                 <div class="radio_content radio_1">
                     <table>
+                        @*
+                        <tbody id="table_body">
+                        @foreach(var cus in Model.CustomerList)
+                        {
+                        <tr>
+                        <td>@cus.AccountModel.Username</td>
+                        <td>@cus.AccountModel.FullName</td>
+                        <td>@cus.AccountModel.Email</td>
+                        <td>@cus.AccountModel.Phone</td>
+                        <td>@cus.CreateDate</td>
+                        <td>@cus.Address</td>
+                        <td>
+                        <a href="#detail-customer-page" onclick="toggleModal(this)" class="primary">Details</a>
+                        <input class="cus-birthdate" type="hidden" value="@cus.BirthDate">
+                        <input class="cus-status" type="hidden" value="@cus.Status">
+                        </td>
+                        </tr>
+                        }
+
+                        </tbody>
+                        </table>
+                        <div class="pagination">
+                        <ul>
+                        @{
+                        var currentPageQueryString = Request.Query["pageNum"];
+                        var pageNumber = currentPageQueryString.Count > 0 ? currentPageQueryString[0] : "0";
+                        }
+                        @for (var i = 0; i < Model.TotalPage; i++)
+                        {
+
+                        <li class="pagination_item @(pageNumber.Equals(i.ToString()) ? "onpage" : "")" onclick="activeLink()"><a href="/Customer?pageNum=@i">@(i + 1)</a></li>
+                        }
+                        </ul>
+                        </div>
+                        *@
                         <tbody>
-                            <tr>
-                                <td>
-                                    <h4>Kỷ yếu</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Look book</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Kỷ yếu</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Look book</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Kỷ yếu</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Look book</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Kỷ yếu</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Look book</h4>
-                                </td>
-                                <td><a href="#update-service" class="sky">Update</a></td>
-                                <td><a href="#detail-service" class="primary">Details</a></td>
-                                <td><a href="#delete-service" class="danger">Delete</a></td>
-                            </tr>
+                            @foreach (var service in Model.Service)
+                            {
+                                <tr>
+                                    <td>
+                                        <h4>@service.Name</h4>
+                                    </td>
+                                    <td><a href="#update-service" class="sky">Update</a></td>
+                                    <td><a href="#detail-service" onclick="detailHandle(@service.ServiceId)" class="primary">Details</a></td>
+                                    <td><a href="#delete-service" onclick="deleteHandle(@service.ServiceId)" class="danger">Delete</a></td>
+                                </tr>
+                            }
+
                         </tbody>
                     </table>
+                    @*<div class="pagination">
+                    <ul>
+                    @{
+                    var currentPageQueryString = Request.Query["pageNum"];
+                    var pageNumber = currentPageQueryString.Count > 0 ? currentPageQueryString[0] : "0";
+                    }
+                    @for (var i = 0; i < Model.TotalPage; i++)
+                    {
 
+                    <li class="pagination_item @(pageNumber.Equals(i.ToString()) ? "onpage" : "")" onclick="activeLink()"><a href="/Customer?pageNum=@i">@(i + 1)</a></li>
+                    }
+                    </ul>
+                    </div>*@
                     <div class="dialog-details overlay-details" id="detail-service">
                         <div class="dialog-body-detail">
                             <a class="dialog-close-detail" href="#">&times;</a>
                             <h2 class="h2">Detail Service</h2>
                             <div class="container_service">
-                                <div class="top-prof-serv">
-                                    <img src="../images/black.jpg" />
+                                @*<div class="top-prof-serv">
+                                <img src="../images/black.jpg" />
                                 </div>
                                 <div class="main-serv">
-                                    <div class="serv-content">
-                                        <div class="above">
-                                            <div class="view">
-                                                <span class="material-symbols-sharp eye">visibility</span><span class="views">1.023</span>
-                                            </div>
-                                            <div class="rating">
-                                                <span class="vote">4.7</span><span class="material-symbols-sharp star">stars</span>
-                                            </div>
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Service</span></h2>
-                                            <input type="text" readonly value="Kỷ yếu">
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Discount</span></h2>
-                                            <input type="text" readonly value="30%">
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Discription</span></h2>
-                                            <textarea name="Discription" readonly>asdasdasd</textarea>
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Price</span></h2>
-                                            <input type="number" readonly value="3200000">
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Created</span></h2>
-                                            <input type="datetime" readonly value="12/06/2023">
-                                        </div>
-                                        <div class="input-box">
-                                            <h2><span class="details">Updated</span></h2>
-                                            <input type="datetime" readonly value="12/06/2023">
-                                        </div>
-                                        <div class="input-box">
-                                            <div class="img-compo">
-                                                <img src="../images/logo_stu2.jpg">
-                                                <img src="../images/GAM.jpg">
-                                                <img src="../images/GAM.jpg">
-                                                <img src="../images/GAM.jpg">
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="serv-content">
+                                <div class="above">
+                                <div class="view">
+                                <span class="material-symbols-sharp eye">visibility</span><span class="views">1.023</span>
                                 </div>
+                                <div class="rating">
+                                <span class="vote">4.7</span><span class="material-symbols-sharp star">stars</span>
+                                </div>
+                                </div>
+                                <div class="input-box">
+                                <h2><span class="details">Service</span></h2>
+                                <h3 id="modal-service-name"></h3>
+                                </div>
+                                <div class="input-box">
+                                <h2><span class="details">Discount</span></h2>
+                                <h3 id="modal-service-discount"></h3>
+                                </div>
+                                <div class="input-box">
+                                <h2><span class="details">Description</span></h2>
+                                <textarea id="modal-service-description" name="Discription" readonly></textarea>
+                                </div>
+                                <div class="input-box">
+                                <h2><span class="details">Price</span></h2>
+                                <input id="modal-service-price" type="number" readonly>
+                                </div>
+                                <div class="input-box">
+                                <h2><span class="details">Created</span></h2>
+                                <input id="modal-service-created" type="datetime" readonly>
+                                </div>
+                                <div class="input-box">
+                                <h2><span class="details">Updated</span></h2>
+                                <input id="modal-service-updated" type="datetime" readonly>
+                                </div>
+                                <div class="input-box">
+                                <div class="img-compo">
+                                <img src="../images/logo_stu2.jpg">
+                                <img src="../images/GAM.jpg">
+                                <img src="../images/GAM.jpg">
+                                <img src="../images/GAM.jpg">
+                                </div>
+                                </div>
+                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>
@@ -216,12 +216,12 @@
                                                 <h2><span class="details">Service</span></h2>
                                                 <input type="text" value="Kỷ yếu">
                                             </div>
-                                            <div class="input-box">
+                                            @*<div class="input-box">
                                                 <h2><span class="details">Discount</span></h2>
                                                 <input type="text" value="30%">
-                                            </div>
+                                            </div>*@
                                             <div class="input-box">
-                                                <h2><span class="details">Discription</span></h2>
+                                                <h2><span class="details">Description</span></h2>
                                                 <textarea name="Discription">asdasdasd</textarea>
                                             </div>
                                             <div class="input-box">
@@ -323,99 +323,99 @@
                             </div>
                         </div>
                     </div>
-                    <div class="dialog-delete overlay-delete" id="delete-service">
-                        <div class="dialog-body-delete">
-                            <a class="dialog-close-delete" href="#">&times;</a>
-                            <h2 class="h2">Delete Service</h2>
-                            <form action="#">
-                                <span class="delete-letter"><p>Are you sure to delete this service?</p></span>
-                                <button class="primary btn-yes">Yes</button>
-                                <button class="danger btn-no">No</button>
-                            </form>
-                        </div>
+                    @* <div class="dialog-delete overlay-delete" id="delete-service">
+                    <div class="dialog-body-delete">
+                    <a class="dialog-close-delete" href="#">&times;</a>
+                    <h2 class="h2">Delete Service</h2>
+                    <form action="#">
+                    <span class="delete-letter"><p>Are you sure to delete this service?</p></span>
+                    <button class="primary btn-yes">Yes</button>
+                    <button class="danger btn-no">No</button>
+                    </form>
                     </div>
+                    </div>*@
                 </div>
-                    <!-- =========================================================================================== -->
-                    <div class="radio_content radio_2">
-                        <div class="container_create">
-                            <div class="main-form">
-                                <div class="form-head">
-                                    <form id="createService" method="post">
-                                        <div class="form-content">
-                                            <div class="input-box-file">
-                                                <h2><span class="details">Cover Image</span></h2>
-                                                <div class="drop_box">
-                                                    <input type="file" id="fileID" name="coverImage" onchange="getImagePreview(event)">
-                                                    <label for="fileID">
-                                                        <div id="preview" class="preview"><img src="../images/account_null.png" class="cover-img"></div>
+                <!-- =========================================================================================== -->
+                <div class="radio_content radio_2">
+                    <div class="container_create">
+                        <div class="main-form">
+                            <div class="form-head">
+                                <form id="createService" method="post">
+                                    <div class="form-content">
+                                        <div class="input-box-file">
+                                            @*<h2><span class="details">Cover Image</span></h2>*@
+                                            @*<div class="drop_box">
+                                            <input type="file" id="fileID" name="coverImage" onchange="getImagePreview(event)">
+                                            <label for="fileID">
+                                            <div id="preview" class="preview"><img id="cover_image" src="../images/account_null.png" class="cover-img"></div>
 
-                                                    </label>
-                                                    <script type="text/javascript">
-                                                        function getImagePreview(event) {
-                                                            var image = URL.createObjectURL(event.target.files[0]);
-                                                            var imagediv01 = document.getElementById('preview');
-                                                            var newimg = document.createElement('img');
-
-                                                            imagediv01.innerHTML = '';
-                                                            newimg.src = image;
-                                                            imagediv01.appendChild(newimg);
-                                                        }
-                                                    </script>
-                                                </div>
-                                                <div class="input-box">
-                                                    <h2><span class="details">Service Name</span></h2>
-                                                    <input class="input" name="serviceName" type="text" placeholder="Name">
-                                                </div>
-                                                <div class="input-box">
-                                                    <h2><span class="details">Price</span></h2>
-                                                    <input class="input" name="price" type="number" placeholder="Price">
-                                                </div>
-                                                @*<div class="input-box">
-                                                    <h2><span class="details">Discount</span></h2>
-                                                    <input class="input" name="discount" type="number" placeholder="Discount">
-                                                </div>*@
-                                                <div class="input-box">
-                                                    <h2><span class="details">Description</span></h2>
-                                                    <textarea name="description" placeholder="Description"></textarea>
-                                                </div>
-                                                <div class="input-box">
-                                                    <h2><span class="details">Mini Pictures</span><p>(Required 4)</p></h2>
-                                                    <div class="btn_add_pics">
-                                                        <label for="add_mini_pics">Post pictures</label>
-                                                        <input name="miniPictures" multiple accept=".jpeg, .jpg, .png" type="file" id="add_mini_pics">
-                                                    </div>
-                                                    <div class="album-selected">
-                                                        <div class="list-pic" id="list_mini_pics">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <input type="submit" value="Create">
+                                            </label>
+                                            <script type="text/javascript">
+                                            function getImagePreview(event) {
+                                            var image = URL.createObjectURL(event.target.files[0]);
+                                            var cover_image = document.getElementById('cover_image');
+                                            cover_image.src = image
+                                            }
+                                            </script>
+                                            </div>*@
+                                            <div class="input-box">
+                                                <h2><span class="details">Service Name</span></h2>
+                                                <input id="name_input" class="input" name="serviceName" type="text" placeholder="Name">
                                             </div>
-                                    </form>
-                                </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Price</span></h2>
+                                                <input id="price_input" class="input" name="price" type="number" placeholder="Price">
+                                            </div>
+                                            @*<div class="input-box">
+                                            <h2><span class="details">Discount</span></h2>
+                                            <input class="input" name="discount" type="number" placeholder="Discount">
+                                            </div>*@
+                                            <div class="input-box">
+                                                <h2><span class="details">Description</span></h2>
+
+                                                <textarea  id="description_input" name="editor4"></textarea>
+                                                >
+                                            </div>
+                                            <div class="input-box">
+                                                <h2><span class="details">Mini Pictures</span><p>(Required 4)</p></h2>
+                                                <div class="btn_add_pics">
+                                                    <label for="add_mini_pics">Post pictures</label>
+                                                    <input name="miniPictures" multiple accept=".jpeg, .jpg, .png" type="file" id="add_mini_pics">
+                                                </div>
+                                                <div class="album-selected">
+                                                    <div class="list-pic" id="list_mini_pics">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input id="create_input" type="submit" value="Create">
+                                        </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-        <div class="right">
-            <div class="top">
-                <div class="profile">
-                    <div class="wrap">
-                        
-                    </div>
-                    <div class="info">
-                        <p><b>Chạm Studio</b></p>
-                        <small class="text-muted">Studio</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="../images/logo_stu.png">
-                    </div>
+        </div>
+    </main>
+    <div class="right">
+        <div class="top">
+            <div class="profile">
+                <div class="wrap">
+                </div>
+                <div class="info">
+                    <p><b>Chạm Studio</b></p>
+                    <small class="text-muted">Studio</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../images/logo_stu.png">
                 </div>
             </div>
         </div>
-
+    </div>
+    <script>
+                                                    let editor4 = CKEDITOR.replace('editor4');
+                                                    console.log('1231231' + editor4.getData())
+                                                </script>
     <script>
         $(document).ready(function () {
             $('#createService').submit(function (event) {
@@ -469,7 +469,177 @@
             });
         });
     </script>
+    <script>
+        const profileServiceContainer = document.querySelector(".container_service");
+        function toggleModal(el) {
+            console.log('el ' + el)
+            const clickedRow = el.parentElement.parentElement;
+            const hiddenInputs = el.parentElement.querySelectorAll("input");
+            console.log(clickedRow)
 
+            const tdEls = clickedRow.querySelectorAll("td");
+            profileServiceContainer.querySelector("#modal-service-name").innerHTML = tdEls[0].innerHTML
+            profileServiceContainer.querySelector("#modal-service-discount").innerHTML = tdEls[1].innerHTML
+            profileServiceContainer.querySelector("#modal-service-description").innerHTML = tdEls[2].innerText
+            profileServiceContainer.querySelector("#modal-service-price").innerHTML = tdEls[3].innerHTML
+            profileServiceContainer.querySelector("#modal-service-created").innerHTML = tdEls[4].innerHTML
+            profileServiceContainer.querySelector("#modal-service-updated").innerHTML = tdEls[5].innerHTML
+            console.log(tdEls)
+        }
+    </script>
+    <script>
+
+        const price_input = document.querySelector('#price_input')
+        price_input.addEventListener('input', e => {
+
+            e.target.value = Math.abs(e.target.value)
+
+        })
+        function detailHandle(id) {
+            //const profile_container = document.querySelector('.container_service')
+            //const arr = [...btn.parentElement.parentNode.children].map(i => i.innerText)
+            //console.log(arr)
+            //studio = {
+            //    owner: arr[4],
+            //    description: arr[1],
+            //    contact: arr[5],
+            //    address: arr[7],
+            //    imgStudio: arr[2],
+            //    imgCover: arr[3],
+            //    studioName: arr[0]
+            //}
+            //console.log(studio)
+            fetch(`http://localhost:8080/api/services/${id}`)
+                .then(res => res.json())
+                .then(item => {
+                    const container_service = document.querySelector('.container_service')
+                    console.log(item)
+                    let img_arr = item.servicePack_mediaService.map(img => `<img src="${img.filePath}">`)
+                    const htmls = `
+                                                <div class="main-serv">
+                                                    <div class="serv-content">
+                                                        <div class="above">
+                                                            <div class="view">
+                                                                        <span class="material-symbols-sharp eye">visibility</span><span class="views">${item.view}</span>
+                                                            </div>
+                                                            <div class="rating">
+                                                                        <span class="vote">${item.rating}</span><span class="material-symbols-sharp star">stars</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-box">
+                                                                    <span class="details">Service</span>
+                                                                     <textarea id="modal-service-name" name="Discription" readonly>${item.name}</textarea>
+                                                        </div>
+                                                        
+                                                        <div class="input-box">
+                                                            <span class="details">Description</span>
+
+                                                                          <textarea id="editor1"  name="editor1">${item.description}</textarea>
+
+                                                                            </div>
+                                                        <div class="input-box">
+                                                            <span class="details">Price</span>
+                                                                           <span>${item.price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}
+                
+                                                                    </span>
+                                                        </div>
+                                                        <div class="input-box">
+                                                       <span class="details">Created</span>
+                                                                 <span>${new Date(item.createDate).getDate() + '/' +
+                        (new Date(item.createDate).getMonth() + 1) + '/' +
+                        new Date(item.createDate).getFullYear()}
+                                                                            </span>
+                                                        </div>
+                                                        <div class="input-box">
+                                                          <span class="details">Updated</span>
+
+                                                                            <span>${item.updateDate == null ? 'Not update yet' : new Date(item.updateDate).getDate() + '/' +
+                            (new Date(item.updateDate).getMonth() + 1) + '/' +
+                            new Date(item.updateDate).getFullYear()}
+                                                                    </span>
+                                                        </div>
+                                                        <div class="input-box">
+                                                            <div class="img-compo">
+                                                                ${img_arr.join('')}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                            `
+                    container_service.innerHTML = htmls
+
+
+                    return new Promise(res => res())
+
+                })
+                .then(() => { CKEDITOR.replace('editor1'); })
+
+        }
+
+
+    </script>
+   
+
+    <script>
+        const add_mini_pics = document.querySelector('#add_mini_pics')
+        add_mini_pics.addEventListener('change', e => {
+            const imgs = document.querySelectorAll('.each-pic-preview')
+            console.log(e.target.files)
+            if (e.target.files.length > 4 || imgs.length > 4) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'You can only post maximum 4 images!',
+
+                })
+
+            }
+
+        })
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function deleteHandle(id) {
+            Swal.fire({
+                title: 'Do you want to delete the services?',
+                showDenyButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: `Cancel`,
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                   
+                    fetch(`http://localhost:8080/api/services/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            Authorization: `Bearer ${getCookie('accessToken')}`
+                        
+                        }
+                      
+                    }).then(() => { Swal.fire('Deleted!', '', 'success') }).then(()=> {window.location.href = '/Service'})
+                   
+                } else if (result.isDenied) {
+                    Swal.fire('Canceled', '', 'info')
+                }
+            })
+        }
+
+    </script>
+    <script type="module" src="js/firebase-upload-album.js"></script>
 </body>
 
 </html>

@@ -16,6 +16,9 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- ckeditor -->
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function () {
             $(".noti-icon .material-symbols-sharp").click(function () {
@@ -40,78 +43,90 @@
                         <div class="prof-content">
                             <div class="input-box">
                                 <h2><span class="details">Customer Name</span></h2>
-                                <input type="text" placeholder="Customer Name">
+                                <input required id="customer_name" type="text" placeholder="Customer Name">
+                                <ul id="list" style="display:none">
+
+                                    @* <li onclick="clickHandle(this)">1</li>
+                                    <li onclick="clickHandle(this)">1</li>
+                                    <li onclick="clickHandle(this)">1</li>
+                                    <li onclick="clickHandle(this)">1</li>*@
+                                </ul>
                             </div>
                             <div class="input-box">
                                 <h2><span class="details">Address</span></h2>
-                                <input type="text" placeholder="Address">
+                                <input id="address" required type="text" placeholder="Address">
                             </div>
                             <div class="input-box">
                                 <h2><span class="details">Date</span></h2>
-                                <input type="date">
+                                <input required id="date_input" type="date">
                             </div>
                             <div class="input-box">
                                 <h2><span class="details">Deposit</span></h2>
-                                <input type="number" placeholder="VND">
+                                <input id="deposit" required type="number" placeholder="VND">
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Description</span></h2>
+                                <textarea required style="width:100%;border: 1px solid #696969;" id="description_field"></textarea>
                             </div>
                             <div class="input-box">
                                 <div class="box-disc">
                                     <h2><span class="details">Service</span></h2>
-                                    <select id="Options" size="1">
-                                        <option selected="selected" value="">None</option>
+                                    <select required id="Options" size="1">
+                                        @foreach (var s in Model.Services)
+                                        {
+                                            <option selected="selected" value="@s.ServiceId">@s.Name</option>
+                                        }
                                     </select>
-                                    <select id="Type" size="1">
-                                        <option selected="selected" value="">type</option>
-                                    </select>
-                                    <select id="Price" size="1">
-                                        <option selected="selected" value="">price</option>
-                                    </select>
+
+                                    <input type="number" readonly id="Price" size="1">
+
+                                    </input>
                                 </div>
                             </div>
-                            <input type="submit" value="Confirm">
-                            <a href="#preview-booking">Preview</a>
+                            <input id="create_booking" type="submit" value="Confirm"></input>
+                            @*<a href="#preview-booking">Preview</a>*@
 
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="dialog-prev overlay-prev" id="preview-booking">
-                <div class="dialog-body-prev">
-                    <a class="dialog-close-prev" href="#">&times;</a>
-                    <h2>PREVIEW</h2>
-                    <form class="prev-form" action="#">
-                        <div class="prev-box">
-                            <div class="input-box-prev">
-                                <h2><span class="details">Customer Name</span></h2>
-                                <input type="text" readonly value="NguyenVanA">
-                            </div>
-                            <div class="input-box-prev">
-                                <h2><span class="details">Address</span></h2>
-                                <input type="text" readonly value="+8403123232">
-                            </div>
-                            <div class="input-box-prev">
-                                <div class="box-disc">
-                                    <h2><span class="details">Discription</span></h2>
-                                    <input type="text" readonly value="aloalo 1234 alo aloaskdjkj">
-                                </div>
-                            </div>
-                            <div class="input-box-prev">
-                                <h2><span class="details">Date</span></h2>
-                                <input type="text" readonly value="12/06/2023">
-                            </div>
-                            <div class="input-box-prev">
-                                <h2><span class="details">Service</span></h2>
-                                <input type="text" readonly value="Kỷ yếu">
-                            </div>
-                            <div class="input-box-prev">
-                                <h2><span class="details">Price</span></h2>
-                                <input type="text" readonly value="3200000">
-                            </div>
-                        </div>
-                        <input type="submit" value="Confirm">
-                    </form>
-                </div>
+            @* <div class="dialog-prev overlay-prev" id="preview-booking">
+            <div class="dialog-body-prev">
+            <a class="dialog-close-prev" href="#">&times;</a>
+            <h2>PREVIEW</h2>
+            <form class="prev-form" action="#">
+            <div class="prev-box">
+            <div class="input-box-prev">
+            <h2><span class="details">Customer Name</span></h2>
+            <input type="text" readonly value="NguyenVanA">
             </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Address</span></h2>
+            <input type="text" readonly value="+8403123232">
+            </div>
+            <div class="input-box-prev">
+            <div class="box-disc">
+            <h2><span class="details">Discription</span></h2>
+            <input type="text" readonly value="aloalo 1234 alo aloaskdjkj">
+            </div>
+            </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Date</span></h2>
+            <input type="text" readonly value="12/06/2023">
+            </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Service</span></h2>
+            <input type="text" readonly value="Kỷ yếu">
+            </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Price</span></h2>
+            <input type="text" readonly value="3200000">
+            </div>
+            </div>
+            <input type="submit" value="Confirm">
+            </form>
+            </div>
+            </div>*@
             <script src="../js/confirmbooking.js"></script>
         </div>
     </main>
@@ -185,10 +200,11 @@
                     };
             })(window, document, []);
 
+            
             Talk.ready.then(function () {
                 var me = new Talk.User({
                     id: '123456',
-                    name: 'Alice',
+                    name: '123456',
                     email: 'alice@example.com',
                     photoUrl: 'https://talkjs.com/images/avatar-1.jpg',
                     welcomeMessage: 'Hey there! How are you? :-)',
@@ -199,9 +215,9 @@
                 });
                 var other = new Talk.User({
                     id: '654321',
-                    name: 'Sebastian',
+                    name: 'VU DIGITAL',
                     email: 'Sebastian@example.com',
-                    photoUrl: 'https://talkjs.com/images/avatar-5.jpg',
+                    photoUrl: 'https://yt3.googleusercontent.com/R4UqYTcWTp74moaFC0r614nvR7RAzHsvdQsmNhiQ1DryMVHsDVVSCGMu8iTJhKmwatGKuRq9Jg=s176-c-k-c0x00ffffff-no-rj',
                     welcomeMessage: 'Hey, how can I help?',
                 });
 
@@ -219,5 +235,140 @@
     </div>
 </body>
 
+
+<script>
+
+    const customer_name = document.querySelector('#customer_name')
+    customer_name.addEventListener('input', e => {
+        console.log(e.target.value == "")
+        if (!e.target.value == "") {
+            fetch(`http:localhost:8080/api/customers/username/${e.target.value}`, { method: "GET" })
+                .then(res => res.json())
+                .then(arr => {
+                    console.log(arr)
+                    if (!arr) {
+                        document.querySelector('#list').style.display = 'none'
+                    } else {
+                        const htmls = arr.map(i => ` <li data-id = ${i.customerId} onclick="clickHandle(this)">${i.accountModel.username}</li>`)
+                        document.querySelector('#list').style.display = 'block'
+                        document.querySelector('#list').innerHTML = htmls.join('')
+
+                    }
+
+                })
+        } else { document.querySelector('#list').style.display = 'none' }
+
+    })
+
+    // picker date
+    const compare_dates = (d1, d2, parentNode) => {
+        let date1 = new Date(d1).getTime();
+        let date2 = new Date(d2).getTime();
+
+        if (date1 <= date2) {
+            console.log(`${d1} is less than ${d2}`);
+            return false
+        } else if (date1 > date2) {
+            console.log(`${d1} is greater than ${d2}`);
+            return true
+        }
+    };
+
+    function clickHandle(btn) {
+        console.log(btn.innerText)
+        customer_name.value = btn.innerText
+        document.querySelector('#list').style.display = 'none'
+        customer_name.setAttribute("data-id", btn.getAttribute('data-id'));
+    }
+
+    const date_input = document.querySelector('#date_input')
+
+    date_input.addEventListener('change', function () {
+        let currentDate = new Date()
+        let chosenDate = new Date(this.value)
+        console.log(new Date(this.value))
+
+
+        let currentDateByFormat = (currentDate.getMonth() + 1) + '/' + currentDate.getDate() + '/' + currentDate.getFullYear()
+        let chosenDateFormat = (chosenDate.getMonth() + 1) + '/' + chosenDate.getDate() + '/' + chosenDate.getFullYear()
+
+        if (compare_dates(currentDateByFormat, chosenDateFormat, this.parentNode)) {
+            Swal.fire('Choose from to current day')
+            this.value = ""
+        }
+    })
+</script>
+<script>
+    var services = @Json.Serialize(Model.Services);
+    const priceEl = document.querySelector("#Price");
+    const selectService = document.querySelector("#Options");
+    function renderPriceService() {
+        var id = selectService.value;
+        const price = services.filter(i => id == i.serviceId)[0].price;
+        priceEl.value = price;
+    }
+    selectService.addEventListener("change", renderPriceService);
+    renderPriceService();
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    document.querySelector('#create_booking').addEventListener('click', function (e) {
+        e.preventDefault()
+        const description_field = document.querySelector('#description_field')
+        const address = document.querySelector('#address')
+        const date_input = document.querySelector('#date_input')
+        const deposit = document.querySelector('#deposit')
+        const options = document.querySelector('#Options')
+        const price = document.querySelector('#Price')
+        const name = document.querySelector('#customer_name')
+        const obj = {
+            "description": description_field.value,
+            "deposit": deposit.value,
+            "address": address.value,
+            "checkIn": date_input.value,
+            "customer": {
+                "customerId": name.getAttribute('data-id')
+            },
+            "orderDetails": [
+                {
+                    "discount": 0,
+                    "price": price.value,
+                    "servicePack": {
+                        "serviceId": options.value
+                    }
+                }
+
+            ]
+
+
+        }
+        fetch('http://localhost:8080/api/orders', {
+            method: 'post',
+            headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${getCookie('accesstoken')}`,
+            },
+
+            body: JSON.stringify(obj),
+
+        })
+        console.log(obj)
+
+    })
+
+</script>
 
 </html>

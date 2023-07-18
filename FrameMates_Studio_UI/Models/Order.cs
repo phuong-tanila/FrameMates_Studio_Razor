@@ -16,7 +16,7 @@ namespace FrameMates_Studio_UI.Models
 
         public DateTime? PaymentDate { get; set; }
 
-        public int Deposit { get; set; }
+        public int? Deposit { get; set; }
 
         public string Address { get; set; }
 

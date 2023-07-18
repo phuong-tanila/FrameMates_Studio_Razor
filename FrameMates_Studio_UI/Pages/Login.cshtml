@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="~/FrameMates_Admin_UI.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
     <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .error{
+            color: red !important;
+            font-size: 12px;
+        }
+    </style>
+    <script src="~/js/site.js"></script>
 </head>
 
 <body>
@@ -45,6 +52,9 @@
                     </div>
                     <div class="forgot">
                         <a href="#forgot-page">Forgot Password?</a>
+                    </div>
+                    <div>
+                        <p class="error"></p>
                     </div>
                     <button type="submit" class="btn">Sign In</button>
                     <div class="register">
@@ -112,6 +122,11 @@
                     data: JSON.stringify(data),
                     success: function (response, status, xhr) {
                         let accessToken = response.accessToken
+                        const payload = parseJwt(accessToken)
+                        if (payload.role != "employee") {
+                            document.querySelector(".error").innerHTML = "You must login via employee account to use this page!"; 
+                            return;
+                        }
                         if (accessToken) {
                             let accessToken = response.accessToken
                             localStorage.setItem('accessToken', accessToken);
@@ -128,6 +143,7 @@
                     error: function (error) {
                         // Handle any errors that occur during the request
                         console.error(error);
+                        document.querySelector(".error").innerHTML = "Invalid credentials";
                         // Display an error message to the user
                     }
                 });

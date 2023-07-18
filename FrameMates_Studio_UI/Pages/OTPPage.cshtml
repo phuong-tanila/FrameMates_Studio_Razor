@@ -29,11 +29,11 @@
     <div class="container">
         <div class="box-signin">
             <div class="form-box signup">
-                <form action="Login">
+                <form id="otp-form">
                     <h2>Enter OTP</h2>
                     <p>Please check your OTP code we just sent to <br>your email address or mobile number your just entered.</p>
                     <div class="input-box">
-                        <input type="text" required>
+                        <input type="text" id="otp-value" required>
                         <label>OTP Code</label>
                     </div>
                     <button type="submit" class="btn">Confirm</button>
@@ -45,5 +45,38 @@
         </div>
         <div class="content"></div>
     </div>
+    <script>
+        var currentUser = localStorage.getItem("currentUser");
+        if(!currentUser){
+            window.location.href = "/Register";
+        }else{
+            let phoneNumber = currentUser.accountModel.phone;
+            phoneNumber = "+84" + phoneNumber.slice(1);
+            let data = JSON.stringify({ "phoneNumber": phoneNumber });
+            currentUser = JSON.parse(currentUser);
+            $.ajax({
+                url: 'http://localhost:8080/' + '/otp',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: data,
+                success: function (response) {
+                    console.log(response);
+                    //localStorage.setItem("currentUser", JSON.stringify(data));
+                    //window.location.href = '/otppage'
+                },
+                error: function (error) {
+                    // Handle any errors that occur during the request
+                    console.error(error);
+                    // Display an error message to the user
+                }
+            });
+            document.querySelector("#otp-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const otpValue = document.querySelector("#otp-value").value;
+
+            });
+        }
+    </script>
 </body>
 </html>

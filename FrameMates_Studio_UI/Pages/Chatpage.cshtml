@@ -203,22 +203,21 @@
             
             Talk.ready.then(function () {
                 var me = new Talk.User({
-                    id: '123456',
-                    name: '123456',
-                    email: 'alice@example.com',
-                    photoUrl: 'https://talkjs.com/images/avatar-1.jpg',
-                    welcomeMessage: 'Hey there! How are you? :-)',
+                    id: '@Model.Studio.StudioId',
+                    name: '@Model.Studio.Name',
+                    email: '@Model.Studio.Address',
+                    photoUrl: '@Model.Studio.AvatarStudio',
+                    welcomeMessage: 'Welcome to my studio, how can I help you?',
                 });
                 window.talkSession = new Talk.Session({
                     appId: 'tQ6S3FD4', // APPID
                     me: me,
                 });
                 var other = new Talk.User({
-                    id: '654321',
-                    name: 'VU DIGITAL',
-                    email: 'Sebastian@example.com',
-                    photoUrl: 'https://yt3.googleusercontent.com/R4UqYTcWTp74moaFC0r614nvR7RAzHsvdQsmNhiQ1DryMVHsDVVSCGMu8iTJhKmwatGKuRq9Jg=s176-c-k-c0x00ffffff-no-rj',
-                    welcomeMessage: 'Hey, how can I help?',
+                    id: '@Model.Studio.StudioId',
+                    name: '@Model.Studio.Name',
+                    email: '@Model.Studio.Address',
+                    photoUrl: '@Model.Studio.AvatarStudio',
                 });
 
                 var conversation = talkSession.getOrCreateConversation(

@@ -38,7 +38,7 @@ namespace FrameMates_Studio_UI.Pages
 
                     response = await client.GetAsync(apiUrl);
                     responseBody = await response.Content.ReadAsStringAsync();
-
+                    Studio = studio;
                     if (response.IsSuccessStatusCode)
                     {
                         var jsonHelper = new JsonHelper<List<ServicePack>>();

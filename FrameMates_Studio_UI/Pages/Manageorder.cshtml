@@ -284,8 +284,8 @@
                     </div>
                 </div>
                 <div class="info">
-                    <p><b>Chạm Studio</b></p>
-                    <small class="text-muted">Studio</small>
+                    <p id="user_fullName"><b></b></p>
+                    <small id="user_username" class="text-muted"></small>
                 </div>
                 <div class="profile-photo">
                     <img src="../images/logo_stu.png">
@@ -318,7 +318,7 @@
                     description: arr_value[6],
                     serviceList: service
                 }
-
+              
                 const price = service.reduce((acc, curr) => {
                     return acc + curr.price
                 },0)
@@ -326,9 +326,10 @@
                 const td = detail.serviceList.map(i => `
                     <tr>
                 <td>${i.name}</td>
-                <td>${i.price}</td>
+                    <td>${i.price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</td>
             </tr>`)
                 const render_space = document.querySelector('.prof-customer-content')
+            
                 const html = `
                     <div class="input-box-customer">
                                             <h2><span class="details">Full Name</span></h2>
@@ -351,10 +352,11 @@
                                         <div class="input-box-customer">
                                             <h2><span class="details">Price</span></h2>
                                                <h3>${price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
+                                             
                                         </div>
                                         <div class="input-box-customer">
                                             <h2><span class="details">Deposit</span></h2>
-                                               <h3>${(detail.deposit).toString().toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
+                                                   <h3>${new Number(detail.deposit).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
                                         </div>
                                       
                                         <div class="input-box-customer">

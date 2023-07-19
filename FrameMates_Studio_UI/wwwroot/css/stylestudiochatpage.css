@@ -39,12 +39,17 @@ main {
 
     .container_profile .main-prof .prof-content {
         margin-top: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
 .main-prof .prof-content .input-box {
     margin-top: 0.5rem;
     display: block;
     position: relative;
+    width:100%;
 }
 
     .main-prof .prof-content .input-box h2 {
@@ -98,7 +103,6 @@ main {
 
 .prof-content input[type="submit"] {
     text-align: center;
-    margin-left: auto;
     margin-top: 10px;
     width: 50%;
     height: 35px;

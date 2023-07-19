@@ -4,7 +4,7 @@
     {
         public int CustomerId { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public int Status { get; set; }
 

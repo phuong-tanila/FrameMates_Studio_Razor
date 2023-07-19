@@ -35,6 +35,7 @@ main {
 
     main table tbody tr:last-child td {
         border: none;
+        text-align:center;
     }
 .input-box-customer table {
 flex-basis:80%;
@@ -124,10 +125,11 @@ select {
 
 .dialog-close-customer-detail {
     position: absolute;
-    top: 2px;
-    right: 6px;
+    top: 4px;
+    right: 10px;
     text-decoration: none;
     color: #111e88;
+font-size:30px;
 }
 
 .dialog-body-customer-detail .profile-customer-container {

@@ -418,10 +418,11 @@ main .content .container_create {
 
 .dialog-close-detail {
     position: absolute;
-    top: 2px;
-    right: 6px;
+    top: 4px;
+    right: 10px;
     text-decoration: none;
     color: #111e88;
+    font-size: 30px;
 }
 
 
@@ -523,7 +524,7 @@ main .content .container_create {
     margin: 0.5rem;
     width: 125px;
     height: 125px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .main-serv .serv-content .input-box h2 {
@@ -596,10 +597,11 @@ main .content .container_create {
 
 .dialog-close-update {
     position: absolute;
-    top: 2px;
-    right: 6px;
+    top: 4px;
+    right: 10px;
     text-decoration: none;
     color: #111e88;
+font-size:30px;
 }
 
 
@@ -682,7 +684,7 @@ main .content .container_create {
         margin: 0.5rem;
         width: 125px;
         height: 125px;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     .main-serv .serv-content .input-box h2 {
@@ -816,7 +818,7 @@ main .content .container_create {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #696969;
+    background: #fff;
 }
 
 /* Handle */

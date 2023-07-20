@@ -288,10 +288,11 @@ header {
 
 .dialog-close-decline {
     position: absolute;
-    top: 2px;
-    right: 6px;
+    top: 4px;
+    right: 10px;
     text-decoration: none;
     color: #111e88;
+    font-size:30px;
 }
 
 .decline-form {

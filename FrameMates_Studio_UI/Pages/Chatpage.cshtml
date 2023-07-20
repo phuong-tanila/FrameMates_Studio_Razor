@@ -33,6 +33,7 @@
 
     <main>
         <h1>Studio Chat</h1>
+        <div id="loading"></div>
         <div class="container_profile">
             <div class="main-prof">
                 <div class="profile-head">
@@ -200,7 +201,7 @@
                     };
             })(window, document, []);
 
-            
+
             Talk.ready.then(function () {
                 var me = new Talk.User({
                     id: '@Model.Studio.StudioId',
@@ -326,6 +327,8 @@
 
     document.querySelector('#create_booking').addEventListener('click', function (e) {
         e.preventDefault()
+        document.querySelector('#loading').style.display = 'flex'
+        document.querySelector('#loading').innerHTML = `<span class="loader"></span>`
         const description_field = document.querySelector('#description_field')
         const address = document.querySelector('#address')
         const date_input = document.querySelector('#date_input')
@@ -364,7 +367,13 @@
             body: JSON.stringify(obj),
 
         })
-        console.log(obj)
+            .then(() => {
+                document.querySelector('#loading').style.display = 'none'
+                document.querySelector('#loading').innerHTML = ""
+            })
+            .then(()=>{
+            window.location.href = '/ManageOrder'
+            })
 
     })
 

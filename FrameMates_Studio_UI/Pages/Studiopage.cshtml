@@ -1,0 +1,285 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.StudiopageModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestudiopage.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <main>
+        <h1>Studio's Profile</h1>
+        <div class="profile-container">
+            <div class="profile-detail">
+                <div class="drop_box">
+                    <input type="file" id="fileID" onchange="getImagePreview(event)">
+                    <label for="fileID">
+                        <div id="preview" class="preview"><img src="../images/black.jpg" class="cover-img"></div>
+
+                    </label>
+                    <script type="text/javascript">
+                        function getImagePreview(event) {
+                            var image = URL.createObjectURL(event.target.files[0]);
+                            var imagediv01 = document.getElementById('preview');
+                            var newimg = document.createElement('img');
+
+                            imagediv01.innerHTML = '';
+                            newimg.src = image;
+                            newimg.width = "100%";
+                            newimg.height = "300";
+                            imagediv01.appendChild(newimg);
+                        }
+                    </script>
+                </div>
+                <div class="pd-left">
+                    <div class="pd-row">
+                        <div class="drop_box_ava">
+                            <input type="file" id="fileID_ava" onchange="getImagePreviewAva(event)">
+                            <label for="fileID_ava">
+                                <div id="avatar-img-preview" class="avatar-img-preview">
+                                    <img src="../images/logo_stu.png" class="avatar-img">
+                                </div>
+
+                            </label>
+                            <script type="text/javascript">
+                                function getImagePreviewAva(event) {
+                                    var imageava = URL.createObjectURL(event.target.files[0]);
+                                    var imageavadiv = document.getElementById('avatar-img-preview');
+                                    var newimgava = document.createElement('img');
+
+                                    imageavadiv.innerHTML = '';
+                                    newimgava.src = imageava;
+                                    newimgava.height = "125";
+                                    newimgava.width = "125";
+                                    imageavadiv.appendChild(newimgava);
+                                }
+                            </script>
+                        </div>
+                        <div>
+                            <h3 id="studio_name">Cham Studio</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-info">
+                <div class="profile-intro">
+                    <h3>Introduce</h3>
+                    <p>Hi there!!!</p>
+                </div>
+                <div class="prof-col">
+                    <div class="prof-content">
+                        <div class="input-box">
+                            <h2><span class="details">Owner</span></h2>
+                            <span id="studio_owner_fullName">NguyenVanA</span>
+                        </div>
+                        <div class="input-box">
+                            <h2><span class="details">Contact</span></h2>
+                            <span id="studio_owner_phone">+8423516987</span>
+                        </div>
+                        <div class="input-box">
+                            <h2><span class="details">Description</span></h2>
+                            <span id="studio_description">hjagsdahsdkjashdk</span>
+                        </div>
+                        @*<div class="input-box">
+                        <h2><span class="details">Link</span></h2>
+                        <h3><a href="">facebook.com</a></h3>
+                        </div>*@
+                        <div class="input-box">
+                            <h2><span class="details">Address</span></h2>
+                            <span id="studio_address">DongNai</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="album-container">
+                
+                <div class="album-col">
+                    
+                    <div class="popup-img">
+                        <span>&times;</span>
+                        <img src="">
+                    </div>
+
+                    
+                </div>
+            </div>
+    </main>
+
+    <div class="right">
+        <div class="top">
+            <div class="profile">
+                <div class="wrap">
+                </div>
+                <div class="info">
+                    <p id="user_fullName"><b></b></p>
+                    <small id="user_username" class="text-muted"></small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../images/logo_stu.png">
+                </div>
+            </div>
+        </div>
+        <form id="album-form">
+            <div class="create_album">
+                <h2>Create Album</h2>
+                <input type="text" required placeholder="Album's Name">
+                <div class="btn_add_pics">
+                    <label for="add_pics">Post pictures or videos</label>
+                    <input multiple accept=".jpeg, .jpg, .png" type="file" id="add_pics">
+                </div>
+            </div>
+            <div class="album-selected">
+                <div class="list-pic" id="list_alb">
+                </div>
+                <input type="submit" value="Create">
+            </div>
+        </form>
+
+        <script src="../js/album.js"></script>
+        
+        <script>
+            var currentStudio = "";
+            $(document).ready(function () {
+                function logout() {
+                    localStorage.removeItem('accessToken');
+                    window.location.href = '/Login';
+                }
+                var apiDomain = "@Model.ApiDomain";
+                var employee = null;
+
+                $(document).ready(function () {
+                    $.ajax({
+                        async: false,
+                        url: '@Model.ApiDomain' + 'api/employees/current',
+                        type: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        beforeSend: function (xhr) {
+                            let accessToken = localStorage.getItem('accessToken');
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                        },
+                        success: function (response, status, xhr) {
+                            if (!response) {
+                                logout()
+                                return
+                            }
+                            employee = response
+                            let user_fullName = document.getElementById('user_fullName')
+                            let user_username = document.getElementById('user_username')
+                            user_fullName.innerHTML = response.accountModel.fullName
+                            user_username.innerHTML = response.accountModel.username
+                        },
+                        error: function (error) {
+                            // Handle any errors that occur during the request
+                            console.error(error);
+                            logout()
+                        }
+                    });
+
+                    $.ajax({
+                        async: false,
+                        url: '@Model.ApiDomain' + 'api/studios/current-owner',
+                        type: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        beforeSend: function (xhr) {
+                            let accessToken = localStorage.getItem('accessToken');
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                        },
+                        success: function (response, status, xhr) {
+                            currentStudio = response
+                            let currentEmployee = employee
+                            console.log(employee)
+                            let studio_name = document.getElementById('studio_name')
+                            let studio_owner_fullName = document.getElementById('studio_owner_fullName')
+                            let studio_owner_phone = document.getElementById('studio_owner_phone')
+                            let studio_description = document.getElementById('studio_description')
+                            let studio_address = document.getElementById('studio_address')
+                            studio_name.innerHTML = response.name
+                            studio_owner_fullName.innerHTML = currentEmployee.accountModel.fullName
+                            studio_owner_phone.innerHTML = currentEmployee.accountModel.phone
+                            studio_description.innerHTML = response.description
+                            studio_address.innerHTML = response.address
+                            document.querySelector(".cover-img").src = response.coverImage
+                            document.querySelector(".avatar-img").src = response.avatarStudio
+                        },
+                        error: function (error) {
+                            // Handle any errors that occur during the request
+                            console.error(error);
+                            logout()
+                        }
+                    });
+                    $.ajax({
+                        async: false,
+                        url: '@Model.ApiDomain' + 'api/albums/studio/' + currentStudio.studioId,
+                        type: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response, status, xhr) {
+                            const albumList = response.sort((a, b) => b.albumId - a.albumId);
+                            console.log(albumList)
+                            const htmls = albumList.map(album => {
+                                const fileEls = album.album_mediaFile.map(file => `<div class="image"><img src="${file.filePath}" class="each-pic"></div>`).join("");
+                                console.log(fileEls)
+                                const data = `<div class="album-col">
+                                                            <h2><a href="">${album.title}</a></h2>
+                                                <div class="pic-album">
+                                                                ${fileEls}
+                                                </div>
+                                                <div class="popup-img">
+                                                    <span>&times;</span>
+                                                    <img src="">
+                                                </div>
+
+                                            </div>`;
+                                return data;
+                            });
+                            document.querySelector(".album-col").innerHTML = htmls.join("");
+                        },
+                        error: function (error) {
+                            // Handle any errors that occur during the request
+                            console.error(error);
+                            //logout()
+                        }
+                    }).done(() => {
+                        document.querySelectorAll('.pic-album img').forEach(image => {
+                            image.onclick = () => {
+                                document.querySelector('.popup-img').style.display = 'block';
+                                document.querySelector('.popup-img img').src = image.getAttribute('src');
+                            }
+                        });
+
+                        document.querySelector('.popup-img span').onclick = () => {
+                            document.querySelector('.popup-img').style.display = 'none';
+                        }
+                    });
+                });
+
+
+            });
+        </script>
+        <script type="module" src="~/js/firebase-upload-album.js"></script>
+        <script type ="module" src="~/js/firebase-upload-album.js"></script>
+</body>
+
+</html>

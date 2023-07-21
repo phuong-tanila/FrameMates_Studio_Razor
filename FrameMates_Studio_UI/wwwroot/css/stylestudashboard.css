@@ -1,0 +1,256 @@
+/* top */
+main{
+    margin-top: 1.4rem;
+}
+main h3{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 24px;
+}
+
+main .chart{
+    margin-top: 1.5rem;
+}
+
+canvas#chartRating{
+    background: var(--color-white);
+    max-width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    font-size: 16px;
+}
+canvas#chartWeek{
+    background: var(--color-white);
+    max-width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    font-size: 16px;
+}
+canvas#chartMonth{
+    background: var(--color-white);
+    max-width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    font-size: 16px;
+    margin-bottom: 2.4rem;
+}
+canvas#chartRevenue{
+    background: var(--color-white);
+    max-width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    font-size: 16px;
+}
+/* ======================================RIGHT=================================== */
+.right{
+    margin-top: 1.4rem;
+}
+
+.right .top{
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+.right .top p{
+    display: inline;
+}
+
+.right .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+.profile .wrap{
+    width: 500px;
+    margin-top: 1rem;
+}
+.wrap .noti-icon{
+    position: relative;
+    color: var(--color-dark-variant);
+    cursor: pointer;
+}
+.noti-icon:hover{
+    color: var(--color-primary);
+}
+.wrap .drop-down{
+    width: 500px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+    margin: 15px auto 0;
+    padding: 15px;
+    position: absolute;
+    display: none;
+}
+.wrap .drop-down .noti-item{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-info-dark);
+}
+.wrap .drop-down .noti-item:last-child{
+    border: none;
+}
+.wrap .drop-down .noti-item .noti-img{
+    margin-right: 1rem;
+    width: 50px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.wrap .drop-down .noti-item .noti-info{
+    display: block;
+    flex-direction: column;
+    text-align: start;
+}
+.wrap .drop-down::before{
+    content: "";
+    position: absolute;
+}
+.wrap .drop-down .active{
+    display: block;
+}
+/* TOPBOOKING */
+.top_booking{
+    margin-top: 4rem;
+    box-shadow: var(--box-shadow);
+}
+
+.right .top_booking{
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+}
+
+.right .top_booking img{
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+}
+
+.right .top_booking .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--card-padding);
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.right .top_booking .studios{
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--card-padding);
+    border-bottom: 1px solid var(--color-info-light);
+    transition: all 300ms ease;
+}
+
+.right .top_booking .studios:last-child{
+    border: none;
+}
+
+.right .top_booking .studios:hover{
+    background: var(--color-background);
+    cursor: pointer;
+}
+/* TOPREVENUE */
+.top_revenue{
+    margin-top: 4rem;
+    box-shadow: var(--box-shadow);
+}
+
+.right .top_revenue{
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+}
+
+.right .top_revenue img{
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+}
+
+.right .top_revenue .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--card-padding);
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.right .top_revenue .studios{
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--card-padding);
+    border-bottom: 1px solid var(--color-info-light);
+    transition: all 300ms ease;
+}
+
+.right .top_revenue .studios:last-child{
+    border: none;
+}
+
+.right .top_revenue .studios:hover{
+    background: var(--color-background);
+    cursor: pointer;
+}
+.chart-access{
+    margin-top: 3rem;
+}
+/* CHARTACCESS */
+canvas#chartAccessWeek{
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    max-width: 100%;
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+canvas#chartAccessMonth{
+    margin-top: 2rem;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    max-width: 100%;
+    min-height: 100px;
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+/* ==============================MEDIA QUERIES============================== */
+@media screen and (max-width: 1200px) {
+    .container{
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+    aside h1{
+        display: none;
+    }
+    aside .sidebar h3{
+        display: none;
+    }
+    aside .sidebar a{
+        width: 5.6rem;
+    }
+    aside .sidebar a:last-child{
+        position: relative;
+        margin-top: 1.8rem;
+    }
+}

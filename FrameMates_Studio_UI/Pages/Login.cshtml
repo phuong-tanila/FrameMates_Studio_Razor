@@ -1,0 +1,154 @@
+﻿@page
+@model FrameMates_Admin_UI.Pages.LoginModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FrameMates_Admin_UI.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .error{
+            color: red !important;
+            font-size: 12px;
+        }
+    </style>
+    <script src="~/js/site.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <h1><img src="../images/logoswd.png"><span>framemates</span></h1>
+        <nav class="navbar">
+            <div class="linked">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div class="background"></div>
+    <div class="container_login">
+        <div class="content">
+            <img src="../images/logoswd.png">
+        </div>
+        <div class="box-signin">
+            <div class="form-box login">
+                <form id="loginForm" method="post">
+                    <h2>Sign In</h2>
+                    <div class="input-box">
+                        <input type="text" name="username" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="forgot">
+                        <a href="#forgot-page">Forgot Password?</a>
+                    </div>
+                    <div>
+                        <p class="error"></p>
+                    </div>
+                    <button type="submit" class="btn">Sign In</button>
+                    <div class="register">
+                        <p>Don't you have account?<a href="Signup"> Sign Up</a></p>
+                    </div>
+                </form>
+
+                <div class="dialog-decline overlay-decline" id="forgot-page">
+                    <div class="dialog-body-decline">
+                        <a class="dialog-close-decline" href="#">&times;</a>
+                        <h2>Find your account</h2>
+                        <form class="decline-form" action="#reset-password">
+                            <div class="decline-reason">
+                                <p>Please enter your email address or mobile <br>number to search for your account.</p>
+                                <input type="text" required placeholder="Email address or mobile phone">
+                            </div>
+                            <input class="search-acc" type="submit" value="Search">
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-password overlay-password" id="reset-password">
+                    <div class="dialog-body-password">
+                        <a class="dialog-close-password" href="#">&times;</a>
+                        <h2>Send an OTP</h2>
+                        <p>Please check your OTP code we just sent to your email address <br>or mobile number your just entered.</p>
+                        <form class="reset-password-form" action="login.html">
+                            <div class="confirm-password">
+                                <div class="input-box">
+                                    <input type="text" required placeholder="OTP">
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="Enter new password">
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="Confirm password">
+                                </div>
+                            </div>
+                            <input type="submit" class="confirm" value="Confirm">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/site.js"></script>
+    <script>
+        //redirect to dashboard page if JWT exists
+        let accessToken = localStorage.getItem("accessToken")
+        if (accessToken) window.location.href = '/Dashboardstudio';
+
+        $(document).ready(function () {
+            $('#loginForm').submit(function (event) {
+                event.preventDefault();
+                let username = $('input[name="username"]').val();
+                let password = $('input[name="password"]').val();
+                let data = {
+                    credential: username,
+                    password: password
+                };
+                $.ajax({
+                    url: '@Model.ApiDomain' + 'api/auth/login',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function (response, status, xhr) {
+                        let accessToken = response.accessToken
+                        const payload = parseJwt(accessToken)
+                        if (payload.role != "employee") {
+                            document.querySelector(".error").innerHTML = "You must login via employee account to use this page!"; 
+                            return;
+                        }
+                        if (accessToken) {
+                            let accessToken = response.accessToken
+                            localStorage.setItem('accessToken', accessToken);
+                            window.location.href = '/Dashboardstudio';
+                            setCookie("accessToken", accessToken, 10);
+                        }
+                        else {
+                            //handle error
+                            console.log(response)
+                        }
+                       
+                        
+                    },
+                    error: function (error) {
+                        // Handle any errors that occur during the request
+                        console.error(error);
+                        document.querySelector(".error").innerHTML = "Invalid credentials";
+                        // Display an error message to the user
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

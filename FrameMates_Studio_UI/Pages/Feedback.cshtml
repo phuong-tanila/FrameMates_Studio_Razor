@@ -1,0 +1,91 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.FeedbackModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Management Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestufeedback.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+        <main>
+            <h1>Studio's Feedback</h1>
+            <h2>All Comments</h2>
+            <section id="all-feedback">
+                <div class="feedback_box_container">
+                @foreach(var order in Model.Orders)
+                {
+                    foreach(var orderDetail in order.OrderDetails)
+                    {
+                        <div class="feedback_box">
+                            <div class="box_top">
+                                <div class="info_top">
+                                    <div class="info_img">
+                                        <img src="../images/pro_photo.jpg">
+                                    </div>
+                                    <div class="info_name">
+                                        <h2>@orderDetail.ServicePack.Name</h2>
+                                        <strong>@order.Customer.AccountModel.FullName</strong>
+                                        <span>>@order.Customer.AccountModel.Email</span>
+                                    </div>
+                                </div>
+                                <div class="review">
+                                    <div class="star">
+                                        @for (var i = 1; i <= orderDetail.Rating; i++)
+                                        {
+                                            <i class="fa-solid fa-star" style="color: #f7f145;"></i>
+                                        }
+                                    </div>
+                                    <h5>Day: <span>@orderDetail.PostDate</span></h5>
+                                </div>
+                            </div>
+
+                            <div class="comment">
+                                <p>@orderDetail.Content</p>
+                            </div>
+
+                            <div class="extra_inf">
+                                <p>Booking Date: </p><span>@order.OrderDate</span>
+                                <p>Price: </p><span>@orderDetail.Price</span>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            </section>
+        </main>
+        <div class="right">
+            <div class="top">
+            <div class="info" style="display: flex;
+    flex-direction: column;">
+                        <p id="user_fullName"><b></b></p>
+                        <small id="user_username" class="text-muted"></small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../images/logo_stu.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

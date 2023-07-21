@@ -1,0 +1,114 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.DashboardstudioModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Studio Management Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestudashboard.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+   
+        <main>
+            <h1>Studio's Dashboard</h1>
+            <div class="chart">
+                <h2>Seller Service</h2>
+                <h3>WEEK <canvas id="chartWeek"></canvas></h3>
+                <h3>MONTH <canvas id="chartMonth"></canvas></h3>
+                <h2>Revenue</h2>
+                <h3>MONTH <canvas id="chartRevenue"></canvas></h3>
+            </div>
+
+        </main>
+
+        <div class="right">
+            <div class="top">
+                <div class="profile">
+                    <div class="wrap">
+                        <div class="noti-icon">
+                            <span class="material-symbols-sharp">notifications</span>
+                        </div>
+                        <div class="drop-down">
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/pro_photo.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p id="user_fullName"><b></b></p>
+                        <small id="user_username" class="text-muted"></small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../images/logo_stu.png">
+                    </div>
+                </div>
+            </div>
+            <div class="chart-access">
+                <h2>Rating</h2>
+                <div class="chart">
+                    <canvas id="chartRating"></canvas>
+                </div>
+            </div>
+            <div class="chart-access">
+                <h2>ACCESSING CHART</h2>
+                <canvas id="chartAccessWeek"></canvas>
+                <canvas id="chartAccessMonth"></canvas>
+            </div>
+        </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+            integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../js/studashboard.js"></script>
+
+    <script>
+        
+
+        
+
+    </script>
+</body>
+
+</html>

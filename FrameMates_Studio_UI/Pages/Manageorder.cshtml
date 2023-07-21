@@ -1,0 +1,406 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.ManageorderModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Management Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestumanageorder.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- ckeditor -->
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <main>
+        <h1>Manage Orders</h1>
+        <div class="list-booking">
+            <h2>List Booking Request</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Booking Date</th>
+                        <th>Check In</th>
+                        <th>Payment Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.BookingOrder)
+                    {
+                        <tr>
+                            <td>@order.Customer.AccountModel.FullName</td>
+                            <td style="visibility: hidden; display:none;">@order.Customer.AccountModel.Phone</td>
+                            <td style="visibility: hidden; display:none;">@order.Customer.AccountModel.Email</td>
+                            <td >@order.OrderDate</td>
+                            
+                            <td style="visibility: hidden; display:none;">@order.Deposit</td>
+                            <td style="visibility: hidden; display:none;">@order.Address</td>
+                            <td style="visibility: hidden; display:none;">@order.Description</td>
+                            <td class="checkIn">@order.CheckIn</td>
+                            <td>@order.PaymentDate</td>
+                            <td>@order.Status</td>
+                            <td><a href="#detail-customer-page" onclick="detailHandle(@order.OrderId,this)" class="primary">Details</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="list-booking-cancle">
+            <h2>List Canceled Booking</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Booking Date</th>
+                        <th>Check In</th>
+                        <th>Payment Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.CancelOrder)
+                    {
+                        <tr>
+                            <td>@order.Customer.AccountModel.FullName</td>
+                            <td style="visibility: hidden; display:none;">@order.Customer.AccountModel.Phone</td>
+                            <td style="visibility: hidden; display:none;">@order.Customer.AccountModel.Email</td>
+                            <td>@order.OrderDate</td>
+                            <td style="visibility: hidden; display:none;">@order.Deposit</td>
+                            <td style="visibility: hidden; display:none;">@order.Address</td>
+                            <td style="visibility: hidden; display:none;">@order.Description</td>
+                            <td class="checkIn">@order.CheckIn</td>
+                            <td>@order.PaymentDate</td>
+                            <td>@order.Status</td>
+                            <td><a href="#detail-customer-page" onclick="detailHandle(@order.OrderId,this)" class="primary">Details</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="dialog-customer-details overlay-customer-details" id="detail-customer-page">
+            <div class="dialog-body-customer-detail">
+                <a class="dialog-close-customer-detail" href="#">&times;</a>
+                <h2>Order's Details</h2>
+                <div class="profile-customer-container">
+
+                    <div class="profile-customer-info">
+                        <div class="prof-customer-col">
+                            <form action="#">
+                                <div class="prof-customer-content">
+                                    @*<div class="input-box-customer">
+                                        <h2><span class="details">Full Name</span></h2>
+                                        <h3>NguyenVanA</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">E-mail</span></h2>
+                                        <h3>nguyenvana@gmail.com</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Phone Number</span></h2>
+                                        <h3>+8435164872</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Booking Date</span></h2>
+                                        <h3>20/02/2023</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Price</span></h2>
+                                        <h3>5.500.000</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Deposit</span></h2>
+                                        <h3>2.500.000</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Discount</span></h2>
+                                        <h3>None</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Address</span></h2>
+                                        <h3>DongNai</h3>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Description</span></h2>
+                                        <textarea id="description_order" name="description_order"></textarea>
+                                        <script>
+                                            CKEDITOR.replace('description_order');
+
+                                        </script>
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Service</span></h2>
+                                        <table>
+                                            <thead>
+                                            <th>Service Name</th>
+                                            <th>Price</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Solo</td>
+                                                    <td>2.000.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Group</td>
+                                                    <td>3.000.000</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>*@
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ================================================POPUP FOR CUSTOMER CANCEL================================================================== -->
+        <div class="dialog-customer-details overlay-customer-details" id="detail-customer-page-cancel">
+            <div class="dialog-body-customer-detail">
+                <a class="dialog-close-customer-detail" href="#">&times;</a>
+                <h2>Order's Details</h2>
+                <div class="profile-customer-container">
+
+                    <div class="profile-customer-info">
+                        <div class="prof-customer-col">
+                            <div class="prof-customer-content">
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Full Name</span></h2>
+                                    <h3>NguyenVanA</h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">E-mail</span></h2>
+                                    <h3>nguyenvana@gmail.com</h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Phone Number</span></h2>
+                                    <h3>+8435164872</h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Booking Date</span></h2>
+                                    <h3><input type="datetime" readonly value="20/02/2023"></h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Price</span></h2>
+                                    <h3>5.500.000</h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Deposit</span></h2>
+                                    <h3>2.500.000</h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Discount</span></h2>
+                                    <h3>None</h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Address</span></h2>
+                                    <h3>DongNai</h3>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Description</span></h2>
+                                    <textarea>ádasdasdas</textarea>
+                                </div>
+                                <div class="input-box-customer">
+                                    <h2><span class="details">Service</span></h2>
+                                    <table>
+                                        <thead>
+                                        <th>Service Name</th>
+                                        <th>Price</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Solo</td>
+                                                <td>2.000.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Group</td>
+                                                <td>3.000.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <div class="right">
+        <div class="top">
+            <div class="profile">
+                <div class="wrap">
+                    <div class="noti-icon">
+                        <span class="material-symbols-sharp">notifications</span>
+                    </div>
+                    <div class="drop-down">
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/pro_photo.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/sbtc.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/sbtc.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!</p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <p id="user_fullName"><b></b></p>
+                    <small id="user_username" class="text-muted"></small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../images/logo_stu.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function detailHandle(id, btn) {
+        console.log(btn.parentNode.parentNode.children)
+        const arr_value = [...btn.parentNode.parentNode.children].map(item => item.innerText)
+        console.log(arr_value)
+
+        fetch(`http:localhost:8080/api/order-details/feedback/order/${id}`)
+            .then(res => res.json())
+            .then(obj => {
+                const service = obj.map(item => ({
+                    'name': item.servicePack.name,
+                    'price': item.servicePack.price
+                }))
+                console.log(service)
+                const detail = {
+                    fullName: arr_value[0],
+                    phone: arr_value[1],
+                    email: arr_value[2],
+                    bookingDate: arr_value[3],
+                    deposit: arr_value[4],
+                    address: arr_value[5],
+                    description: arr_value[6],
+                    serviceList: service
+                }
+              
+                const price = service.reduce((acc, curr) => {
+                    return acc + curr.price
+                },0)
+                console.log(obj)
+                const td = detail.serviceList.map(i => `
+                    <tr>
+                <td>${i.name}</td>
+                    <td>${i.price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</td>
+            </tr>`)
+                const render_space = document.querySelector('.prof-customer-content')
+            
+                const html = `
+                    <div class="input-box-customer">
+                                            <h2><span class="details">Full Name</span></h2>
+                                            <h3>${detail.fullName}</h3>
+                                        </div>
+                                        <div class="input-box-customer">
+                                            <h2><span class="details">E-mail</span></h2>
+                                            <h3>${detail.email}</h3>
+                                        </div>
+                                        <div class="input-box-customer">
+                                            <h2><span class="details">Phone Number</span></h2>
+                                            <h3>${detail.phone}</h3>
+                                        </div>
+                                        <div class="input-box-customer">
+                                            <h2><span class="details">Booking Date</span></h2>
+                                                        <h3>${new Date(detail.bookingDate).getDate() + '/' +
+                    (new Date(detail.bookingDate).getMonth() + 1) + '/' +
+                    new Date(detail.bookingDate).getFullYear()} </h3>
+                                        </div>
+                                        <div class="input-box-customer">
+                                            <h2><span class="details">Price</span></h2>
+                                               <h3>${price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
+                                             
+                                        </div>
+                                        <div class="input-box-customer">
+                                            <h2><span class="details">Deposit</span></h2>
+                                                   <h3>${new Number(detail.deposit).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
+                                        </div>
+                                      
+                                        <div class="input-box-customer">
+                                            <h2><span class="details">Address</span></h2>
+                                            <h3>${detail.address}</h3>
+                                        </div>
+                                        <div class="input-box-customer">
+                                            <h2><span class="details">Description</span></h2>
+                                            <textarea id="description_order" name="description_order">${detail.description}</textarea>
+                                            
+                                    </div>
+                                    <div class="input-box-customer">
+                                        <h2><span class="details">Service</span></h2>
+                                       
+                                                <table>
+                                                    <thead>
+                                                    <th>Service Name</th>
+                                                    <th>Price</th>
+                                                    </thead>
+                                                    <tbody>
+                                                                ${td.join('')}
+                                                    </tbody>
+                                                </table>
+                                        
+                                    </div>
+                `
+                
+     render_space.innerHTML = html
+     return new Promise(res => res())
+            })
+            .then(()=>{
+          
+              CKEDITOR.replace('description_order');
+            })
+    }
+
+    document.querySelectorAll('.checkIn').forEach(item => {
+        item.innerHTML = `${new Date(item.innerText).getDate() + '/' +
+            (new Date(item.innerText).getMonth() + 1) + '/' +
+            new Date(item.innerText).getFullYear()}`
+    })
+    
+  
+
+</script>
+
+</html>

@@ -1,0 +1,382 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.ChatpageModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Studio Chat Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/stylestudiochatpage.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- ckeditor -->
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+    <script src="talkjs-wrapper.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <h1>Studio Chat</h1>
+        <div id="loading"></div>
+        <div class="container_profile">
+            <div class="main-prof">
+                <div class="profile-head">
+                    <h1>
+                        Confirm Booking
+                    </h1>
+                    <form action="#">
+                        <div class="prof-content">
+                            <div class="input-box">
+                                <h2><span class="details">Customer Name</span></h2>
+                                <input required id="customer_name" type="text" placeholder="Customer Name">
+                                <ul id="list" style="display:none">
+
+                                    @* <li onclick="clickHandle(this)">1</li>
+                                    <li onclick="clickHandle(this)">1</li>
+                                    <li onclick="clickHandle(this)">1</li>
+                                    <li onclick="clickHandle(this)">1</li>*@
+                                </ul>
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Address</span></h2>
+                                <input id="address" required type="text" placeholder="Address">
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Date</span></h2>
+                                <input required id="date_input" type="date">
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Deposit</span></h2>
+                                <input id="deposit" required type="number" placeholder="VND">
+                            </div>
+                            <div class="input-box">
+                                <h2><span class="details">Description</span></h2>
+                                <textarea required style="width:100%;border: 1px solid #696969;" id="description_field"></textarea>
+                            </div>
+                            <div class="input-box">
+                                <div class="box-disc">
+                                    <h2><span class="details">Service</span></h2>
+                                    <select required id="Options" size="1">
+                                        @foreach (var s in Model.Services)
+                                        {
+                                            <option selected="selected" value="@s.ServiceId">@s.Name</option>
+                                        }
+                                    </select>
+
+                                    <input type="number" readonly id="Price" size="1">
+
+                                    </input>
+                                </div>
+                            </div>
+                            <input id="create_booking" type="submit" value="Confirm"></input>
+                            @*<a href="#preview-booking">Preview</a>*@
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @* <div class="dialog-prev overlay-prev" id="preview-booking">
+            <div class="dialog-body-prev">
+            <a class="dialog-close-prev" href="#">&times;</a>
+            <h2>PREVIEW</h2>
+            <form class="prev-form" action="#">
+            <div class="prev-box">
+            <div class="input-box-prev">
+            <h2><span class="details">Customer Name</span></h2>
+            <input type="text" readonly value="NguyenVanA">
+            </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Address</span></h2>
+            <input type="text" readonly value="+8403123232">
+            </div>
+            <div class="input-box-prev">
+            <div class="box-disc">
+            <h2><span class="details">Discription</span></h2>
+            <input type="text" readonly value="aloalo 1234 alo aloaskdjkj">
+            </div>
+            </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Date</span></h2>
+            <input type="text" readonly value="12/06/2023">
+            </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Service</span></h2>
+            <input type="text" readonly value="Kỷ yếu">
+            </div>
+            <div class="input-box-prev">
+            <h2><span class="details">Price</span></h2>
+            <input type="text" readonly value="3200000">
+            </div>
+            </div>
+            <input type="submit" value="Confirm">
+            </form>
+            </div>
+            </div>*@
+            <script src="../js/confirmbooking.js"></script>
+        </div>
+    </main>
+    <div class="right">
+        <div class="top">
+            <div class="profile">
+                <div class="wrap">
+                    <div class="noti-icon">
+                        <span class="material-symbols-sharp">notifications</span>
+                    </div>
+                    <div class="drop-down">
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/pro_photo.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>
+                                    he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                </p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/sbtc.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>
+                                    he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                </p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                        <div class="noti-item">
+                            <div class="noti-img">
+                                <img src="../images/sbtc.jpg">
+                            </div>
+                            <div class="noti-info">
+                                <p>
+                                    he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                </p>
+                                <p id="noti-time">5h ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <p id="user_fullName"><b></b></p>
+                    <small id="user_username" class="text-muted"></small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../images/logo_stu.png">
+                </div>
+            </div>
+        </div>
+
+        <!--Start of TALKJS-->
+        <div class="talkjs" id="talkjs-container" style="width: 100%; height: 400px;"> </div>
+        <!--END of TALKJS-->
+        <!--Start of TALKJS.to Script-->
+        <script type="text/javascript">
+            (function (t, a, l, k, j, s) {
+                s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
+                    ; k = t.Promise; t.Talk = {
+                        v: 3, ready: {
+                            then: function (f) {
+                                if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
+                                    .push([f])
+                            }, catch: function () { return k && new k() }, c: l
+                        }
+                    };
+            })(window, document, []);
+
+
+            Talk.ready.then(function () {
+                var me = new Talk.User({
+                    id: '@Model.Studio.StudioId',
+                    name: '@Model.Studio.Name',
+                    email: '@Model.Studio.Address',
+                    photoUrl: '@Model.Studio.AvatarStudio',
+                    welcomeMessage: 'Welcome to my studio, how can I help you?',
+                });
+                window.talkSession = new Talk.Session({
+                    appId: 'tQ6S3FD4', // APPID
+                    me: me,
+                });
+                var other = new Talk.User({
+                    id: '@Model.Studio.StudioId',
+                    name: '@Model.Studio.Name',
+                    email: '@Model.Studio.Address',
+                    photoUrl: '@Model.Studio.AvatarStudio',
+                });
+
+                var conversation = talkSession.getOrCreateConversation(
+                    Talk.oneOnOneId(me, other)
+                );
+                conversation.setParticipant(me);
+                conversation.setParticipant(other);
+
+                var inbox = talkSession.createInbox({ selected: conversation });
+                inbox.mount(document.getElementById('talkjs-container'));
+            });
+        </script>
+        <!--End of TALKJS Script-->
+    </div>
+</body>
+
+
+<script>
+
+    const customer_name = document.querySelector('#customer_name')
+    customer_name.addEventListener('input', e => {
+        console.log(e.target.value == "")
+        if (!e.target.value == "") {
+            fetch(`http:localhost:8080/api/customers/username/${e.target.value}`, { method: "GET" })
+                .then(res => res.json())
+                .then(arr => {
+                    console.log(arr)
+                    if (!arr) {
+                        document.querySelector('#list').style.display = 'none'
+                    } else {
+                        const htmls = arr.map(i => ` <li data-id = ${i.customerId} onclick="clickHandle(this)">${i.accountModel.username}</li>`)
+                        document.querySelector('#list').style.display = 'block'
+                        document.querySelector('#list').innerHTML = htmls.join('')
+
+                    }
+
+                })
+        } else { document.querySelector('#list').style.display = 'none' }
+
+    })
+
+    // picker date
+    const compare_dates = (d1, d2, parentNode) => {
+        let date1 = new Date(d1).getTime();
+        let date2 = new Date(d2).getTime();
+
+        if (date1 <= date2) {
+            console.log(`${d1} is less than ${d2}`);
+            return false
+        } else if (date1 > date2) {
+            console.log(`${d1} is greater than ${d2}`);
+            return true
+        }
+    };
+
+    function clickHandle(btn) {
+        console.log(btn.innerText)
+        customer_name.value = btn.innerText
+        document.querySelector('#list').style.display = 'none'
+        customer_name.setAttribute("data-id", btn.getAttribute('data-id'));
+    }
+
+    const date_input = document.querySelector('#date_input')
+
+    date_input.addEventListener('change', function () {
+        let currentDate = new Date()
+        let chosenDate = new Date(this.value)
+        console.log(new Date(this.value))
+
+
+        let currentDateByFormat = (currentDate.getMonth() + 1) + '/' + currentDate.getDate() + '/' + currentDate.getFullYear()
+        let chosenDateFormat = (chosenDate.getMonth() + 1) + '/' + chosenDate.getDate() + '/' + chosenDate.getFullYear()
+
+        if (compare_dates(currentDateByFormat, chosenDateFormat, this.parentNode)) {
+            Swal.fire('Choose from to current day')
+            this.value = ""
+        }
+    })
+</script>
+<script>
+    var services = @Json.Serialize(Model.Services);
+    const priceEl = document.querySelector("#Price");
+    const selectService = document.querySelector("#Options");
+    function renderPriceService() {
+        var id = selectService.value;
+        const price = services.filter(i => id == i.serviceId)[0].price;
+        priceEl.value = price;
+    }
+    selectService.addEventListener("change", renderPriceService);
+    renderPriceService();
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    document.querySelector('#create_booking').addEventListener('click', function (e) {
+        e.preventDefault()
+        document.querySelector('#loading').style.display = 'flex'
+        document.querySelector('#loading').innerHTML = `<span class="loader"></span>`
+        const description_field = document.querySelector('#description_field')
+        const address = document.querySelector('#address')
+        const date_input = document.querySelector('#date_input')
+        const deposit = document.querySelector('#deposit')
+        const options = document.querySelector('#Options')
+        const price = document.querySelector('#Price')
+        const name = document.querySelector('#customer_name')
+        const obj = {
+            "description": description_field.value,
+            "deposit": deposit.value,
+            "address": address.value,
+            "checkIn": date_input.value,
+            "customer": {
+                "customerId": name.getAttribute('data-id')
+            },
+            "orderDetails": [
+                {
+                    "discount": 0,
+                    "price": price.value,
+                    "servicePack": {
+                        "serviceId": options.value
+                    }
+                }
+
+            ]
+
+
+        }
+        fetch('http://localhost:8080/api/orders', {
+            method: 'post',
+            headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${getCookie('accesstoken')}`,
+            },
+
+            body: JSON.stringify(obj),
+
+        })
+            .then(() => {
+                document.querySelector('#loading').style.display = 'none'
+                document.querySelector('#loading').innerHTML = ""
+            })
+            .then(()=>{
+            window.location.href = '/ManageOrder'
+            })
+
+    })
+
+</script>
+
+</html>

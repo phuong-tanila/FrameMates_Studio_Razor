@@ -1,0 +1,215 @@
+﻿@page
+@model FrameMates_Studio_UI.Pages.CreatepageModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Create Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/createstudio.css">
+    <link href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".noti-icon .material-symbols-sharp").click(function () {
+                $(".drop-down").toggle("active");
+            });
+        });
+    </script>
+</head>
+
+<body>
+        <main>
+            <h1>Studio's Profile</h1>
+            <div class="profile-detail">
+                <h2>Choose Avatar and Cover Image</h2>
+                <div class="drop_box">
+                    <input type="file" id="fileID" name="coverImage" onchange="getImagePreview(event)">
+                    <label for="fileID">
+                        <div id="preview" class="preview"><img src="../images/background_cover.jpg" class="cover-img"></div>
+
+                    </label>
+                    <script type="text/javascript">
+                        function getImagePreview(event) {
+                            var image = URL.createObjectURL(event.target.files[0]);
+                            var imagediv01 = document.getElementById('preview');
+                            var newimg = document.createElement('img');
+
+                            imagediv01.innerHTML = '';
+                            newimg.src = image;
+                            newimg.width = "100%";
+                            newimg.height = "300";
+                            imagediv01.appendChild(newimg);
+                        }
+                    </script>
+                </div>
+                <div class="pd-left">
+                    <div class="pd-row">
+
+                        <div class="drop_box_ava">
+                            <input type="file" id="fileID_ava" name="avatar" onchange="getImagePreviewAva(event)">
+                            <label for="fileID_ava">
+                                <div id="avatar-img-preview" class="avatar-img-preview">
+                                    <img src="../images/account_null.png" class="avatar-img">
+                                </div>
+
+                            </label>
+                            <script type="text/javascript">
+                                function getImagePreviewAva(event) {
+                                    var imageava = URL.createObjectURL(event.target.files[0]);
+                                    var imageavadiv = document.getElementById('avatar-img-preview');
+                                    var newimgava = document.createElement('img');
+
+                                    imageavadiv.innerHTML = '';
+                                    newimgava.src = imageava;
+                                    newimgava.height = "125";
+                                    newimgava.width = "125";
+                                    imageavadiv.appendChild(newimgava);
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-prof">
+                    <form id="createStudio" method="post">
+                        <div class="profile-head">
+                            <div class="prof-content">
+                                <div class="input-box">
+                                    <h1><span class="details">Studio's Name</span></h1>
+                                    <input type="text" name="studioName" placeholder="Studio's Name">
+                                </div>
+                                @*<div class="input-box">
+                                    <h2><span class="details">Owner</span></h2>
+                                    <input type="text"  placeholder="Owner">
+                                </div>
+                                <div class="input-box">
+                                    <h2><span class="details">Contact</span></h2>
+                                    <input type="text" placeholder="+8403123232">
+                                </div>*@
+                                <div class="input-box">
+                                    <div class="box-disc">
+                                        <h2><span class="details">Description</span></h2>
+                                        <textarea name="description" placeholder="Description"></textarea>
+                                    </div>
+                                </div>
+                                @*<div class="input-box">
+                                    <h2><span class="details">Link</span></h2>
+                                    <input type="text" placeholder="facebook.com">
+                                </div>*@
+                                <div class="input-box">
+                                    <h2><span class="details">Address</span></h2>
+                                    <input type="text" name="address" placeholder="dongnai">
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Create Studio">
+                    </form>
+                </div>
+
+        </main>
+        <div class="right">
+            <div class="top">
+                <div class="profile">
+                    <div class="wrap">
+                        <div class="noti-icon">
+                            <span class="material-symbols-sharp">notifications</span>
+                        </div>
+                        <div class="drop-down">
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/pro_photo.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                            <div class="noti-item">
+                                <div class="noti-img">
+                                    <img src="../images/sbtc.jpg">
+                                </div>
+                                <div class="noti-info">
+                                    <p>
+                                        he lô e vờ ry quăn, làm noti mà chưa biết phải cho gì vô đây, thôi để tạm nhé !!!
+                                    </p>
+                                    <p id="noti-time">5h ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p><b>Chạm Studio</b></p>
+                        <small class="text-muted">Studio</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../images/logo_stu.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#createStudio').submit(function (event) {
+                event.preventDefault();
+
+                let coverImage = $('input[name="coverImage"]').val()
+                let avatar = $('input[name="avatar"]').val()
+                let studioName = $('input[name="studioName"]').val()
+                let description = $('textarea[name="description"]').val()
+                let address = $('input[name="address"]').val()
+
+                let data = {
+                    name: studioName,
+                    address: address,
+                    description: description,
+                    avatarStudio: avatar,
+                    coverImage: coverImage
+                };
+
+                
+                $.ajax({
+                    url: '@Model.ApiDomain' + 'api/studios',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    beforeSend: function (xhr) {
+                        let accessToken = localStorage.getItem('accessToken');
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    },
+                    success: function (response) {
+                        window.location.href = '/Studiopage'
+                    },
+                    error: function (error) {
+                        // Handle any errors that occur during the request
+                        console.error(error);
+                        // Display an error message to the user
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

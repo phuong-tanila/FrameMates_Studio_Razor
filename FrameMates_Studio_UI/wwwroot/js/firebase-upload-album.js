@@ -195,7 +195,7 @@ try {
 
             .then(obj => {
                 console.log(obj)
-                fetch('http://localhost:8080/api/services', {
+                fetch('https://api.framemates.io.vn/api/services', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
@@ -230,7 +230,7 @@ const callAddAlbumApi = (album) => {
     
     $.ajax({
         async: false,
-        url: "http://localhost:8080" + '/api/albums',
+        url: "https://api.framemates.io.vn" + '/api/albums',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',

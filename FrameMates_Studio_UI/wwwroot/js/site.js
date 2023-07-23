@@ -44,7 +44,7 @@ function logout() {
 $(document).ready(function () {
     if (window.location.pathname == "/Login" || window.location.pathname == "/Signup") return;
     $.ajax({
-        url: 'http://localhost:8080/' + 'api/employees/current',
+        url: 'https://api.framemates.io.vn/' + 'api/employees/current',
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',

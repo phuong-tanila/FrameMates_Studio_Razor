@@ -99,7 +99,7 @@ document.querySelector('#create_booking').addEventListener('click', function (e)
 
 
     }
-    fetch('http://localhost:8080/api/orders', {
+    fetch('https://api.framemates.io.vn/api/orders', {
         method: 'post',
         headers: {
             "content-type": "application/json",

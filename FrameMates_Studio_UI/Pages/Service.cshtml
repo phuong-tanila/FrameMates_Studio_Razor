@@ -510,7 +510,7 @@
             //    studioName: arr[0]
             //}
             //console.log(studio)
-            fetch(`http://localhost:8080/api/services/${id}`)
+            fetch(`https://api.framemates.io.vn/api/services/${id}`)
                 .then(res => res.json())
                 .then(item => {
                     const container_service = document.querySelector('.container_service')
@@ -624,7 +624,7 @@
 
                 if (result.isConfirmed) {
                    
-                    fetch(`http://localhost:8080/api/services/${id}`, {
+                    fetch(`https://api.framemates.io.vn/api/services/${id}`, {
                         method: 'DELETE',
                         headers: {
                             Authorization: `Bearer ${getCookie('accessToken')}`

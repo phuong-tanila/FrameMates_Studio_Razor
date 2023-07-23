@@ -55,7 +55,7 @@
             let data = JSON.stringify({ "phoneNumber": phoneNumber });
             currentUser = JSON.parse(currentUser);
             $.ajax({
-                url: 'http://localhost:8080/' + '/otp',
+                url: 'https://api.framemates.io.vn/' + '/otp',
                 type: 'POST',
                 dataType: 'json',
                 contentType: 'application/json',

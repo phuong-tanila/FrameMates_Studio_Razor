@@ -1,4 +1,29 @@
-﻿@inject IHttpContextAccessor HttpContextAccessor
+﻿@using FrameMates_Studio_UI.Exceptions;
+@using FrameMates_Studio_UI.Models;
+@using FrameMates_Studio_UI.Services;
+@using System.Text.Json;
+@using System.Text.Encodings.Web;
+@inject IHttpContextAccessor HttpContextAccessor
+@inject StudioService studioService
+@{
+    string accessToken = HttpContextAccessor.HttpContext.Request.Cookies["accessToken"];
+
+    Studio studio = null;
+    try
+    {
+        JsonSerializerOptions options = new JsonSerializerOptions
+        {
+            Encoder = JavaScriptEncoder.Default
+        };
+        studio = await studioService.GetCurrentStudio(accessToken);
+        var serializedStudio =  JsonSerializer.Serialize(studio, options);
+        TempData["Studio"] = serializedStudio;
+    }
+    catch (InvalidJwtException ex)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("/Logout");
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,35 +79,36 @@
                         <span class="material-symbols-sharp">add_home</span>
                         <h3>Profile Management</h3>
                     </a>
-                    @if(null == null){
-                    <a href="StudioPage" class="aside-item" onclick="activeLink()">
-                        <span class="material-symbols-sharp">camera_indoor</span>
-                        <h3>Studio Management</h3>
-                    </a>
-                    <a href="ChatPage" class="aside-item" onclick="activeLink()">
-                        <span class="material-symbols-sharp">forum</span>
-                        <h3>Chat</h3>
-                    </a>
-                    <a href="DashboardStudio" class="aside-item" onclick="activeLink()">
-                        <span class="material-symbols-sharp">grid_view</span>
-                        <h3>Dashboard</h3>
-                    </a>
-                    <a href="Service" class="aside-item" onclick="activeLink()">
-                        <span class="material-symbols-sharp">wysiwyg</span>
-                        <h3>Services Management</h3>
-                    </a>
-                    <a href="ManageOrder" class="aside-item" onclick="activeLink()">
-                        <span class="material-symbols-sharp">list_alt</span>
-                        <h3>Manage Orders</h3>
-                    </a>
-                    <a href="Feedback" class="aside-item" onclick="activeLink()">
-                        <span class="material-symbols-sharp">reviews</span>
-                        <h3>Feedback</h3>
-                    </a>
-                    <a href="VoucherStudio" class="aside-item" onclick="activeLink()">
-                        <span class="material-symbols-sharp">book_online</span>
-                        <h3>Voucher</h3>
-                    </a>
+                    @if (studio != null && studio.Status == 1)
+                    {
+                        <a href="StudioPage" class="aside-item" onclick="activeLink()">
+                            <span class="material-symbols-sharp">camera_indoor</span>
+                            <h3>Studio Management</h3>
+                        </a>
+                        <a href="ChatPage" class="aside-item" onclick="activeLink()">
+                            <span class="material-symbols-sharp">forum</span>
+                            <h3>Chat</h3>
+                        </a>
+                        <a href="DashboardStudio" class="aside-item" onclick="activeLink()">
+                            <span class="material-symbols-sharp">grid_view</span>
+                            <h3>Dashboard</h3>
+                        </a>
+                        <a href="Service" class="aside-item" onclick="activeLink()">
+                            <span class="material-symbols-sharp">wysiwyg</span>
+                            <h3>Services Management</h3>
+                        </a>
+                        <a href="ManageOrder" class="aside-item" onclick="activeLink()">
+                            <span class="material-symbols-sharp">list_alt</span>
+                            <h3>Manage Orders</h3>
+                        </a>
+                        <a href="Feedback" class="aside-item" onclick="activeLink()">
+                            <span class="material-symbols-sharp">reviews</span>
+                            <h3>Feedback</h3>
+                        </a>
+                        <a href="VoucherStudio" class="aside-item" onclick="activeLink()">
+                            <span class="material-symbols-sharp">book_online</span>
+                            <h3>Voucher</h3>
+                        </a>
                     }
                     <a href="Login" id="logout">
                         <span class="material-symbols-sharp">logout</span>

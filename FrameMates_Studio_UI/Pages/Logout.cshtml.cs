@@ -9,7 +9,7 @@ namespace FrameMates_Studio_UI.Pages
         {
             Response.Cookies.Delete("accessToken");
             Response.Cookies.Delete("refreshToken");
-
+            TempData["Studio"] = null;
             return RedirectToPage("Login");
         }
     }

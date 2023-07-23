@@ -1,6 +1,10 @@
 ﻿@page
+@using System.Text.Json;
+@using FrameMates_Studio_UI.Models;
 @model FrameMates_Studio_UI.Pages.StudiopageModel
 @{
+    Studio studio = JsonSerializer.Deserialize<Studio>(TempData["Studio"]?.ToString());
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +30,7 @@
 </head>
 
 <body>
+    <div id="loading"></div>
     <main>
         <h1>Studio's Profile</h1>
         <div class="profile-container">
@@ -75,7 +80,7 @@
                             </script>
                         </div>
                         <div>
-                            <h3 id="studio_name">Cham Studio</h3>
+                            <h3 id="studio_name">@studio.Name</h3>
                         </div>
                     </div>
                 </div>
@@ -112,15 +117,15 @@
                 </div>
             </div>
             <div class="album-container">
-                
+
                 <div class="album-col">
-                    
+
                     <div class="popup-img">
                         <span>&times;</span>
                         <img src="">
                     </div>
 
-                    
+
                 </div>
             </div>
     </main>
@@ -156,130 +161,82 @@
         </form>
 
         <script src="../js/album.js"></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-            var currentStudio = "";
+            const albumContainer = document.querySelector(".album-col");
             $(document).ready(function () {
+
+                function decodeHTMLEntities(encodedString) {
+                    const parser = new DOMParser();
+                    const decodedString = parser.parseFromString(encodedString, 'text/html').body.textContent;
+                    return decodedString;
+                }
+                function renderCurrentStudio() {
+                    document.querySelector("#studio_owner_fullName").innerHTML = currentStudio.Name;
+                    document.querySelector("#studio_owner_phone").innerHTML = currentStudio.Owner.AccountModel.Phone;
+                    document.querySelector("#studio_description").innerHTML = currentStudio.Description;
+                    document.querySelector("#studio_address").innerHTML = currentStudio.Address;
+                    document.querySelector(".avatar-img").src = currentStudio.AvatarStudio;
+                    document.querySelector(".cover-img").src = currentStudio.CoverImage;
+                }
+                var currentStudio = JSON.parse(decodeHTMLEntities('@TempData["Studio"]'));
+                console.log(currentStudio)
+                renderCurrentStudio();
+
+
                 function logout() {
                     localStorage.removeItem('accessToken');
                     window.location.href = '/Login';
                 }
                 var apiDomain = "@Model.ApiDomain";
-                var employee = null;
+                function renderAlbum(album) {
+                        const fileEls = album.album_mediaFile.map(file => `<div class="image"><img src="${file.filePath}" class="each-pic"></div>`).join("");
+                        console.log(fileEls)
+                        const data = `<div class="album-col">
+                                        <h2><a href="">${album.title}</a></h2>
+                                        <div class="pic-album">
+                                                        ${fileEls}
+                                        </div>
+                                        <div class="popup-img">
+                                            <span>&times;</span>
+                                            <img src="">
+                                        </div>
 
-                $(document).ready(function () {
-                    $.ajax({
-                        async: false,
-                        url: '@Model.ApiDomain' + 'api/employees/current',
-                        type: 'GET',
-                        dataType: 'json',
-                        contentType: 'application/json',
-                        beforeSend: function (xhr) {
-                            let accessToken = localStorage.getItem('accessToken');
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-                        },
-                        success: function (response, status, xhr) {
-                            if (!response) {
-                                logout()
-                                return
-                            }
-                            employee = response
-                            let user_fullName = document.getElementById('user_fullName')
-                            let user_username = document.getElementById('user_username')
-                            user_fullName.innerHTML = response.accountModel.fullName
-                            user_username.innerHTML = response.accountModel.username
-                        },
-                        error: function (error) {
-                            // Handle any errors that occur during the request
-                            console.error(error);
-                            logout()
+                                    </div>`;
+                        return data;
+                }
+                $.ajax({
+                    async: false,
+                    url: '@Model.ApiDomain' + 'api/albums/studio/' + currentStudio.StudioId,
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function (response, status, xhr) {
+                        const albumList = response.sort((a, b) => b.albumId - a.albumId);
+                        const htmls = albumList.map(album => renderAlbum(album));
+                        albumContainer.innerHTML = htmls.join("");
+                    },
+                    error: function (error) {
+                        // Handle any errors that occur during the request
+                        console.error(error);
+                        //logout()
+                    }
+                }).done(() => {
+                    document.querySelectorAll('.pic-album img').forEach(image => {
+                        image.onclick = () => {
+                            document.querySelector('.popup-img').style.display = 'block';
+                            document.querySelector('.popup-img img').src = image.getAttribute('src');
                         }
                     });
 
-                    $.ajax({
-                        async: false,
-                        url: '@Model.ApiDomain' + 'api/studios/current-owner',
-                        type: 'GET',
-                        dataType: 'json',
-                        contentType: 'application/json',
-                        beforeSend: function (xhr) {
-                            let accessToken = localStorage.getItem('accessToken');
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-                        },
-                        success: function (response, status, xhr) {
-                            currentStudio = response
-                            let currentEmployee = employee
-                            console.log(employee)
-                            let studio_name = document.getElementById('studio_name')
-                            let studio_owner_fullName = document.getElementById('studio_owner_fullName')
-                            let studio_owner_phone = document.getElementById('studio_owner_phone')
-                            let studio_description = document.getElementById('studio_description')
-                            let studio_address = document.getElementById('studio_address')
-                            studio_name.innerHTML = response.name
-                            studio_owner_fullName.innerHTML = currentEmployee.accountModel.fullName
-                            studio_owner_phone.innerHTML = currentEmployee.accountModel.phone
-                            studio_description.innerHTML = response.description
-                            studio_address.innerHTML = response.address
-                            document.querySelector(".cover-img").src = response.coverImage
-                            document.querySelector(".avatar-img").src = response.avatarStudio
-                        },
-                        error: function (error) {
-                            // Handle any errors that occur during the request
-                            console.error(error);
-                            logout()
-                        }
-                    });
-                    $.ajax({
-                        async: false,
-                        url: '@Model.ApiDomain' + 'api/albums/studio/' + currentStudio.studioId,
-                        type: 'GET',
-                        dataType: 'json',
-                        contentType: 'application/json',
-                        success: function (response, status, xhr) {
-                            const albumList = response.sort((a, b) => b.albumId - a.albumId);
-                            console.log(albumList)
-                            const htmls = albumList.map(album => {
-                                const fileEls = album.album_mediaFile.map(file => `<div class="image"><img src="${file.filePath}" class="each-pic"></div>`).join("");
-                                console.log(fileEls)
-                                const data = `<div class="album-col">
-                                                            <h2><a href="">${album.title}</a></h2>
-                                                <div class="pic-album">
-                                                                ${fileEls}
-                                                </div>
-                                                <div class="popup-img">
-                                                    <span>&times;</span>
-                                                    <img src="">
-                                                </div>
-
-                                            </div>`;
-                                return data;
-                            });
-                            document.querySelector(".album-col").innerHTML = htmls.join("");
-                        },
-                        error: function (error) {
-                            // Handle any errors that occur during the request
-                            console.error(error);
-                            //logout()
-                        }
-                    }).done(() => {
-                        document.querySelectorAll('.pic-album img').forEach(image => {
-                            image.onclick = () => {
-                                document.querySelector('.popup-img').style.display = 'block';
-                                document.querySelector('.popup-img img').src = image.getAttribute('src');
-                            }
-                        });
-
-                        document.querySelector('.popup-img span').onclick = () => {
-                            document.querySelector('.popup-img').style.display = 'none';
-                        }
-                    });
+                    document.querySelector('.popup-img span').onclick = () => {
+                        document.querySelector('.popup-img').style.display = 'none';
+                    }
                 });
-
-
             });
+
         </script>
         <script type="module" src="~/js/firebase-upload-album.js"></script>
-        <script type ="module" src="~/js/firebase-upload-album.js"></script>
 </body>
 
 </html>

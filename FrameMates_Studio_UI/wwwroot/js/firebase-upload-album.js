@@ -3,7 +3,6 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase
 import { listAll, getStorage, ref, getDownloadURL, deleteObject, uploadBytesResumable, uploadBytes } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-console.log(';12367123786')
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -15,11 +14,25 @@ const firebaseConfig = {
     appId: "1:116881990658:web:960f030a355222f600f31b",
     measurementId: "G-4GKGQKPW42"
 };
+function renderAlbum(album) {
+    const fileEls = album.album_mediaFile.map(file => `<div class="image"><img src="${file.filePath}" class="each-pic"></div>`).join("");
+    console.log(fileEls)
+    const data = `<div class="album-col">
+                                        <h2><a href="">${album.title}</a></h2>
+                                        <div class="pic-album">
+                                                        ${fileEls}
+                                        </div>
+                                        <div class="popup-img">
+                                            <span>&times;</span>
+                                            <img src="">
+                                        </div>
 
+                                    </div>`;
+    return data;
+}
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
 const storage = getStorage();
 var album = {
     title: "Ha Noi ASDADDADASSDD",
@@ -32,15 +45,22 @@ var miniAlbum = {
 
 
 }
+const albumForm = document.querySelector("#album-form");
+
+function resetForm() {
+    albumForm.querySelector("input[type=text]").value = "";
+    albumForm.querySelector("#list_alb").innerHTML = "";
+}
 function uuidv4() {
     return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
 }
 try {
-    const albumForm = document.querySelector("#album-form");
-    albumForm.addEventListener("submit", async e => {
+    albumForm.addEventListener("submit", e => {
         e.preventDefault();
+        document.querySelector('#loading').style.display = 'flex'
+        document.querySelector('#loading').innerHTML = `<span class="loader"></span>`
         const albumName = albumForm.querySelector("input[type=text]").value;
         album.title = albumName;
         console.log(4)
@@ -86,14 +106,7 @@ try {
                 console.log(album)
                 callAddAlbumApi(album);
             });
-        //promise.then(res => {
-        //    console.log(res)
-        //    album.album_mediaFile = res;
-        //    console.log("Album")
-        //    console.log(album)
-        //    //callAddAlbumApi(album);
-        //})
-
+        resetForm();
     });
 } catch (Error) { }
 
@@ -114,23 +127,18 @@ function getCookie(cname) {
 }
 let object = {}
 try {
-    
+
     document.querySelector('#loading').style.display = 'none'
     const create_input = document.querySelector("#create_input");
-    create_input.addEventListener("click",  e => {
-        console.log('12312312312312312312321213123123132132321123')
+    create_input.addEventListener("click", e => {
         document.querySelector('#loading').style.display = 'flex'
-       
+
         document.querySelector('#loading').innerHTML = `<span class="loader"></span>`
         e.preventDefault();
         const imgList = document.querySelectorAll('.each-pic-preview')
         let srcList = [...imgList].map(i => i.src)
         console.log(srcList)
-      
 
-        // album.title = albumName;
-
-        // const albumImgList = document.querySelectorAll(".album-img-preview");
         const mediaFiles2 = [];
         Promise.all([
             new Promise(res => {
@@ -139,7 +147,7 @@ try {
                     fetch(imgSrc)
                         .then(res => res.blob())
                         .then(data => {
-                            const storageRef = ref(storage, "mini-album/" + uuidv4() + "." + data.type.split("/")[1]);
+                            const storageRef = ref(storage, "services/" + uuidv4() + "." + data.type.split("/")[1]);
 
                             uploadBytes(storageRef, data)
                                 .then((snapshot) => {
@@ -169,12 +177,12 @@ try {
 
                 const price_input = document.querySelector('#price_input')
                 const name_input = document.querySelector('#name_input')
-              
+
                 res = res.sort((a, b) => a.index - b.index);
                 console.log("213" + res)
                 miniAlbum.album_mediaFile = res;
                 console.log("Album")
-             
+
                 object = {
                     name: name_input.value,
                     price: price_input.value,
@@ -182,34 +190,34 @@ try {
                     description: editor4.getData()
                 }
                 console.log(object)
-                return new Promise(res => res(object)) 
+                return new Promise(res => res(object))
             })
 
-                    .then(obj => {
-                        console.log(obj)
-                        fetch('http://localhost:8080/api/services', {
-                            method: 'POST',
-                            headers: {
-                                "Content-Type": "application/json",
-                                Authorization: `Bearer ${getCookie('accessToken')}`,
-                            },
+            .then(obj => {
+                console.log(obj)
+                fetch('http://localhost:8080/api/services', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${getCookie('accessToken')}`,
+                    },
 
-                            body: JSON.stringify(obj),
+                    body: JSON.stringify(obj),
 
-                        })
-                            .then(() => {
-                                document.querySelector('#loading').innerHTML = ""
-                                document.querySelector('#loading').style.display = 'none'
-                                Swal.fire(
-                                    'Created!',
-                                    '',
-                                    'success'
-                                ).then(() => { window.location.href = '/DashboardStudio' })
-                            })
-
+                })
+                    .then(() => {
+                        document.querySelector('#loading').innerHTML = ""
+                        document.querySelector('#loading').style.display = 'none'
+                        Swal.fire(
+                            'Created!',
+                            '',
+                            'success'
+                        ).then(() => { window.location.href = '/DashboardStudio' })
                     })
 
             })
+
+    })
 
 
 
@@ -219,7 +227,7 @@ try {
 } catch (Error) { }
 
 const callAddAlbumApi = (album) => {
-    console.log(1)
+    
     $.ajax({
         async: false,
         url: "http://localhost:8080" + '/api/albums',
@@ -237,11 +245,28 @@ const callAddAlbumApi = (album) => {
                 logout()
                 return
             }
-            console.log(response)
+            const albumHtml = renderAlbum(response);
+            albumContainer.innerHTML = albumHtml + albumContainer.innerHTML;
+            document.querySelector('#loading').innerHTML = ""
+            document.querySelector('#loading').style.display = 'none'
+            Swal.fire(
+                'Create album success!',
+                '',
+                'success'
+            )
+
         },
         error: function (error) {
             // Handle any errors that occur during the request
+            document.querySelector('#loading').innerHTML = "";
+            document.querySelector('#loading').style.display = 'none';
+            Swal.fire(
+                'Create album failed!',
+                '',
+                'error'
+            )
             console.error(error);
-        }
+        },
+
     });
 }

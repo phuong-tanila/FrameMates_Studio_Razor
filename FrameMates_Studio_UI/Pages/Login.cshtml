@@ -103,7 +103,7 @@
     <script>
         //redirect to dashboard page if JWT exists
         let accessToken = localStorage.getItem("accessToken")
-        if (accessToken) window.location.href = '/Dashboardstudio';
+        if (accessToken) window.location.href = '/CreatePage';
 
         $(document).ready(function () {
             $('#loginForm').submit(function (event) {
@@ -130,7 +130,7 @@
                         if (accessToken) {
                             let accessToken = response.accessToken
                             localStorage.setItem('accessToken', accessToken);
-                            window.location.href = '/Dashboardstudio';
+                            window.location.href = '/CreatePage';
                             setCookie("accessToken", accessToken, 10);
                         }
                         else {

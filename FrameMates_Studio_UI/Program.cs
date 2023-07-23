@@ -1,8 +1,11 @@
+using FrameMates_Studio_UI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSingleton<StudioService, StudioService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
